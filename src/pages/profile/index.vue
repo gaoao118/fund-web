@@ -10,7 +10,6 @@ const isLogin = computed(() => !!userInfo.value.uid)
 function login() {
   if (isLogin.value)
     return
-
   router.push({ name: 'login', query: { redirect: 'profile' } })
 }
 </script>
@@ -22,7 +21,6 @@ function login() {
         <template #title>
           <van-image :src="userInfo.avatar || defaultAvatar" round class="h-56 w-56" />
         </template>
-
         <template #value>
           <span v-if="isLogin">{{ userInfo.name }}</span>
           <span v-else>{{ $t('profile.login') }}</span>

@@ -1,6 +1,13 @@
 import { createI18n } from 'vue-i18n'
 import enUS from 'vant/es/locale/lang/en-US'
 import zhCN from 'vant/es/locale/lang/zh-CN'
+import zhTW from 'vant/es/locale/lang/zh-TW'
+import arSA from 'vant/es/locale/lang/ar-SA'
+import jaJP from 'vant/es/locale/lang/ja-JP'
+import koKR from 'vant/es/locale/lang/ko-KR'
+import ruRU from 'vant/es/locale/lang/ru-RU'
+import esES from 'vant/es/locale/lang/es-ES'
+import frFR from 'vant/es/locale/lang/fr-FR'
 
 /**
  * All i18n resources specified in the plugin `include` option can be loaded
@@ -14,8 +21,15 @@ const FALLBACK_LOCALE = 'zh-CN'
 
 /** 多语言 picker columns */
 export const languageColumns: PickerColumn = [
-  { text: '简体中文', value: 'zh-CN' },
   { text: 'English', value: 'en-US' },
+  { text: 'عربي', value: 'ar-SA' },
+  { text: '日本語', value: 'ja-JP' },
+  { text: '한국인', value: 'ko-KR' },
+  { text: 'Русский', value: 'ru-RU' },
+  { text: 'español', value: 'es-ES' },
+  { text: 'Français', value: 'fr-FR' },
+  { text: '简体中文', value: 'zh-CN' },
+  { text: '繁體中文', value: 'zh-TW' },
 ]
 
 /** 获取当前语言对应的语言包名称 */
@@ -52,6 +66,13 @@ export const locale = computed({
 // 载入 vant 语言包
 Locale.use('zh-CN', zhCN)
 Locale.use('en-US', enUS)
+Locale.use('zh-TW', zhTW)
+Locale.use('ar-SA', arSA)
+Locale.use('ja-JP', jaJP)
+Locale.use('ko-KR', koKR)
+Locale.use('ru-RU', ruRU)
+Locale.use('es-ES', esES)
+Locale.use('fr-FR', frFR)
 
 // 根据当前语言切换 vant 语言包
 Locale.use(locale.value)

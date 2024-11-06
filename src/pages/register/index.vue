@@ -152,7 +152,7 @@ async function getCode() {
 
 <route lang="json">
 {
-  "name": "register",
+  "name": "register2",
   "meta": {
     "i18n": "menus.register"
   }

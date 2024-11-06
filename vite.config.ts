@@ -20,7 +20,7 @@ export default ({ mode }: ConfigEnv): UserConfig => {
       port: 3000,
       proxy: {
         '/api': {
-          target: '',
+          target: 'http://localhost:8080',
           ws: false,
           changeOrigin: true,
         },

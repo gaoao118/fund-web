@@ -3,19 +3,6 @@ import { builder } from '../util'
 
 export default defineMock([
   {
-    url: '/api/auth/login',
-    delay: 500,
-    body: () => {
-      return {
-        code: 0,
-        data: {
-          token: 'admin',
-        },
-        msg: 'success',
-      }
-    },
-  },
-  {
     url: '/api/user/me',
     delay: 100,
     body: () => {
