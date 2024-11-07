@@ -3,6 +3,8 @@ import router from "@/router";
 import {getUserInfo} from "@/api/csUser";
 import {fundRedeem, userAssetList} from "@/api/funds";
 
+const {t} = useI18n()
+
 const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
@@ -33,11 +35,7 @@ const onLoad = () => {
 };
 
 const onRefresh = () => {
-  // 清空列表数据
   finished.value = false;
-
-  // 重新加载数据
-  // 将 loading 设置为 true，表示处于加载状态
   loading.value = true;
   onLoad();
 };
@@ -78,14 +76,14 @@ onMounted(() => {
     <div class="flex justify-between items-center text-#FFFFFF">
       <van-icon style="font-size: 23px; margin-left: -5px" @click="retreat" name="arrow-left"/>
       <div style="font-weight: 500; margin-right: 10px">
-        <span>我的投资</span>
+        <span>{{ t('user.investment') }}</span>
       </div>
       <div></div>
     </div>
 
     <div class="cardBox balanceBox">
       <div class="text-13px text-#787878 mt-10px text-center">
-        <span>总金额(USD)</span>
+        <span>{{ t('user.totalAmount') }}(USD)</span>
       </div>
       <div class="text-center mb-20px">
         <div class="text-28px font-600 mt-5px">
@@ -95,27 +93,26 @@ onMounted(() => {
       <div class="infoBox">
         <div>
           <div class="font-600"><span>{{ userInfo.today }}</span></div>
-          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>今日收益</span></div>
+          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>{{ t('user.todayEarnings') }}</span></div>
         </div>
         <van-divider vertical :style="{ borderColor: '#DCDCDC', height: '35px', borderWidth: '1px' }"/>
         <div>
           <div class="font-600"><span>{{ userInfo.await }}</span></div>
-          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>待收益</span></div>
+          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>{{ t('user.proceeds') }}</span></div>
         </div>
         <van-divider vertical :style="{ borderColor: '#DCDCDC', height: '35px', borderWidth: '1px' }"/>
         <div>
           <div class="font-600"><span>{{ userInfo.profit }}</span></div>
-          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>累计收益</span></div>
+          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>{{ t('user.addUp') }}</span></div>
         </div>
       </div>
     </div>
-
 
     <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
       <van-list
         v-model:loading="loading"
         :finished="finished"
-        finished-text="没有更多了"
+        :finished-text="t('common.noMore')"
         @load="onLoad"
       >
         <van-cell style="background-color: transparent; padding: 0; margin-top: 10px; border-radius: 10px;"
@@ -123,37 +120,40 @@ onMounted(() => {
           <div class="cardBox text-14px" style="color: #1E1E1E !important;">
             <div class="flex justify-between">
               <div><span>{{ item.name }}</span></div>
-              <div v-if="item.renew" class="text-12px text-#EC4236"><span>{{ item.days }}天后自动续期</span></div>
-              <div v-else class="text-12px text-#EC4236"><span>{{ item.days }}天后自动赎回</span></div>
+              <div v-if="item.renew" class="text-12px text-#EC4236">
+                <span>{{ t('common.dayRenewal', {a: item.days}) }}</span></div>
+              <div v-else class="text-12px text-#EC4236">
+                <span>{{ t('common.dayRansom', {a: item.days}) }}</span>
+              </div>
             </div>
             <div class="flex items-center mt-7px text-12px text-#666666">
               <div><span>{{ item.fundId }}</span></div>
-              <div v-if="item.hot" class="fundTag">热选</div>
-              <div v-if="item.stable" class="fundTag" style="background-color: #4975ea">稳定</div>
+              <div v-if="item.hot" class="fundTag">{{ t('fund.hotL') }}</div>
+              <div v-if="item.stable" class="fundTag" style="background-color: #4975ea">{{ t('fund.stableL') }}</div>
             </div>
             <div class="flex justify-between mt-5px text-center">
               <div>
                 <div><span>{{ item.amount }}</span></div>
-                <div class="text-#999999 text-12px"><span>投资金额</span></div>
+                <div class="text-#999999 text-12px"><span>{{ t('fund.investmentAmount') }}</span></div>
               </div>
               <div>
                 <div><span>{{ item.profit }}</span></div>
-                <div class="text-#999999 text-12px"><span>月化利率</span></div>
+                <div class="text-#999999 text-12px"><span>{{ t('fund.monthRate') }}</span></div>
               </div>
               <div>
                 <div><span>{{ item.profitAmount }}</span></div>
-                <div class="text-#999999 text-12px"><span>到期收益</span></div>
+                <div class="text-#999999 text-12px"><span>{{ t('fund.yield') }}</span></div>
               </div>
             </div>
             <van-divider :style="{ borderColor: '#DCDCDC', margin: '10px 5px' }"/>
             <div class="flex justify-between text-12px text-#3A76F2">
               <div @click="gotoFundInfo(item)">
-                <span>查看基金详情</span>
+                <span>{{ t('fund.getInfo') }}</span>
                 <van-icon name="arrow"/>
               </div>
               <div @click="updateRenew(item)">
-                <span v-if="item.renew">申请赎回</span>
-                <span v-else>申请续期</span>
+                <span v-if="item.renew">{{ t('fund.applyRansom') }}</span>
+                <span v-else>{{ t('fund.applyRenewal') }}</span>
               </div>
             </div>
           </div>
@@ -208,9 +208,6 @@ onMounted(() => {
 
 <route lang="json">
 {
-"name": "invest",
-"meta": {
-"title": "我的投资"
-}
+"name": "invest"
 }
 </route>

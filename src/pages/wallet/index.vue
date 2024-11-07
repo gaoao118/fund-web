@@ -3,23 +3,29 @@
 import router from "@/router";
 import {getUserBalance, getUserBillsList} from "@/api/csUser";
 
+const {t} = useI18n()
+
 const showPopover = ref(false);
-// 通过 actions 属性来定义菜单选项
+const type = ref({text: t('common.all'), value: 0});
+
 const actions = [
-  {text: '选项一'},
-  {text: '选项二'},
-  {text: '选项三'},
+  {text: t('common.all'), value: 0},
+  {text: t('common.income'), value: 1},
+  {text: t('common.disburse'), value: 2},
 ];
-const onSelect = (action) => showToast(action.text);
+const onSelect = (action) => {
+  type.value = action
+  refreshing.value = true;
+  loading.value = true;
+  onLoad();
+};
 
 const walletInfo = ref({});
 const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
 const refreshing = ref(false);
-//页码
 const pageNum = ref(1);
-//页容量
 const pageSize = ref(10);
 
 const onLoad = () => {
@@ -28,7 +34,7 @@ const onLoad = () => {
     refreshing.value = false;
     pageNum.value = 1;
   }
-  getUserBillsList('', pageNum.value, pageSize.value).then(res=>{
+  getUserBillsList(type.value.value, pageNum.value, pageSize.value).then(res => {
     if (res.code === 200) {
       if (res.data.length <= 0) {
         finished.value = true;
@@ -42,11 +48,7 @@ const onLoad = () => {
 };
 
 const onRefresh = () => {
-  // 清空列表数据
   finished.value = false;
-
-  // 重新加载数据
-  // 将 loading 设置为 true，表示处于加载状态
   loading.value = true;
   onLoad();
 };
@@ -63,6 +65,10 @@ function getWalletInfo() {
   })
 }
 
+function gotoRecharge() {
+  router.push({name: 'recharge'})
+}
+
 onMounted(() => {
   getWalletInfo();
 })
@@ -73,22 +79,22 @@ onMounted(() => {
     <div class="flex justify-between items-center">
       <van-icon style="font-size: 23px; margin-left: -5px" @click="retreat" name="arrow-left"/>
       <div style="font-weight: 500; margin-right: 10px">
-        <span>我的钱包</span>
+        <span>{{ t('common.myWallet') }}</span>
       </div>
       <div></div>
     </div>
 
     <div class="cardBox balanceBox">
       <div class="text-14px mt-10px">
-        <span>我的余额(USD)</span>
+        <span>{{ t('common.myBalance') }}(USD)</span>
       </div>
       <div class="flex items-center justify-between">
         <div class="text-28px font-600 mt-5px">
           <span>{{ walletInfo.balance }}</span>
         </div>
-        <van-button style="height: 30px; min-width: 80px" round
+        <van-button style="height: 30px; min-width: 80px" round @click="gotoRecharge"
                     color="linear-gradient(-90deg, #3A76F2 0%, #3AC9F2 100%)">
-          充值
+          {{ t('pay.recharge') }}
         </van-button>
       </div>
       <van-divider :style="{ borderColor: '#DCDCDC' }"/>
@@ -96,29 +102,29 @@ onMounted(() => {
       <div class="infoBox">
         <div>
           <div class="font-600"><span>{{ walletInfo.today }}</span></div>
-          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>今日收益</span></div>
+          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>{{ t('user.todayEarnings') }}</span></div>
         </div>
         <van-divider vertical :style="{ borderColor: '#DCDCDC', height: '35px', borderWidth: '1px' }"/>
         <div>
           <div class="font-600"><span>{{ walletInfo.await }}</span></div>
-          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>待收益</span></div>
+          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>{{ t('user.proceeds') }}</span></div>
         </div>
         <van-divider vertical :style="{ borderColor: '#DCDCDC', height: '35px', borderWidth: '1px' }"/>
         <div>
           <div class="font-600"><span>{{ walletInfo.profit }}</span></div>
-          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>已收益</span></div>
+          <div style="font-size: 13px; color: #787878; margin-top: 2px"><span>{{ t('user.earned') }}</span></div>
         </div>
       </div>
     </div>
 
     <div class="cardBox mt-10px mb-10px" style="background-color: #FFFFFF">
       <div class="flex items-center justify-between text-14px">
-        <div><span>交易明细</span></div>
+        <div><span>{{ t('user.tranDetail') }}</span></div>
         <div>
           <van-popover v-model:show="showPopover" :actions="actions" @select="onSelect">
             <template #reference>
               <van-button style="height: 23px" plain round type="primary" size="small">
-                <span>全部 </span>
+                <span>{{ type.text }}</span>
                 <van-icon name="arrow-down"/>
               </van-button>
             </template>
@@ -130,7 +136,7 @@ onMounted(() => {
           <van-list
             v-model:loading="loading"
             :finished="finished"
-            finished-text="没有更多了"
+            :finished-text="t('common.noMore')"
             @load="onLoad"
           >
             <van-cell style="padding: 5px 0" v-for="item in list">
@@ -140,8 +146,9 @@ onMounted(() => {
                   <div class="text-12px"><span>{{ item.createTime }}</span></div>
                 </div>
                 <div class="text-right">
-                  <div class="text-#EC4236"><span>{{ item.amount }}</span></div>
-                  <div class="text-12px"><span>余额: {{item.afterAmount}}</span></div>
+                  <div v-if="item.amount>=0" class="text-#4f84eb text-15px"><span>+{{ item.amount }}</span></div>
+                  <div v-else class="text-#EC4236 text-15px"><span>{{ item.amount }}</span></div>
+                  <div class="text-12px"><span>{{ t('common.balance') }}: {{ item.afterAmount }}</span></div>
                 </div>
               </div>
             </van-cell>
@@ -192,9 +199,6 @@ onMounted(() => {
 
 <route lang="json">
 {
-"name": "wallet",
-"meta": {
-"title": "钱包"
-}
+"name": "wallet"
 }
 </route>

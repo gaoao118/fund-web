@@ -52,11 +52,7 @@ const onLoad = () => {
 };
 
 const onRefresh = () => {
-  // 加载结束标识
   finished.value = false;
-
-  // 重新加载数据
-  // 将 loading 设置为 true，表示处于加载状态
   loading.value = true;
   onLoad();
 };
@@ -87,7 +83,7 @@ onMounted(() => {
       <div>
         <span class="color-#FFF">inETF</span>
       </div>
-      <van-search class="w-330px h-50px" background="#4975ea" placeholder="搜索更多ETF新闻"/>
+      <van-search class="w-330px h-50px" background="#4975ea" :placeholder="t('common.searchNews')"/>
       <div @click="showLanguagePicker = true">
         <div style="font-size: 28px; " class="i-carbon:earth-filled"/>
       </div>
@@ -108,7 +104,7 @@ onMounted(() => {
         <van-list
           v-model:loading="loading"
           :finished="finished"
-          finished-text="没有更多了"
+          :finished-text="t('common.noMore')"
           @load="onLoad"
         >
           <van-cell @click="gotoNewsInfo(item)" class="newsList" v-for="item in list" :key="item">
@@ -130,20 +126,20 @@ onMounted(() => {
 
                 <div class="flex justify-between">
                   <div>{{ item.createTime }}</div>
-<!--                  <div class="flex">
-                    <div>
-                      <van-tag style="font-size: 8px; margin-bottom: 5px" plain color="#999999" type="primary">{{item.tag}}</van-tag>
-                    </div>
-                    <div class="flex items-center mr-5px">
-                      <div class="i-carbon:favorite mr-2px"></div>
-                      &lt;!&ndash;                      <div class="i-carbon:favorite-filled"></div>&ndash;&gt;
-                      <div>{{ item.likeNum }}</div>
-                    </div>
-                    <div class="flex items-center">
-                      <div class="i-carbon:view mr-2px"></div>
-                      <span>{{ item.viewNum }}</span>
-                    </div>
-                  </div>-->
+                  <!--                  <div class="flex">
+                                      <div>
+                                        <van-tag style="font-size: 8px; margin-bottom: 5px" plain color="#999999" type="primary">{{item.tag}}</van-tag>
+                                      </div>
+                                      <div class="flex items-center mr-5px">
+                                        <div class="i-carbon:favorite mr-2px"></div>
+                                        &lt;!&ndash;                      <div class="i-carbon:favorite-filled"></div>&ndash;&gt;
+                                        <div>{{ item.likeNum }}</div>
+                                      </div>
+                                      <div class="flex items-center">
+                                        <div class="i-carbon:view mr-2px"></div>
+                                        <span>{{ item.viewNum }}</span>
+                                      </div>
+                                    </div>-->
                 </div>
               </div>
             </div>

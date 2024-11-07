@@ -176,18 +176,18 @@ onMounted(() => {
          @payClose="payClose"/>
 
     <div class="bottomBox">
-      <div style="position: absolute; left: 0; top: -25px; display: flex">
+      <div style="position: absolute; left: 0; top: -32px; display: flex; align-items: center;">
         <van-checkbox icon-size="16px" shape="square"
                       v-model="checkedTwo">
           <span class="text-#999999 text-14px">{{ t('common.readAgree') }}</span>
         </van-checkbox>
-        <span class="text-#3A76F2 text-14px" @click="gotoAgreement">{{ t('fund.agreement') }}</span>
+        <span class="text-#3A76F2 text-14px ml-5px" @click="gotoAgreement">{{ t('fund.agreement') }} </span>
       </div>
 
       <van-button style="width: 85%; height: 70%;" @click="payFundOrder" round block type="primary"
                   :loading="payLoading"
                   color="linear-gradient(-61deg, #4C93FF, #2964E6)" native-type="submit">
-        {{ t('fund.invest') }}
+        {{t('fund.invest') }}
       </van-button>
     </div>
   </div>

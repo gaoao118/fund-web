@@ -2,6 +2,7 @@
 import type {PickerColumn} from 'vant'
 import useAppStore from '@/stores/modules/app'
 import {languageColumns, locale} from '@/utils/i18n'
+import router from "@/router";
 
 const appStore = useAppStore()
 const checked = ref<boolean>(isDark.value)
@@ -38,6 +39,15 @@ const menuItems = computed(() => ([
   {title: t('menus.keepAlive'), route: 'keepalive'},
   {title: t('menus.404Demo'), route: 'unknown'},
 ]))
+
+function gotoFund() {
+  router.push({name: 'funds'})
+}
+
+onMounted(() => {
+  gotoFund();
+})
+
 </script>
 
 <template>

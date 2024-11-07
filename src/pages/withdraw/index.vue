@@ -4,6 +4,8 @@ import {showSuccessToast} from "vant";
 import {getPayConfig, withdrawApply} from "@/api/csPay";
 import router from "@/router";
 
+const {t} = useI18n()
+
 const columns = ref([
   {text: 'ERC20', value: 'ERC20'},
   {text: 'TRC20', value: 'TRC20'}
@@ -43,7 +45,7 @@ function getConfig() {
 
 function addressCopy() {
   navigator.clipboard.writeText(address.value).then(res => {
-    showSuccessToast('复制成功');
+    showSuccessToast(t('pay.copySuc'));
   });
 }
 
@@ -55,11 +57,11 @@ function onConfirm(options) {
 
 function apply() {
   if (!amount.value) {
-    showToast('请输入提现金额');
+    showToast(t('pay.wtAmountNot'));
     return;
   }
   if (!address.value) {
-    showToast('请输入提现地址');
+    showToast(t('pay.wtAddressNot'));
     return;
   }
   payLoading.value = true
@@ -86,24 +88,24 @@ onMounted(() => {
 <template>
   <div class="main">
     <div @click="gotoRecord" class="recordBox">
-      <span>提现记录</span>
+      <span>{{ t('pay.withdrawRecord') }}</span>
     </div>
     <div class="cardBox flex mt-10px">
       <div style="width: 80px; line-height: 46px; margin-left: 15px; color: #999999; font-size: 14px">
-        <span>提现金额</span>
+        <span>{{ t('pay.wtAmount') }}</span>
       </div>
-      <van-field v-model="amount" style="border-radius: 10px" placeholder="请输入提现金额"/>
+      <van-field v-model="amount" style="border-radius: 10px" :placeholder="t('pay.wtAmountNot')"/>
     </div>
 
     <div class="cardBox flex mt-15px">
       <div style="width: 80px; line-height: 46px; margin-left: 15px; color: #999999; font-size: 14px">
-        <span>提现网络</span>
+        <span>{{ t('pay.wtNetwork') }}</span>
       </div>
       <van-field
         v-model="fieldValue"
         is-link
         readonly
-        placeholder="选择提现网络"
+        :placeholder="t('pay.wtNetworkNot')"
         @click="showPicker = true"
       />
       <van-popup v-model:show="showPicker" round position="bottom">
@@ -117,9 +119,10 @@ onMounted(() => {
 
     <div class="cardBox flex mt-15px">
       <div style="width: 80px; line-height: 46px; margin-left: 15px; color: #999999; font-size: 14px">
-        <span>到账地址</span>
+        <span>{{ t('pay.intoAddress') }}</span>
       </div>
-      <van-field style="border-radius: 10px; padding: 10px 10px 0 0; " v-model="address" placeholder="请输入到账地址">
+      <van-field style="border-radius: 10px; padding: 10px 10px 0 0; " v-model="address"
+                 :placeholder="t('pay.intoAddressNot')">
         <template #button>
           <div class="flex" @click="addressCopy">
             <img style="height: 20px; width: 20px; display: inline-block; " :src="copy" alt="">
@@ -128,26 +131,23 @@ onMounted(() => {
       </van-field>
     </div>
 
-
     <div class="text-14px mt-20px">
-      <span>注意</span>
+      <span>{{ t('pay.notice') }}</span>
     </div>
     <div class="text-12px text-#999999">
       <p>
-        1.请确认您的提现网络和地址信息，信息错误资产无法找回
+        1.{{ t('pay.cluesThree') }}
       </p>
     </div>
-
 
     <div class="bottomBox">
       <van-button :loading="payLoading" style="width: 85%; height: 70%;" @click="apply" round block type="primary"
                   color="linear-gradient(-61deg, #4C93FF, #2964E6)" native-type="submit">
-        确定
+        {{ t('common.confirm') }}
       </van-button>
     </div>
 
-    <Pay :type="2" :pay-show="payShow" :payToken="payToken" title="余额提现" :amount="amount" @payClose="payClose"/>
-
+    <Pay :type="2" :pay-show="payShow" :payToken="payToken" :amount="amount" @payClose="payClose"/>
   </div>
 </template>
 
@@ -160,7 +160,7 @@ onMounted(() => {
 
 .recordBox {
   position: fixed;
-  top: 15px;
+  top: 16px;
   right: 9px;
   font-size: 13px;
   color: #666666;
@@ -197,7 +197,8 @@ onMounted(() => {
 {
 "name": "withdraw",
 "meta": {
-"title": "提现"
+"title": "",
+"i18n": "menus.withdraw"
 }
 }
 </route>

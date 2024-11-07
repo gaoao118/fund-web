@@ -42,7 +42,7 @@ function Logout() {
 {
   "name": "settings",
   "meta": {
-    "title": "我的设置",
+    "title": "",
     "i18n": "menus.settings"
   }
 }

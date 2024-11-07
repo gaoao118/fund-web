@@ -7,8 +7,9 @@ import {getPayConfig, recharge} from "@/api/csPay";
 import {uploadFile} from "@/api";
 import router from "@/router";
 
-const columns = ref([]);
+const {t} = useI18n()
 
+const columns = ref([]);
 const amount = ref(undefined);
 const fieldValue = ref('');
 const payId = ref('');
@@ -19,7 +20,7 @@ const loading = ref(false);
 
 function addressCopy() {
   navigator.clipboard.writeText(address.value).then(res => {
-    showSuccessToast('复制成功');
+    showSuccessToast(t('pay.copySuc'));
   });
 }
 
@@ -48,13 +49,12 @@ function getConfig() {
 
 function uploadCheck() {
   if (!amount.value || amount.value <= 0) {
-    showFailToast('请输入充值金额')
+    showFailToast(t('pay.amountNot'))
     return false;
   }
   return true;
 }
 
-//文件上传
 const afterRead = (file) => {
   loading.value = true
   uploadFile(file.file).then(res => {
@@ -62,7 +62,7 @@ const afterRead = (file) => {
       let url = res.data;
       recharge(payId.value, amount.value, url).then(res => {
         if (res.code === 200) {
-          showSuccessToast('提交成功');
+          showSuccessToast(t('common.applySuc'));
         }
       })
     }
@@ -83,25 +83,25 @@ onMounted(() => {
 <template>
   <div class="main">
     <div @click="gotoRecord" class="recordBox">
-      <span>充值记录</span>
+      <span>{{ t('pay.rechargeRecord') }}</span>
     </div>
 
     <div class="cardBox flex">
       <div style="width: 50px; line-height: 46px; margin-left: 15px; color: #999999; font-size: 14px">
-        <span>金额</span>
+        <span>{{ t('pay.amount') }}</span>
       </div>
-      <van-field style="border-radius: 10px" v-model="amount" type="digit" placeholder="请输入充值金额"/>
+      <van-field style="border-radius: 10px" v-model="amount" type="digit" :placeholder="t('pay.amountNot')"/>
     </div>
 
     <div class="cardBox flex mt-10px">
       <div style="width: 50px; line-height: 46px; margin-left: 15px; color: #999999; font-size: 14px">
-        <span>网络</span>
+        <span>{{ t('pay.network') }}</span>
       </div>
       <van-field
         v-model="fieldValue"
         is-link
         readonly
-        placeholder="选择充值网络"
+        :placeholder="t('pay.networkRNot')"
         @click="showPicker = true"
       />
       <van-popup v-model:show="showPicker" round position="bottom">
@@ -120,7 +120,6 @@ onMounted(() => {
           <span>USDT</span>
         </div>
       </div>
-
       <div class="flex justify-center mt-10px">
         <div class="qrCodeBox">
           <qrcode-vue :value="address" :size="165"/>
@@ -130,7 +129,7 @@ onMounted(() => {
 
     <div class="cardBox flex mt-10px">
       <div style="width: 50px; line-height: 46px; margin-left: 15px; color: #999999; font-size: 14px">
-        <span>地址</span>
+        <span>{{ t('pay.address') }}</span>
       </div>
       <van-field style="border-radius: 10px; padding: 10px 10px 0 0; " v-model="address">
         <template #button>
@@ -145,21 +144,20 @@ onMounted(() => {
       <van-uploader @click-upload="uploadCheck" :readonly="!amount" :after-read="afterRead" :max-count="1">
         <van-button style="width: 80vw; height: 42px;" round block type="primary" :loading="loading"
                     color="linear-gradient(-61deg, #4C93FF, #2964E6)" native-type="submit">
-          已转账，上传截图
+          {{ t('pay.sucUpload') }}
         </van-button>
       </van-uploader>
-
     </div>
 
     <div class="text-14px mt-10px">
-      <span>注意</span>
+      <span>{{ t('pay.notice') }}</span>
     </div>
     <div class="text-12px text-#999999">
       <p>
-        1.此地址仅可转入USDT-{{ fieldValue }}资产，转入其他资产无法找回
+        1.{{ t('pay.cluesOne', {a: fieldValue}) }}
       </p>
       <p>
-        2.请勿上传虚假的充值截图，一经查实，平台将予以处罚
+        2.{{ t('pay.cluesTow') }}
       </p>
     </div>
   </div>
@@ -174,7 +172,7 @@ onMounted(() => {
 
 .recordBox {
   position: fixed;
-  top: 15px;
+  top: 16px;
   right: 9px;
   font-size: 13px;
   color: #666666;
@@ -216,7 +214,8 @@ onMounted(() => {
 {
 "name": "recharge",
 "meta": {
-"title": "充值"
+"title": "",
+"i18n": "menus.recharge"
 }
 }
 </route>

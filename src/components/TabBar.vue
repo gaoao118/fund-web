@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 const { t } = useI18n()
 const active = ref(0)
 const route = useRoute()
@@ -10,12 +11,12 @@ const show = computed(() => routeWhiteList.includes(route.name))
 
 <template>
   <van-tabbar v-if="show" v-model="active" placeholder route>
-    <van-tabbar-item replace to="/">
+<!--    <van-tabbar-item replace to="/">
       {{ t('layouts.home') }}
       <template #icon>
         <div class="i-carbon:home" />
       </template>
-    </van-tabbar-item>
+    </van-tabbar-item>-->
     <van-tabbar-item replace to="/news">
       {{ t('layouts.news') }}
       <template #icon>
@@ -25,7 +26,7 @@ const show = computed(() => routeWhiteList.includes(route.name))
     <van-tabbar-item replace to="/funds">
       {{ t('layouts.funds') }}
       <template #icon>
-        <div class="i-carbon:home" />
+        <div class="i-carbon:chart-line-smooth" />
       </template>
     </van-tabbar-item>
     <van-tabbar-item replace to="/user">

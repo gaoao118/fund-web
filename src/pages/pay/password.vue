@@ -6,16 +6,17 @@ import {Encrypt} from "@/utils/secret";
 import {getUserId} from "@/utils/auth";
 import router from "@/router";
 
+const {t} = useI18n()
+
 const setPwd = ref(false);
 const value = ref('');
-const info = ref('设置支付密码');
+const info = ref(t('common.setPayPwd'));
 const showKeyboard = ref(true);
 const errorInfo = ref('');
 const password = ref('');
 const type = ref(undefined);
 
-
-const sendCodeStr = ref('发送验证码');
+const sendCodeStr = ref(t('user.sendCode'));
 const countDown = ref(null);
 const code = ref('');
 const email = ref('');
@@ -29,7 +30,7 @@ const verifyCode = ref('');
 
 const verify = () => {
   if (!email.value) {
-    showFailToast('请输入邮箱地址');
+    showFailToast(t('user.emailNot'));
     return;
   }
   verifyCode.value = ''
@@ -42,12 +43,11 @@ const verify = () => {
 };
 
 const sendCode = () => {
-  //发送验证码
   sendSmsUser(verifyData.value.uuid, verifyCode.value).then(res => {
     if (res.code === 200) {
       sendTime.value = false;
       countDown.value.start();
-      showSuccessToast('发送成功')
+      showSuccessToast(t('common.sendSuccess'))
     }
   })
 };
@@ -55,29 +55,27 @@ const sendCode = () => {
 const onFinish = () => {
   sendTime.value = true;
   countDown.value.reset();
-  sendCodeStr.value = "重新发送"
+  sendCodeStr.value = t('common.resend')
 };
 
 watch(value, (newVal) => {
   if (newVal.length === 6) {
     if (password.value) {
       if (newVal !== password.value) {
-        showFailToast('二次输入密码不一致！');
-        info.value = '设置支付密码'
+        showFailToast(t('common.passwordTowErr'));
+        info.value = t('common.setPayPwd')
         password.value = ''
         value.value = ''
       } else {
         let userId = getUserId();
         let encrypt = Encrypt(password.value, userId);
-        console.log(setPwd.value)
-        //输入成功
         if (setPwd.value) {
           setWalletPwd(encrypt).then(res => {
             if (res.code === 200) {
-              showSuccessToast('设置成功！');
+              showSuccessToast(t('common.setSuc'));
               router.push({name: 'user'})
             } else {
-              info.value = '设置支付密码'
+              info.value = t('common.setPayPwd')
               password.value = ''
               value.value = ''
             }
@@ -85,7 +83,7 @@ watch(value, (newVal) => {
         } else {
           updateWalletPwd(code.value, encrypt).then(res => {
             if (res.code === 200) {
-              showSuccessToast('修改成功！');
+              showSuccessToast(t('common.updateSuc'));
               router.push({name: 'user'})
             } else {
               type.value = 2
@@ -97,7 +95,7 @@ watch(value, (newVal) => {
         }
       }
     } else {
-      info.value = '确认支付密码'
+      info.value = t('common.affPayPwd')
       password.value = newVal
       value.value = ''
     }
@@ -106,11 +104,11 @@ watch(value, (newVal) => {
 
 function verifyEmail() {
   if (!code.value) {
-    showFailToast('请输入验证码');
+    showFailToast(t('user.codeNot'));
     return;
   }
   type.value = 1
-  info.value = '请输入支付密码'
+  info.value = t('user.payPwdNot')
 }
 
 onMounted(() => {
@@ -139,7 +137,7 @@ onMounted(() => {
       <!-- 密码输入框 -->
       <van-password-input
         :value="value"
-        info="密码为 6 位数字"
+        :info="t('user.passwordSix')"
         :error-info="errorInfo"
         :focused="showKeyboard"
         @focus="showKeyboard = true"
@@ -154,21 +152,21 @@ onMounted(() => {
     </div>
     <div v-else-if="type === 2">
       <div style="text-align: center; margin-bottom: 20px; margin-top: 20vh">
-        <span>修改支付密码</span>
+        <span>{{ t('common.updatePayPwd') }}</span>
       </div>
       <van-form label-align="top">
         <van-cell-group inset>
           <van-field
             readonly
             v-model="email"
-            placeholder="请输入邮箱地址"
+            :placeholder="t('user.emailNot')"
           />
           <van-field
             v-model="code"
             type="number"
             center
             clearable
-            placeholder="请输入验证码"
+            :placeholder="t('user.codeNot')"
           >
             <template #button>
               <van-button @click="verify" size="small" round plain hairline type="primary">
@@ -184,19 +182,19 @@ onMounted(() => {
           <van-button @click="verifyEmail" color="linear-gradient(-61deg, #4C93FF, #2964E6)" round block
                       type="primary"
                       native-type="submit">
-            提交
+            {{ t('common.apply') }}
           </van-button>
         </div>
       </van-form>
     </div>
 
-    <van-dialog v-model:show="verifyShow" @confirm="sendCode" title="人机验证" show-cancel-button>
+    <van-dialog v-model:show="verifyShow" @confirm="sendCode" :title="t('common.machineVerify')" show-cancel-button>
       <div class="verifyBox">
         <img height="50px" :src="'data:image/png;base64,' + verifyData.img" alt="">
         <van-icon @click="verify" class="vReplay" name="replay"/>
       </div>
       <div>
-        <van-field style="font-size: 17px;" v-model="verifyCode" type="digit" placeholder="请输入验证码"/>
+        <van-field style="font-size: 17px;" v-model="verifyCode" type="digit" :placeholder="t('user.codeNot')"/>
       </div>
     </van-dialog>
   </div>
@@ -222,7 +220,8 @@ onMounted(() => {
 {
 "name": "payPassword",
 "meta": {
-"title": "支付密码"
+"title": "",
+"i18n": "menus.payPassword"
 }
 }
 </route>

@@ -148,7 +148,7 @@ function chartsLoad() {
       }
     })
   } else {
-    getFundNewWorthHistory(fundId.value).then(res => {
+    getFundNewWorthHistory(fundId.value, 1, 10).then(res => {
       if (res.code === 200) {
         worthHistList.value = res.data
       }
@@ -258,11 +258,11 @@ const refBarOptionTwo = ref(barOptionTwo)
             <van-divider/>
           </div>
           <div v-for="item in trendHistList" class="flex justify-between pl-15px pr-15px mb-15px text-14px">
-            <div>{{ item.date }}</div>
-            <div v-if="item.value >= 0" class="text-#39A51C">+{{ item.value }}%</div>
-            <div v-else class="text-#EC4236">-{{ item.value }}%</div>
-            <div v-if="item.meanRatio >= 0" class="text-#39A51C">+{{ item.meanRatio }}%</div>
-            <div v-else class="text-#EC4236">-{{ item.meanRatio }}%</div>
+            <div >{{ item.date }}</div>
+            <div v-if="item.value >= 0" class="text-#39A51C w-65px">+{{ item.value }}%</div>
+            <div v-else class="text-#EC4236 w-65px">-{{ item.value }}%</div>
+            <div v-if="item.meanRatio >= 0" class="text-#39A51C w-65px">+{{ item.meanRatio }}%</div>
+            <div v-else class="text-#EC4236 w-65px">-{{ item.meanRatio }}%</div>
           </div>
         </van-tab>
         <van-tab :title="t('fund.histValue')">
@@ -276,11 +276,11 @@ const refBarOptionTwo = ref(barOptionTwo)
             <van-divider/>
           </div>
           <div v-for="item in worthHistList" class="flex justify-between pl-15px pr-15px mb-15px text-14px">
-            <div>{{ item.date }}</div>
-            <div>{{ item.netWorth }}</div>
-            <div>{{ item.total }}</div>
-            <div v-if="item.ratio >= 0" class="text-#39A51C">+{{ item.ratio }}%</div>
-            <div v-else class="text-#EC4236">-{{ item.ratio }}%</div>
+            <div class="w-60px">{{ item.date }}</div>
+            <div class="w-60px">{{ item.netWorth }}</div>
+            <div class="w-60px">{{ item.total }}</div>
+            <div v-if="item.ratio >= 0" class="text-#39A51C w-60px text-right">+{{ item.ratio }}%</div>
+            <div v-else class="text-#EC4236 w-60px text-right">{{ item.ratio }}%</div>
           </div>
         </van-tab>
       </van-tabs>

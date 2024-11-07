@@ -3,7 +3,9 @@ import {bindingEmail, captcha, sendSmsCode} from "@/api/csAuth";
 import {showSuccessToast} from "vant";
 import router from "@/router";
 
-const sendCodeStr = ref('发送验证码');
+const {t} = useI18n()
+
+const sendCodeStr = ref(t('user.sendCode'));
 const countDown = ref(null);
 const code = ref('');
 const email = ref('');
@@ -17,7 +19,7 @@ const verifyCode = ref('');
 
 const verify = () => {
   if (!email.value) {
-    showFailToast('请输入邮箱地址');
+    showFailToast(t('user.emailNot'));
     return;
   }
   verifyCode.value = ''
@@ -30,12 +32,11 @@ const verify = () => {
 };
 
 const sendCode = () => {
-  //发送验证码
   sendSmsCode(email.value, verifyData.value.uuid, verifyCode.value).then(res => {
     if (res.code === 200) {
       sendTime.value = false;
       countDown.value.start();
-      showSuccessToast('发送成功')
+      showSuccessToast(t('common.sendSuccess'))
     }
   })
 };
@@ -43,26 +44,25 @@ const sendCode = () => {
 const onFinish = () => {
   sendTime.value = true;
   countDown.value.reset();
-  sendCodeStr.value = "重新发送"
+  sendCodeStr.value = t('common.resend')
 };
 
 function affirmEmail() {
   if (!email.value) {
-    showFailToast('请输入邮箱地址');
+    showFailToast(t('user.emailNot'));
     return;
   }
   if (!code.value) {
-    showFailToast('请输入验证码');
+    showFailToast(t('user.codeNot'));
     return;
   }
   bindingEmail(email.value, code.value).then(res => {
     if (res.code === 200) {
-      showSuccessToast('绑定成功')
+      showSuccessToast(t('common.boundSuc'))
       router.push({name: 'safety'})
     }
   })
 }
-
 </script>
 
 <template>
@@ -72,17 +72,16 @@ function affirmEmail() {
         <van-cell-group inset>
           <van-field
             v-model="email"
-            placeholder="请输入邮箱地址"
+            :placeholder="t('user.emailNot')"
           />
           <van-field
             v-model="code"
             type="number"
             center
             clearable
-            placeholder="请输入验证码"
+            :placeholder="t('user.codeNot')"
           >
             <template #button>
-              <!--                  <van-button size="small">发送验证码</van-button>-->
               <van-button @click="verify" size="small" round plain hairline type="primary">
                 <span v-show="sendTime">{{ sendCodeStr }}</span>
                 <van-count-down v-show="!sendTime" :time="60000" ref="countDown" :auto-start="false"
@@ -96,20 +95,19 @@ function affirmEmail() {
           <van-button @click="affirmEmail" color="linear-gradient(-61deg, #4C93FF, #2964E6)" round block
                       type="primary"
                       native-type="submit">
-            绑定
+            {{ t('common.bound') }}
           </van-button>
         </div>
       </van-form>
     </div>
 
-
-    <van-dialog v-model:show="verifyShow" @confirm="sendCode" title="人机验证" show-cancel-button>
+    <van-dialog v-model:show="verifyShow" @confirm="sendCode" :title="t('common.machineVerify')" show-cancel-button>
       <div class="verifyBox">
         <img height="50px" :src="'data:image/png;base64,' + verifyData.img" alt="">
         <van-icon @click="verify" class="vReplay" name="replay"/>
       </div>
       <div>
-        <van-field style="font-size: 17px;" v-model="verifyCode" type="digit" placeholder="请输入验证码"/>
+        <van-field style="font-size: 17px;" v-model="verifyCode" type="digit" :placeholder="t('user.codeNot')"/>
       </div>
     </van-dialog>
   </div>
@@ -135,7 +133,8 @@ function affirmEmail() {
 {
 "name": "bindingEmail",
 "meta": {
-"title": "绑定邮箱"
+"title": "",
+"i18n": "menus.bindingEmail"
 }
 }
 </route>
