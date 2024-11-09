@@ -11,7 +11,7 @@ const {t} = useI18n()
 const qrCodeWidth = ref(165);
 const info = ref({
   avatar: logo,
-  inviteCode: undefined,
+  inviteCode: '',
   url: undefined,
   teamAwait: undefined,
   teamAmount: undefined,
