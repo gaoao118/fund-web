@@ -46,7 +46,12 @@
     "disburse": "Disburse",
     "myWallet": "My wallet",
     "myBalance": "My Balance",
-    "balance": "Balance"
+    "balance": "Balance",
+    "clearing": "Cleaning in...",
+    "clearSuc": "Cleanup successful",
+    "update": "Modification",
+    "androidDownload": "Android Download",
+    "iosDownload": "Download iOS"
   },
   "fund": {
     "title": "Fund",
@@ -126,7 +131,8 @@
     "wtNetwork": "Withdrawal network",
     "wtNetworkNot": "Select Withdrawal Network",
     "intoAddress": "Address to account",
-    "intoAddressNot": "Please enter the account address"
+    "intoAddressNot": "Please enter the account address",
+    "openManager": "Opening Manager"
   },
   "user": {
     "notLogin": "Not logged in",
@@ -172,7 +178,56 @@
     "totalAmount": "Total amount",
     "payPwdNot": "Please enter payment password",
     "passwordSix": "Password is 6 digits",
-    "tranDetail": "Transaction Details"
+    "tranDetail": "Transaction Details",
+    "myAvatar": "My Avatar",
+    "myNickName": "My nickname",
+    "updateNickName": "Modify Nickname",
+    "nickNameNot": "Please enter user nickname"
+  },
+  "manager": {
+    "invitation": "My invitation",
+    "teamRevenue": "Total team revenue",
+    "teamYield": "Team to be profitable",
+    "myCode": "My Invitation Code",
+    "pressSave": "Long press the picture to save",
+    "totalRevenue": "Total Revenue",
+    "newToday": "New Today",
+    "teamDetail": "Team Details",
+    "invited": "Invited",
+    "person": "People",
+    "contribution": "Total contribution",
+    "todayInvitation": "Invitation Today",
+    "apply": "Apply to become a fund manager",
+    "wealth": "Help you achieve the freedom of wealth",
+    "just": "Only need",
+    "canApplyAs": "You can apply",
+    "managerL": "Fund manager]",
+    "investL": "Investing more worry.",
+    "easy": "Enjoy the benefits easily and start the journey of wealth appreciation together.",
+    "nowApply": "Apply immediately",
+    "inviteFr": "Invite friends and share profits immediately",
+    "sucInviteFr": "After becoming a fund manager, invite friends.",
+    "investSuc": "Investment success",
+    "or": "Or",
+    "frManger": "After friends become managers",
+    "getHint": "You can get bonus, invite more, reward more",
+    "recommend": "Recommend Manager Entry",
+    "directRec": "Directly recommend a manager's successful entry, the company will reward the recommender.",
+    "indirectRec": "Indirectly recommend the successful entry of a manager (the recommended person recommend another person), the company will reward the original recommender.",
+    "usersPur": "Recommend User subscription",
+    "comMonthly": "The company will be based on the direct recommend of all purchase of ETF fund users per month.",
+    "grossRevenue": "Of total income",
+    "toRelevant": "Incentives to relevant managers.",
+    "newUser": "New User First Purchase",
+    "andAbove": "And above the fund, automatically rewarding the purchase amount",
+    "toManager": "To the manager.",
+    "teamReward": "Team Rewards",
+    "whenScu": "When managers succeed in recommend and nurturing",
+    "managers": "When an effective manager (I. E., a manager with actual sales results), the company will additionally reward an effective manager (I. E., a manager with actual sales results).",
+    "subsidy": "As an Office grant.",
+    "everyCom": "Managers each completed",
+    "sale": "Sales, the company will reward",
+    "subsidyL": "As a salary supplement."
   },
   "menus": {
     "home": "Home Page",
@@ -197,7 +252,8 @@
     "withdraw": "Withdrawal",
     "safety": "Account security",
     "bindingEmail": "Bind Mailbox",
-    "payPassword": "Payment password"
+    "payPassword": "Payment password",
+    "editInfo": "Edit Information"
   },
   "mock": {
     "fromAsyncData": "Data from an asynchronous request",

@@ -17,6 +17,7 @@ const showPicker = ref(false);
 const configList = ref([]);
 const address = ref('');
 const loading = ref(false);
+const qrCodeWidth = ref(165);
 
 function addressCopy() {
   navigator.clipboard.writeText(address.value).then(res => {
@@ -75,6 +76,7 @@ function gotoRecord() {
 }
 
 onMounted(() => {
+  qrCodeWidth.value = document.getElementById('qrCode').clientWidth - 30;
   getConfig();
 })
 
@@ -121,8 +123,8 @@ onMounted(() => {
         </div>
       </div>
       <div class="flex justify-center mt-10px">
-        <div class="qrCodeBox">
-          <qrcode-vue :value="address" :size="165"/>
+        <div id="qrCode" class="qrCodeBox">
+          <qrcode-vue :value="address" :size="qrCodeWidth"/>
         </div>
       </div>
     </div>

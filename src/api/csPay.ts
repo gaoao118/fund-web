@@ -65,3 +65,24 @@ export async function withdrawConfirm(id, password): Promise<any> {
     params: {id: id, password: password}
   })
 }
+
+/**
+ * 开通经理人-预下单
+ */
+export async function userOpenManagerApply(): Promise<any> {
+  return request({
+    url: '/pay/managerApply',
+    method: 'post'
+  })
+}
+
+/**
+ * 开通经理人-确认
+ */
+export async function userOpenManager(password): Promise<any> {
+  return request({
+    url: '/pay/manager',
+    method: 'post',
+    params: {password: password}
+  })
+}

@@ -17,7 +17,7 @@ export async function updateUserInfo(avatar, nickName): Promise<any> {
   return request({
     url: '/user/update',
     method: 'post',
-    data: {avatar: avatar, nickName: nickName}
+    params: {avatar: avatar, nickName: nickName}
   })
 }
 
@@ -114,5 +114,36 @@ export async function getUserEmail(): Promise<any> {
   return request({
     url: '/user/email',
     method: 'get'
+  })
+}
+
+/**
+ * 邀请页数据统计
+ */
+export async function getUserManagerInfo(): Promise<any> {
+  return request({
+    url: '/manager/info',
+    method: 'get'
+  })
+}
+
+/**
+ * 我的邀请-统计
+ */
+export async function getManagerCount(): Promise<any> {
+  return request({
+    url: '/manager/count',
+    method: 'get'
+  })
+}
+
+/**
+ * 我的邀请-列表数据
+ */
+export async function getManagerList(pageNum, pageSize): Promise<any> {
+  return request({
+    url: '/manager/list',
+    method: 'get',
+    params: {pageNum: pageNum, pageSize: pageSize}
   })
 }

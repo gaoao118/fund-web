@@ -46,7 +46,12 @@
     "disburse": "支出",
     "myWallet": "我的钱包",
     "myBalance": "我的余额",
-    "balance": "余额"
+    "balance": "余额",
+    "clearing": "清理中...",
+    "clearSuc": "清理成功",
+    "update": "修改",
+    "androidDownload": "安卓下载",
+    "iosDownload": "iOS下载"
   },
   "fund": {
     "title": "基金",
@@ -126,7 +131,8 @@
     "wtNetwork": "提现网络",
     "wtNetworkNot": "选择提现网络",
     "intoAddress": "到账地址",
-    "intoAddressNot": "请输入到账地址"
+    "intoAddressNot": "请输入到账地址",
+    "openManager": "开通经理人"
   },
   "user": {
     "notLogin": "未登录",
@@ -172,7 +178,56 @@
     "totalAmount": "总金额",
     "payPwdNot": "请输入支付密码",
     "passwordSix": "密码为 6 位数字",
-    "tranDetail": "交易明细"
+    "tranDetail": "交易明细",
+    "myAvatar": "我的头像",
+    "myNickName": "我的昵称",
+    "updateNickName": "修改昵称",
+    "nickNameNot": "请输入用户昵称"
+  },
+  "manager": {
+    "invitation": "我的邀请",
+    "teamRevenue": "团队总收益",
+    "teamYield": "团队待收益",
+    "myCode": "我的邀请码",
+    "pressSave": "长按图片保存",
+    "totalRevenue": "总收益",
+    "newToday": "今日新增",
+    "teamDetail": "团队明细",
+    "invited": "已邀请",
+    "person": "人",
+    "contribution": "总贡献",
+    "todayInvitation": "今日邀请",
+    "apply": "申请成为基金经理人",
+    "wealth": "助您实现财富自由",
+    "just": "仅需",
+    "canApplyAs": "即可申请为",
+    "managerL": "【基金经理人】",
+    "investL": "，投资更省心。",
+    "easy": "轻松享分润，一起开启财富增值之旅。",
+    "nowApply": "立即申请",
+    "inviteFr": "邀请朋友，立即分润",
+    "sucInviteFr": "成为【基金经理人】后，邀请朋友",
+    "investSuc": "投资成功",
+    "or": "或",
+    "frManger": "朋友成为经理人后",
+    "getHint": "可获得分润奖励，邀请多多，奖励多多",
+    "recommend": "推荐经理人入职",
+    "directRec": "直接推荐一名经理人成功入职，公司将向推荐人奖励",
+    "indirectRec": "间接推荐一名经理人(被推荐人再推荐他人)成功入职，公司将向原推荐人奖励",
+    "usersPur": "推荐用户申购",
+    "comMonthly": "公司将根据直接推荐的所有购买ETF基金用户每月",
+    "grossRevenue": "收入总额的",
+    "toRelevant": "，向相关经理人发放奖励。",
+    "newUser": "新用户第一次申购",
+    "andAbove": "及以上的基金，自动奖励购买金额的",
+    "toManager": "至经理人。",
+    "teamReward": "团队奖励",
+    "whenScu": "当经理人成功推荐并培养",
+    "managers": "有效经理人(即有实际销售成果的经理人)时，公司将额外奖励有效经理人(即有实际销售成果的经理人)时，公司将额外奖励",
+    "subsidy": "作为办公室补助。",
+    "everyCom": "经理人每完成",
+    "sale": "的销售额，公司将奖励",
+    "subsidyL": "作为薪资补助。"
   },
   "menus": {
     "home": "主页",
@@ -197,7 +252,8 @@
     "withdraw": "提现",
     "safety": "账户安全",
     "bindingEmail": "绑定邮箱",
-    "payPassword": "支付密码"
+    "payPassword": "支付密码",
+    "editInfo": "编辑信息"
   },
   "mock": {
     "fromAsyncData": "来自异步请求的数据",

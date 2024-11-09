@@ -109,6 +109,7 @@ onMounted(() => {
     <van-cell v-if="!info.accId" @click="showInvite = true" class="mt-8px" :title="t('common.boundInviteCode')"
               :value="t('common.notBound')" is-link/>
     <van-cell v-else class="mt-8px" :title="t('common.boundInviteCode')" :value="t('common.boundEnd')" is-link/>
+
     <div style="text-align: center" class=" mt-50px">
       <van-button style="width: 85vw; height: 45px" round type="danger">{{ t('common.closeAccount') }}</van-button>
     </div>

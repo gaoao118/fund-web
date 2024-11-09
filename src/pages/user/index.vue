@@ -6,6 +6,8 @@ import withdraw from '~/images/withdraw.png'
 import safety from '~/images/safety.png'
 import website from '~/images/website.png'
 import logo from '~/images/logo.jpg'
+import android from '~/svg/android.svg'
+import ios from '~/svg/ios.svg'
 
 import {getUserInfo} from "@/api/csUser";
 import router from "@/router";
@@ -15,7 +17,6 @@ import {OFFICIAL_WEBSITE} from "@/stores/mutation-type";
 
 const {t} = useI18n()
 
-//用户是否登录
 const userLogin = ref(false);
 
 const userInfo = ref({
@@ -78,6 +79,22 @@ function gotoWebsite() {
   window.open(OFFICIAL_WEBSITE, '_blank')
 }
 
+function gotoEditInfo() {
+  router.push({name: 'editInfo'})
+}
+
+function downloadApp(type) {
+  window.location.href = import.meta.env.VITE_APP_API_BASE_URL + "/common/download?type=" + type
+}
+
+function gotoManager() {
+  if (userInfo.value.manager) {
+    router.push({name: 'invite'})
+  } else {
+    router.push({name: 'manager'})
+  }
+}
+
 onMounted(() => {
   findUserInfo()
 })
@@ -86,7 +103,7 @@ onMounted(() => {
 <template>
   <div class="main">
     <div class="topBox">
-      <div class="flex items-center">
+      <div @click="gotoEditInfo" class="flex items-center">
         <van-image
           round
           fit="cover"
@@ -107,6 +124,8 @@ onMounted(() => {
       <div v-if="!userLogin" @click="login" style="color: #787878; font-size: 17px">
         <span>{{ t('user.login') }}</span>
         <van-icon name="arrow"/>
+      </div>
+      <div v-else>
       </div>
     </div>
 
@@ -149,7 +168,7 @@ onMounted(() => {
           <span>{{ t('user.investment') }}</span>
         </div>
       </div>
-      <div>
+      <div @click="gotoManager">
         <img :src="manager" alt="">
         <div>
           <span>{{ t('user.manager') }}</span>
@@ -183,6 +202,26 @@ onMounted(() => {
       <div class="flex items-center">
         <van-icon style="font-size: 28px; margin-right: 10px; color: #FF8E08" name="setting"/>
         <span>{{ t('user.setting') }}</span>
+      </div>
+      <div>
+        <van-icon name="arrow"/>
+      </div>
+    </div>
+
+    <div @click="downloadApp(1)" class="cardBox listBox">
+      <div class="flex items-center">
+        <img style="height: 33px; margin-right: 5px" :src="android" alt="">
+        <span>{{ t('common.androidDownload') }}</span>
+      </div>
+      <div>
+        <van-icon name="arrow"/>
+      </div>
+    </div>
+
+    <div @click="downloadApp(0)" class="cardBox listBox">
+      <div class="flex items-center">
+        <img style="height: 33px; margin-right: 5px" :src="ios" alt="">
+        <span>{{ t('common.iosDownload') }}</span>
       </div>
       <div>
         <van-icon name="arrow"/>
@@ -268,7 +307,7 @@ onMounted(() => {
   }
 
   .listBox {
-    height: 60px;
+    height: 55px;
     padding: 0 15px;
     display: flex;
     justify-content: space-between;

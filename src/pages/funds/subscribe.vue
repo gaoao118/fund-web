@@ -54,9 +54,7 @@ function payFundOrder() {
     if (res.code === 200) {
       payToken.value = res.data
       payShow.value = true
-      payLoading.value = true
     }
-  }).catch(res => {
     payLoading.value = false
   })
 }
@@ -187,7 +185,7 @@ onMounted(() => {
       <van-button style="width: 85%; height: 70%;" @click="payFundOrder" round block type="primary"
                   :loading="payLoading"
                   color="linear-gradient(-61deg, #4C93FF, #2964E6)" native-type="submit">
-        {{t('fund.invest') }}
+        {{ t('fund.invest') }}
       </van-button>
     </div>
   </div>

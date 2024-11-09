@@ -41,6 +41,16 @@ export async function getRollNotice(): Promise<any> {
 }
 
 /**
+ * 经理人推广页数据
+ */
+export async function getManagerInfo(): Promise<any> {
+  return request({
+    url: '/common/manager',
+    method: 'get'
+  })
+}
+
+/**
  * 获取新闻列表
  * @param pageNum 页码
  * @param pageSize 页容量

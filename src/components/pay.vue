@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {defineEmits, toRefs} from 'vue'
 import {Encrypt} from "@/utils/secret";
-import {fundPayByBalance, withdrawConfirm} from "@/api/csPay";
+import {fundPayByBalance, userOpenManager, withdrawConfirm} from "@/api/csPay";
 import {showSuccessToast} from "vant";
 import {getUserId} from "@/utils/auth";
 import router from "@/router";
@@ -30,6 +30,13 @@ watch(password, (newVal) => {
         if (payResult(res)) {
           showSuccessToast(t('pay.applySuccess'));
           router.push({name: 'user'})
+        }
+      })
+    } else if (type.value === 3) {
+      userOpenManager(encrypt).then(res => {
+        if (payResult(res)) {
+          showSuccessToast(t('pay.applySuccess'));
+          router.push({name: 'invite'})
         }
       })
     }
@@ -65,6 +72,8 @@ watch(() => props.type, (newValue) => {
     title.value = t('pay.fundApply')
   } else if (newValue === 2) {
     title.value = t('pay.withdrawBalance')
+  } else if (newValue === 3) {
+    title.value = t('pay.openManager')
   }
 }, {immediate: true, deep: true})
 
@@ -77,7 +86,7 @@ const payClose = () => {
 </script>
 
 <template>
-  <div class="main">
+  <div class="payCom">
     <van-action-sheet @cancel="payClose" v-model:show="payShow" :close-on-click-overlay="false" :title="title">
       <div style="min-height: 390px">
         <div class="title text-center text-26px mb-20px">

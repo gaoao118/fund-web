@@ -1,15 +1,33 @@
 <script setup lang="ts">
 
+import {showLoadingToast, showSuccessToast} from "vant";
+import router from "@/router";
+
 const {t} = useI18n()
+
+function clearCache() {
+  showLoadingToast({
+    message: t('common.clearing'),
+    forbidClick: true,
+    loadingType: 'spinner',
+  });
+  setTimeout(() => {
+    showSuccessToast(t('common.clearSuc'));
+  }, 500);
+}
+
+function gotoInvite() {
+  router.push({name: 'invite'})
+}
 
 </script>
 
 <template>
   <div class="main">
-    <van-cell :title="t('common.clearCache')" is-link/>
+    <van-cell @click="clearCache" :title="t('common.clearCache')" is-link/>
     <van-cell class="mt-8px" :title="t('common.aboutUs')" is-link/>
     <div style="text-align: center" class=" mt-50px">
-      <van-button style="width: 85vw; height: 45px" round type="primary"
+      <van-button @click="gotoInvite" style="width: 85vw; height: 45px" round type="primary"
                   color="linear-gradient(-61deg, #4C93FF, #2964E6)">
         {{ t('common.inviteFriends') }}
       </van-button>
