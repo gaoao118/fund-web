@@ -44,7 +44,7 @@ function getConfig() {
 }
 
 function addressCopy() {
-  navigator.clipboard.writeText(address.value).then(res => {
+  navigator.clipboard.writeText(address.value).then(() => {
     showSuccessToast(t('pay.copySuc'));
   });
 }

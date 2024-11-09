@@ -8,10 +8,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Chart: typeof import('./../components/Chart/index.vue')['default']
-    content: typeof import('./../components/html/content.vue')['default']
     Content: typeof import('./../components/html/content.vue')['default']
     GhostButton: typeof import('./../components/GhostButton.vue')['default']
-    Html: typeof import('./../components/html/index.vue')['default']
     NavBar: typeof import('./../components/NavBar.vue')['default']
     Pay: typeof import('./../components/pay.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -28,7 +26,6 @@ declare module 'vue' {
     VanDivider: typeof import('vant/es')['Divider']
     VanEmpty: typeof import('vant/es')['Empty']
     VanField: typeof import('vant/es')['Field']
-    VanFloatingBubble: typeof import('vant/es')['FloatingBubble']
     VanForm: typeof import('vant/es')['Form']
     VanIcon: typeof import('vant/es')['Icon']
     VanImage: typeof import('vant/es')['Image']
@@ -41,8 +38,6 @@ declare module 'vue' {
     VanPopover: typeof import('vant/es')['Popover']
     VanPopup: typeof import('vant/es')['Popup']
     VanPullRefresh: typeof import('vant/es')['PullRefresh']
-    VanRadio: typeof import('vant/es')['Radio']
-    VanRadioGroup: typeof import('vant/es')['RadioGroup']
     VanSearch: typeof import('vant/es')['Search']
     VanSpace: typeof import('vant/es')['Space']
     VanStepper: typeof import('vant/es')['Stepper']
@@ -53,7 +48,6 @@ declare module 'vue' {
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
     VanTabs: typeof import('vant/es')['Tabs']
-    VanTag: typeof import('vant/es')['Tag']
     VanTextEllipsis: typeof import('vant/es')['TextEllipsis']
     VanUploader: typeof import('vant/es')['Uploader']
   }

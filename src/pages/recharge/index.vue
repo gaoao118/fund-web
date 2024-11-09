@@ -19,7 +19,7 @@ const address = ref('');
 const loading = ref(false);
 
 function addressCopy() {
-  navigator.clipboard.writeText(address.value).then(res => {
+  navigator.clipboard.writeText(address.value).then(() => {
     showSuccessToast(t('pay.copySuc'));
   });
 }

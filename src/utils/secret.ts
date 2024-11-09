@@ -10,7 +10,7 @@ encryptor.setPublicKey(public_key)//设置公钥
 /**
  * AES加密 ：字符串 key iv  返回base64
  */
-export function Encrypt(word, key) {
+export function Encrypt(word: string, key: string) {
   if (!key) {
     key = xor_key;
   }
@@ -45,30 +45,18 @@ export function encrypto(word, key) {
   return data;
 }
 
-
-/**
- * 最长加密长度
- */
-const MAX_ENCRYPT_BLOCK = 117
-
-/**
- * 最长解码长度
- */
-const MAX_DECRYPT_BLOCK = 128
-
 /**
  * RSA加密
  */
 export function rsaEncrypt(Encstr) {
-  return encryptor.encryptLong2(Encstr);
+  return (encryptor as any).encryptLong2(Encstr);
 }
 
 const b64map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 const b64pad = "=";
-JSEncrypt.prototype.encryptLong2 = function (string) {
+(JSEncrypt.prototype as any).encryptLong2 = function (string: string) {
   const k = this.getKey();
   try {
-    const lt = "";
     let ct = "";
     //RSA每次加密117bytes，需要辅助方法判断字符串截取位置
     //1.获取字符串截取点
@@ -147,29 +135,6 @@ function hex2b64(h) {
   }
   while ((ret.length & 3) > 0) ret += b64pad;
   return ret;
-}
-
-function hexToBytes(hex: string) {
-  for (var bytes = [], c = 0; c < hex.length; c += 2)
-    bytes.push(parseInt(hex.substr(c, 2), 16));
-  return bytes;
-}
-
-function bytesToHex(bytes: string | any[]) {
-  for (var hex = [], i = 0; i < bytes.length; i++) {
-    hex.push((bytes[i] >>> 4).toString(16));
-    hex.push((bytes[i] & 0xF).toString(16));
-  }
-  return hex.join("");
-}
-
-function b64tohex(str: string) {
-  for (var i = 0, bin = atob(str.replace(/[ \r\n]+$/, "")), hex = []; i < bin.length; ++i) {
-    var tmp = bin.charCodeAt(i).toString(16);
-    if (tmp.length === 1) tmp = "0" + tmp;
-    hex[hex.length] = tmp;
-  }
-  return hex.join("");
 }
 
 function addPreZero(num, length) {

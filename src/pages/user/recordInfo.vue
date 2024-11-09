@@ -6,9 +6,19 @@ import {showImagePreview} from "vant";
 
 const {t} = useI18n()
 
-const orderId = ref('');
+const orderId = ref(undefined);
 const title = ref('');
-const orderInfo = ref({});
+const orderInfo = ref({
+  proof: String,
+  createTime: String,
+  address: String,
+  network: String,
+  id: String,
+  errorInfo: String,
+  amount: undefined,
+  audit: undefined,
+});
+
 function getRecordInfo() {
   getUserOrderInfo(orderId.value).then(res => {
     if (res.code === 200) {

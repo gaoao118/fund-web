@@ -12,7 +12,15 @@ const profit = ref(0);
 const checked = ref(true);
 const checkedTwo = ref(true);
 const fundId = ref(undefined)
-const buyInfo = ref({})
+const buyInfo = ref({
+  profit:String,
+  cycle:String,
+  id:String,
+  balance:String,
+  stable:String,
+  hot:String,
+  name:String,
+})
 const payShow = ref(false)
 const payToken = ref('')
 const payLoading = ref(false)
@@ -54,9 +62,7 @@ function payFundOrder() {
     if (res.code === 200) {
       payToken.value = res.data
       payShow.value = true
-      payLoading.value = true
     }
-  }).catch(res => {
     payLoading.value = false
   })
 }

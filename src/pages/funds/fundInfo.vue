@@ -82,8 +82,15 @@ const trendHistList = ref([])
 const worthHistList = ref([])
 
 const fundId = ref(undefined)
-const trendData = ref({})
-const worthData = ref({})
+const trendData = ref({
+  average: String,
+  rate: String,
+})
+const worthData = ref({
+  fundRatio:String,
+  netValue:String,
+  date:String,
+})
 
 function gotoBack() {
   router.back()
@@ -97,7 +104,16 @@ const active = ref(0);
 const activeTwo = ref(0);
 const chartsOne = ref(false);
 const chartsTwo = ref(false);
-const info = ref({});
+const info = ref({
+  id: String,
+  name: String,
+  cycle: String,
+  dayRate: String,
+  profit: String,
+  stable: String,
+  hot: String,
+  info: String,
+});
 
 function chartsLazyLoad() {
   setTimeout(() => {

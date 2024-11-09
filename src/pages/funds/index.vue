@@ -17,7 +17,7 @@ function onLanguageConfirm(event: { selectedOptions: PickerColumn }) {
 }
 
 //首页轮播图
-const carouselList = ref({})
+const carouselList = ref([{url: String}])
 
 //基金列表
 const list = ref([]);
@@ -132,10 +132,10 @@ onMounted(() => {
                   <div v-if="item.hot" class="fundTag">{{ t('fund.hot') }}</div>
                   <div v-if="item.stable" class="fundTag" style="background-color: #4975ea">{{ t('fund.stable') }}</div>
                 </div>
-<!--                <div style="color: red; ">
-                  <van-image :src="fire" class="h-17 w-17"/>
-                  {{ item.readNum }}人看过
-                </div>-->
+                <!--                <div style="color: red; ">
+                                  <van-image :src="fire" class="h-17 w-17"/>
+                                  {{ item.readNum }}人看过
+                                </div>-->
               </div>
               <div class="mid mt-5px">
                 <div class="flex items-center">
@@ -147,8 +147,9 @@ onMounted(() => {
                 </div>
                 <div>
                   <div class="text-#4a79e7 ">
-                    <van-icon name="clock" />
-                    {{ item.cycle + t('common.day') }}</div>
+                    <van-icon name="clock"/>
+                    {{ item.cycle + t('common.day') }}
+                  </div>
                   <div class="label">{{ t('fund.renewal') }}</div>
                 </div>
               </div>

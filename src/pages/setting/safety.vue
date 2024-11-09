@@ -8,7 +8,11 @@ import {getUserId} from "@/utils/auth";
 
 const {t} = useI18n()
 
-const info = ref({});
+const info = ref({
+  email: String,
+  accId: String,
+  password: String,
+});
 const showPwd = ref(false);
 const showInvite = ref(false);
 const password = ref('');
@@ -102,7 +106,7 @@ onMounted(() => {
 <template>
   <div class="main">
     <van-cell @click="bindingEmail" :title="t('common.emailBound')"
-              :value="info.email ? info.email : t('common.notBound')" is-link/>
+              :value="info.email ? Number(info.email) : t('common.notBound')" is-link/>
     <van-cell @click="showPwd = true" class="mt-8px" :title="t('common.updatePwd')" is-link/>
     <van-cell v-if="!info.password" @click="gotoPayPassword(1)" class="mt-8px" :title="t('common.setPayPwd')" is-link/>
     <van-cell v-else @click="gotoPayPassword(2)" :title="t('common.updatePayPwd')" class="mt-8px" is-link/>

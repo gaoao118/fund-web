@@ -78,7 +78,7 @@ function resetPassword() {
     showToast(t('common.privacy'));
     return;
   }
-  let encrypt = Encrypt(password.value);
+  let encrypt = Encrypt(password.value, '');
   forgetPassword(account.value, code.value, encrypt).then(res => {
     if (res.code === 200) {
       showSuccessToast(t('common.resetSuccess'))
