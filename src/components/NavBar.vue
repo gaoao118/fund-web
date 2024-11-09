@@ -18,8 +18,8 @@ const title = computed(() => {
   return route.meta.i18n ? t(route.meta.i18n) : (route.meta.title || '')
 })
 
-const routeWhiteList = ['home', 'profile']
-const routeCloseList = ['funds', 'news', 'user', 'login', 'register', 'forget', 'fundInfo', 'wallet',
+const routeWhiteList = [ 'profile']
+const routeCloseList = ['home', 'funds', 'news', 'user', 'login', 'register', 'forget', 'fundInfo', 'wallet',
   'invest', 'newsInfo', 'userRecord', 'userRecordInfo', 'manager', 'invite', 'inviteMember']
 
 const showLeftArrow = computed(() => routeWhiteList.includes(route.name))

@@ -23,7 +23,7 @@ const show = computed(() => routeWhiteList.includes(route.name))
         <div class="i-carbon:home" />
       </template>
     </van-tabbar-item>
-    <van-tabbar-item replace to="/funds">
+    <van-tabbar-item replace to="/">
       {{ t('layouts.funds') }}
       <template #icon>
         <div class="i-carbon:chart-line-smooth" />
