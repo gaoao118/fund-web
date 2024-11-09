@@ -20,8 +20,18 @@ const onSelect = (action) => {
   onLoad();
 };
 
-const walletInfo = ref({});
-const list = ref([]);
+const walletInfo = ref({
+  profit: undefined,
+  await: undefined,
+  today: undefined,
+  balance: undefined,
+});
+const list = ref([{
+  afterAmount: undefined,
+  createTime: undefined,
+  billName: undefined,
+  amount: undefined,
+}]);
 const loading = ref(false);
 const finished = ref(false);
 const refreshing = ref(false);

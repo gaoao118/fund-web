@@ -30,7 +30,7 @@ function userRegister() {
     showToast(t('common.privacy'));
     return;
   }
-  let encrypt = Encrypt(password.value);
+  let encrypt = Encrypt(password.value, '');
   register(account.value, encrypt, inviterCode.value).then(res => {
     if (res.code === 200) {
       setToken(res.data.token, res.data.userId);

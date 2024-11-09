@@ -20,10 +20,6 @@ function newsInfo(id) {
   })
 }
 
-function text(){
-  console.log("===================")
-}
-
 onMounted(()=>{
   let route = useRoute();
   newsInfo(route.query.id)

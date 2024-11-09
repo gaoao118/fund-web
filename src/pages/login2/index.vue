@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { type RouteMap, useRouter } from 'vue-router'
-import { useUserStore } from '@/stores'
-
 import logo from '~/images/logo.svg'
 import logoDark from '~/images/logo-dark.svg'
 import vw from '@/utils/inline-px-to-vw'
 
-const { t } = useI18n()
-const router = useRouter()
-const userStore = useUserStore()
+const {t} = useI18n()
 const loading = ref(false)
 
 const dark = ref<boolean>(isDark.value)
@@ -27,35 +22,22 @@ const postData = reactive({
 
 const rules = reactive({
   email: [
-    { required: true, message: t('login.pleaseEnterEmail') },
+    {required: true, message: t('login.pleaseEnterEmail')},
   ],
   password: [
-    { required: true, message: t('login.pleaseEnterPassword') },
+    {required: true, message: t('login.pleaseEnterPassword')},
   ],
 })
 
 async function login(values: any) {
-  try {
-    loading.value = true
-    await userStore.login({ ...postData, ...values })
-    const { redirect, ...othersQuery } = router.currentRoute.value.query
-    router.push({
-      name: (redirect as keyof RouteMap) || 'home',
-      query: {
-        ...othersQuery,
-      },
-    })
-  }
-  finally {
-    loading.value = false
-  }
+  console.log(values)
 }
 </script>
 
 <template>
   <div class="m-x-a w-7xl text-center">
     <div class="mb-32 mt-20">
-      <van-image :src="dark ? logoDark : logo" class="h-120 w-120" alt="brand logo" />
+      <van-image :src="dark ? logoDark : logo" class="h-120 w-120" alt="brand logo"/>
     </div>
 
     <van-form :model="postData" :rules="rules" validate-trigger="onSubmit" @submit="login">
@@ -102,9 +84,9 @@ async function login(values: any) {
 
 <route lang="json">
 {
-  "name": "login2",
-  "meta": {
-    "i18n": "menus.login"
-  }
+"name": "login2",
+"meta": {
+"i18n": "menus.login"
+}
 }
 </route>

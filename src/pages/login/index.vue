@@ -79,7 +79,7 @@ function login() {
     showToast(t('common.privacy'));
     return;
   }
-  let encrypt = Encrypt(password.value);
+  let encrypt = Encrypt(password.value, '');
   userLogin(account.value, encrypt).then(res => {
     if (res.code === 200) {
       setToken(res.data.token, res.data.userId);

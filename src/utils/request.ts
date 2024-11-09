@@ -67,7 +67,7 @@ request.interceptors.request.use(requestHandler, errorHandler)
 const whiteList = ['/user/info']
 
 // 响应拦截器
-function responseHandler(res: { data: any }) {
+function responseHandler(res: any) {
   // 未设置状态码则默认成功状态
   const code = res.data.code || 200;
   // 获取错误信息

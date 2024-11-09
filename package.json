@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "cross-env MOCK_SERVER_PORT=8086 vite",
-    "build": "vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "build:dev": "vue-tsc --noEmit && vite build --mode=development",
     "preview": "vite preview",
     "lint": "eslint .",

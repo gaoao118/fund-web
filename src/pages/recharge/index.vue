@@ -20,7 +20,7 @@ const loading = ref(false);
 const qrCodeWidth = ref(165);
 
 function addressCopy() {
-  navigator.clipboard.writeText(address.value).then(res => {
+  navigator.clipboard.writeText(address.value).then(() => {
     showSuccessToast(t('pay.copySuc'));
   });
 }

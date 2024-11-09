@@ -82,8 +82,15 @@ const trendHistList = ref([])
 const worthHistList = ref([])
 
 const fundId = ref(undefined)
-const trendData = ref({rate: undefined, average: undefined})
-const worthData = ref({fundRatio: undefined, netValue: undefined, date: undefined})
+const trendData = ref({
+  average: String,
+  rate: String,
+})
+const worthData = ref({
+  fundRatio:String,
+  netValue:String,
+  date:String,
+})
 
 function gotoBack() {
   router.back()
@@ -97,17 +104,16 @@ const active = ref(0);
 const activeTwo = ref(0);
 const chartsOne = ref(false);
 const chartsTwo = ref(false);
-const info = ref(
-  {
-    id: undefined,
-    rate: undefined,
-    cycle: undefined,
-    dayRate: undefined,
-    profit: undefined,
-    stable: undefined,
-    hot: undefined,
-    name: undefined,
-  });
+const info = ref({
+  id: String,
+  name: String,
+  cycle: String,
+  dayRate: String,
+  profit: String,
+  stable: String,
+  hot: String,
+  info: String,
+});
 
 function chartsLazyLoad() {
   setTimeout(() => {
@@ -268,10 +274,10 @@ const refBarOptionTwo = ref(barOptionTwo)
             <van-divider/>
           </div>
           <div v-for="item in trendHistList" class="flex justify-between pl-15px pr-15px mb-15px text-14px">
-            <div>{{ item.date }}</div>
+            <div >{{ item.date }}</div>
             <div v-if="item.value >= 0" class="text-#39A51C w-65px">+{{ item.value }}%</div>
             <div v-else class="text-#EC4236 w-65px">-{{ item.value }}%</div>
-            <div v-if="item.meanRatio >= 0" class="text-#39A51C w-65px">+{{ item.meanRatio}}%</div>
+            <div v-if="item.meanRatio >= 0" class="text-#39A51C w-65px">+{{ item.meanRatio }}%</div>
             <div v-else class="text-#EC4236 w-65px">-{{ item.meanRatio }}%</div>
           </div>
         </van-tab>
