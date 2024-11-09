@@ -26,12 +26,7 @@ const walletInfo = ref({
   today: undefined,
   balance: undefined,
 });
-const list = ref([{
-  afterAmount: undefined,
-  createTime: undefined,
-  billName: undefined,
-  amount: undefined,
-}]);
+const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
 const refreshing = ref(false);

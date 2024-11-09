@@ -5,25 +5,15 @@ import {fundRedeem, userAssetList} from "@/api/funds";
 
 const {t} = useI18n()
 
-const list = ref([{
-  renew:String,
-  profitAmount:String,
-  profit:String,
-  amount:String,
-  stable:String,
-  hot:String,
-  fundId:String,
-  days:String,
-  name:String,
-}]);
+const list = ref([]);
 const loading = ref(false);
 const finished = ref(false);
 const refreshing = ref(false);
 const userInfo = ref({
-  profit:String,
-  await:String,
-  today:String,
-  total:String,
+  profit: undefined,
+  await: undefined,
+  today: undefined,
+  total: undefined,
 });
 //页码
 const pageNum = ref(1);

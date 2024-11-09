@@ -13,12 +13,11 @@ const info = ref({
   avatar: logo,
   inviteCode: undefined,
   url: undefined,
-  teamAwait: String,
-  teamAmount: String,
-  number: String,
-  nickName: String,
+  teamAwait: undefined,
+  teamAmount: undefined,
+  number: undefined,
+  nickName: undefined,
 });
-
 function retreat() {
   router.back()
 }

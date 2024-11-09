@@ -13,13 +13,13 @@ const checked = ref(true);
 const checkedTwo = ref(true);
 const fundId = ref(undefined)
 const buyInfo = ref({
-  profit:String,
-  cycle:String,
-  id:String,
-  balance:String,
-  stable:String,
-  hot:String,
-  name:String,
+  profit: undefined,
+  cycle: undefined,
+  id: undefined,
+  balance: undefined,
+  stable: undefined,
+  hot: undefined,
+  name: undefined,
 })
 const payShow = ref(false)
 const payToken = ref('')

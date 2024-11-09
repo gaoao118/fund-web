@@ -8,17 +8,17 @@ import {userOpenManagerApply} from "@/api/csPay";
 const {t} = useI18n()
 
 const info = ref({
-  openAmount:String,
-  teamMonth:String,
-  teamTarget:String,
-  teamAmount:String,
-  teamNum:String,
-  firstRate:String,
-  firstNum:String,
-  fundOne:String,
-  openTwo:String,
-  manager:String,
-  openOne:String,
+  openAmount: undefined,
+  teamMonth: undefined,
+  teamTarget: undefined,
+  teamAmount: undefined,
+  teamNum: undefined,
+  firstRate: undefined,
+  firstNum: undefined,
+  fundOne: undefined,
+  openTwo: undefined,
+  manager: undefined,
+  openOne: undefined,
 });
 const payShow = ref(false)
 const payToken = ref('')
@@ -153,13 +153,21 @@ onMounted(() => {
         </div>
         <div class="text-left text-13px">
           <span>
-            1.{{ t('manager.whenScu') }} <span class="text-#F65236">{{ info.teamNum }}</span> {{ t('manager.managers') }} <span
-            class="text-#F65236"><span class="text-16px">{{ info.teamAmount }}</span>USD</span> {{ t('manager.subsidy') }}
+            1.{{ t('manager.whenScu') }} <span class="text-#F65236">{{ info.teamNum }}</span> {{
+              t('manager.managers')
+            }} <span
+            class="text-#F65236"><span class="text-16px">{{ info.teamAmount }}</span>USD</span> {{
+              t('manager.subsidy')
+            }}
           </span>
           <div class="mt-5px"></div>
           <span>
-            2.{{ t('manager.everyCom') }} <span class="text-#F65236"><span class="text-16px">{{ info.teamTarget }}</span>USD</span> {{ t('manager.sale') }}<span
-            class="text-#F65236"><span class="text-16px">{{ info.teamMonth }}</span>USD</span> {{ t('manager.subsidyL') }}
+            2.{{ t('manager.everyCom') }} <span class="text-#F65236"><span class="text-16px">{{
+              info.teamTarget
+            }}</span>USD</span> {{ t('manager.sale') }}<span
+            class="text-#F65236"><span class="text-16px">{{ info.teamMonth }}</span>USD</span> {{
+              t('manager.subsidyL')
+            }}
           </span>
         </div>
       </div>

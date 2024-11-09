@@ -17,7 +17,7 @@ function onLanguageConfirm(event: { selectedOptions: PickerColumn }) {
 }
 
 //首页轮播图
-const carouselList = ref([{url: String}])
+const carouselList = ref([])
 
 //基金列表
 const list = ref([]);

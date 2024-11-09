@@ -6,10 +6,10 @@ import {getManagerCount, getManagerList} from "@/api/csUser";
 const {t} = useI18n()
 
 const count = ref({
-  todayNum: String,
-  await: String,
-  today: String,
-  total: String,
+  todayNum: undefined,
+  await: undefined,
+  today: undefined,
+  total: undefined,
 });
 
 const list = ref([]);

@@ -9,12 +9,12 @@ const {t} = useI18n()
 const orderId = ref(undefined);
 const title = ref('');
 const orderInfo = ref({
-  proof: String,
-  createTime: String,
-  address: String,
-  network: String,
-  id: String,
-  errorInfo: String,
+  proof: undefined,
+  createTime: undefined,
+  address: undefined,
+  network: undefined,
+  id: undefined,
+  errorInfo: undefined,
   amount: undefined,
   audit: undefined,
 });

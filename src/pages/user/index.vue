@@ -27,7 +27,7 @@ const userInfo = ref({
   today: "******",
   await: "******",
   profit: "******",
-  manager: Boolean
+  manager: true
 })
 
 function findUserInfo() {
@@ -81,7 +81,11 @@ function gotoWebsite() {
 }
 
 function gotoEditInfo() {
-  router.push({name: 'editInfo'})
+  if (userLogin.value) {
+    router.push({name: 'editInfo'})
+  } else {
+    login();
+  }
 }
 
 function downloadApp(type) {

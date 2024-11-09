@@ -9,9 +9,9 @@ import {getUserId} from "@/utils/auth";
 const {t} = useI18n()
 
 const info = ref({
-  email: String,
-  accId: String,
-  password: String,
+  email: undefined,
+  accId: undefined,
+  password: undefined,
 });
 const showPwd = ref(false);
 const showInvite = ref(false);
