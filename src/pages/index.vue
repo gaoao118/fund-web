@@ -17,7 +17,7 @@ function onLanguageConfirm(event: { selectedOptions: PickerColumn }) {
 }
 
 //首页轮播图
-const carouselList = ref({})
+const carouselList = ref([{url: String}])
 
 //基金列表
 const list = ref([]);
@@ -147,8 +147,9 @@ onMounted(() => {
                 </div>
                 <div>
                   <div class="text-#4a79e7 ">
-                    <van-icon name="clock" />
-                    {{ item.cycle + t('common.day') }}</div>
+                    <van-icon name="clock"/>
+                    {{ item.cycle + t('common.day') }}
+                  </div>
                   <div class="label">{{ t('fund.renewal') }}</div>
                 </div>
               </div>

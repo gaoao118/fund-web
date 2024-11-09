@@ -8,7 +8,10 @@ import {uploadFile} from "@/api";
 const {t} = useI18n()
 
 const loading = ref(false);
-const userInfo = ref({});
+const userInfo = ref({
+  nickName: undefined,
+  avatar: undefined,
+});
 const name = ref('');
 const showName = ref(false);
 
@@ -26,7 +29,6 @@ const afterRead = (file) => {
 
 function avatarShow() {
   let img = userInfo.value.avatar ? userInfo.value.avatar : logo;
-  console.log(img)
   showImagePreview([img]);
 }
 

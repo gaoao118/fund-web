@@ -7,7 +7,19 @@ import {userOpenManagerApply} from "@/api/csPay";
 
 const {t} = useI18n()
 
-const info = ref({});
+const info = ref({
+  openAmount:String,
+  teamMonth:String,
+  teamTarget:String,
+  teamAmount:String,
+  teamNum:String,
+  firstRate:String,
+  firstNum:String,
+  fundOne:String,
+  openTwo:String,
+  manager:String,
+  openOne:String,
+});
 const payShow = ref(false)
 const payToken = ref('')
 const payLoading = ref(false)

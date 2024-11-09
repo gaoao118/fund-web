@@ -26,7 +26,8 @@ const userInfo = ref({
   total: "******",
   today: "******",
   await: "******",
-  profit: "******"
+  profit: "******",
+  manager: Boolean
 })
 
 function findUserInfo() {

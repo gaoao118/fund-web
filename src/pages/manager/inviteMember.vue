@@ -5,7 +5,12 @@ import {getManagerCount, getManagerList} from "@/api/csUser";
 
 const {t} = useI18n()
 
-const count = ref({});
+const count = ref({
+  todayNum: String,
+  await: String,
+  today: String,
+  total: String,
+});
 
 const list = ref([]);
 const loading = ref(false);

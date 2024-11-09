@@ -9,7 +9,15 @@ import {showSuccessToast} from "vant";
 const {t} = useI18n()
 
 const qrCodeWidth = ref(165);
-const info = ref({avatar: logo, inviteCode: ''});
+const info = ref({
+  avatar: logo,
+  inviteCode: undefined,
+  url: undefined,
+  teamAwait: String,
+  teamAmount: String,
+  number: String,
+  nickName: String,
+});
 
 function retreat() {
   router.back()
@@ -32,13 +40,13 @@ function getInfo() {
 }
 
 function inviteCodeCopy() {
-  navigator.clipboard.writeText(info.value.inviteCode).then(res => {
+  navigator.clipboard.writeText(info.value.inviteCode).then(() => {
     showSuccessToast(t('pay.copySuc'));
   });
 }
 
 function urlCopy() {
-  navigator.clipboard.writeText(info.value.url).then(res => {
+  navigator.clipboard.writeText(info.value.url).then(() => {
     showSuccessToast(t('pay.copySuc'));
   });
 }
