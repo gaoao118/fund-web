@@ -2,7 +2,7 @@
 import router from "@/router";
 import {getUserSafety, inviterBinding} from "@/api/csUser";
 import {showSuccessToast} from "vant";
-import {updatePassword} from "@/api/csAuth";
+import {unsubscribe, updatePassword} from "@/api/csAuth";
 import {Encrypt} from "@/utils/secret";
 import {getUserId} from "@/utils/auth";
 
@@ -97,6 +97,24 @@ function getConfigInfo() {
   })
 }
 
+function closeAccount() {
+  showConfirmDialog({
+    title: t('common.closeAccount'),
+    message: t('common.closeAccountHint'),
+    confirmButtonText: t('common.close'),
+    confirmButtonColor: '#ff0500',
+  }).then(() => {
+    unsubscribe().then(res => {
+      if (res.code === 200) {
+        showToast(t('common.applySuc'))
+        router.push({name: 'login'})
+      }
+    })
+  }).catch(() => {
+    // on cancel
+  });
+}
+
 onMounted(() => {
   getConfigInfo();
 })
@@ -106,7 +124,7 @@ onMounted(() => {
 <template>
   <div class="main">
     <van-cell @click="bindingEmail" :title="t('common.emailBound')"
-              :value="info.email ? Number(info.email) : t('common.notBound')" is-link/>
+              :value="info.email ? info.email : t('common.notBound')" is-link/>
     <van-cell @click="showPwd = true" class="mt-8px" :title="t('common.updatePwd')" is-link/>
     <van-cell v-if="!info.password" @click="gotoPayPassword(1)" class="mt-8px" :title="t('common.setPayPwd')" is-link/>
     <van-cell v-else @click="gotoPayPassword(2)" :title="t('common.updatePayPwd')" class="mt-8px" is-link/>
@@ -114,8 +132,8 @@ onMounted(() => {
               :value="t('common.notBound')" is-link/>
     <van-cell v-else class="mt-8px" :title="t('common.boundInviteCode')" :value="t('common.boundEnd')" is-link/>
 
-    <div style="text-align: center" class=" mt-50px">
-      <van-button style="width: 85vw; height: 45px" round type="danger">{{ t('common.closeAccount') }}</van-button>
+    <div style="text-align: center" @click="closeAccount" class="mt-50px">
+      <van-button style="width: 85%; height: 45px" round type="danger">{{ t('common.closeAccount') }}</van-button>
     </div>
 
     <van-dialog @confirm="updatePwd" @close="cancelPwd" v-model:show="showPwd" :title="t('common.updatePwd')"
@@ -162,7 +180,6 @@ onMounted(() => {
   height: 94.3vh;
   background-color: #f2f2f2;
 }
-
 </style>
 
 <route lang="json">

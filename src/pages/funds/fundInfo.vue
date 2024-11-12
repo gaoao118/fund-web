@@ -93,7 +93,10 @@ const worthData = ref({
 })
 
 function gotoBack() {
-  router.back()
+  if (window.history.state.back)
+    history.back()
+  else
+    router.replace('/')
 }
 
 function gotoPay() {
@@ -188,6 +191,16 @@ onMounted(() => {
 
 const refBarOption = ref(barOption)
 const refBarOptionTwo = ref(barOptionTwo)
+
+function shareCheck() {
+  let share = {
+    title: 'inETF',
+    text: 'Professional ETF',
+    url: '',
+  }
+  navigator.share(share);
+}
+
 </script>
 
 <template>
@@ -197,7 +210,7 @@ const refBarOptionTwo = ref(barOptionTwo)
       <div>
         <span>{{ t('fund.product') }}</span>
       </div>
-      <van-icon style="font-size: 22px" name="share-o"/>
+      <van-icon @click="shareCheck" style="font-size: 22px" name="share-o"/>
     </div>
 
     <div class="cardBox" style="padding: 10px">

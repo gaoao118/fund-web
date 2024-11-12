@@ -3,12 +3,14 @@ import {getNewsInfo} from "@/api";
 import {useRoute} from "vue-router";
 import router from "@/router";
 
-
 const info = ref('');
 const title = ref('');
 
 function retreat() {
-  router.back()
+  if (window.history.state.back)
+    history.back()
+  else
+    router.replace('/')
 }
 
 function newsInfo(id) {
@@ -20,7 +22,7 @@ function newsInfo(id) {
   })
 }
 
-onMounted(()=>{
+onMounted(() => {
   let route = useRoute();
   newsInfo(route.query.id)
 });
@@ -38,7 +40,7 @@ onMounted(()=>{
     </div>
 
     <div>
-      <content :info="info" />
+      <content :info="info"/>
     </div>
 
   </div>

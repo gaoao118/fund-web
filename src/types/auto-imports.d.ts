@@ -104,6 +104,7 @@ declare global {
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const showConfirmDialog: typeof import('vant/es')['showConfirmDialog']
   const showFailToast: typeof import('vant/es')['showFailToast']
   const showNotify: typeof import('vant/es')['showNotify']
   const showToast: typeof import('vant/es')['showToast']

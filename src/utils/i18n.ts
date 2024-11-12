@@ -17,7 +17,7 @@ import messages from '@intlify/unplugin-vue-i18n/messages'
 import { Locale, type PickerColumn } from 'vant'
 
 /** 默认语言包名称 */
-const FALLBACK_LOCALE = 'zh-CN'
+const FALLBACK_LOCALE = 'en-US'
 
 /** 多语言 picker columns */
 export const languageColumns: PickerColumn = [

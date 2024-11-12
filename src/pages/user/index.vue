@@ -8,6 +8,7 @@ import website from '~/images/website.png'
 import logo from '~/images/logo.jpg'
 import android from '~/svg/android.svg'
 import ios from '~/svg/ios.svg'
+import qrCode from '~/svg/qrCode.svg'
 
 import {getUserInfo} from "@/api/csUser";
 import router from "@/router";
@@ -27,7 +28,7 @@ const userInfo = ref({
   today: "******",
   await: "******",
   profit: "******",
-  manager: true
+  manager: true,
 })
 
 function findUserInfo() {
@@ -130,7 +131,8 @@ onMounted(() => {
         <span>{{ t('user.login') }}</span>
         <van-icon name="arrow"/>
       </div>
-      <div v-else>
+      <div v-else @click="gotoManager">
+        <img height="30px" :src="qrCode" alt="">
       </div>
     </div>
 
@@ -251,7 +253,6 @@ onMounted(() => {
 <style lang="less" scoped>
 .main {
   width: 100vw;
-  height: 93.8vh;
   background: url("/bj-user.png") no-repeat 100%;
   background-size: cover;
   padding: 12px;

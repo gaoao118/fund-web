@@ -8,6 +8,10 @@
     "mean": "平均值",
     "readAgree": "我已阅读并同意",
     "reading": "请阅读并同意投资协议",
+    "readingTitle": "投资协议",
+    "privacyTitle": "隐私协议",
+    "versions": "当前版本",
+    "newVersions": "已经是最新版本",
     "privacy": "请阅读并同意隐私协议",
     "sendSuccess": "发送成功",
     "resend": "重新发送",
@@ -35,6 +39,8 @@
     "bound": "绑定",
     "boundEnd": "已绑定",
     "closeAccount": "注销账号",
+    "close": "注销",
+    "closeAccountHint": "注销后无法恢复账号，请谨慎操作！",
     "oldLogPwdNot": "请输入旧登录密码",
     "newLogPwdNot": "请输入新登录密码",
     "newLogPwdTowNot": "请输入再次输入新登录密码",
@@ -253,7 +259,8 @@
     "safety": "账户安全",
     "bindingEmail": "绑定邮箱",
     "payPassword": "支付密码",
-    "editInfo": "编辑信息"
+    "editInfo": "编辑信息",
+    "about": "关于我们"
   },
   "mock": {
     "fromAsyncData": "来自异步请求的数据",

@@ -59,7 +59,10 @@ const onRefresh = () => {
 };
 
 function retreat() {
-  router.back()
+  if (window.history.state.back)
+    history.back()
+  else
+    router.replace('/')
 }
 
 function getWalletInfo() {
@@ -137,7 +140,7 @@ onMounted(() => {
         </div>
       </div>
       <div>
-        <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
+<!--        <van-pull-refresh v-model="refreshing" @refresh="onRefresh">-->
           <van-list
             v-model:loading="loading"
             :finished="finished"
@@ -158,7 +161,7 @@ onMounted(() => {
               </div>
             </van-cell>
           </van-list>
-        </van-pull-refresh>
+<!--        </van-pull-refresh>-->
       </div>
     </div>
 

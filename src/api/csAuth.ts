@@ -95,6 +95,16 @@ export async function bindingEmail(email, code): Promise<any> {
   return request({
     url: '/auth/bindEmail',
     method: 'post',
-    params: {email: email, code: code}
+    params: {email: email, code: code},
+  })
+}
+
+/**
+ * 账号注销
+ */
+export async function unsubscribe(): Promise<any> {
+  return request({
+    url: '/auth/unsubscribe',
+    method: 'post',
   })
 }

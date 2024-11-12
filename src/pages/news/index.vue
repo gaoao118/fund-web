@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {getNewsList, getRollNotice} from "@/api";
-import router from "@/router";
-import {languageColumns, locale} from "@/utils/i18n";
+import {getNewsList, getRollNotice} from '@/api'
+import router from '@/router'
+import {languageColumns, locale} from '@/utils/i18n'
 import type {PickerColumn} from 'vant'
 
 const {t} = useI18n()
@@ -29,11 +29,13 @@ const roll = ref(undefined);
 const pageNum = ref(1);
 //页容量
 const pageSize = ref(10);
-//基金周期(0全部，1短期，2中长期，3长期)
+//新闻标题搜索
 const title = ref("");
 
 const onLoad = () => {
+  console.log(refreshing.value)
   if (refreshing.value) {
+    console.log('???????????????')
     list.value = [];
     refreshing.value = false;
     pageNum.value = 1;
@@ -75,6 +77,11 @@ onMounted(() => {
   rollNotice()
 })
 
+function onSearch() {
+  refreshing.value = true
+  onLoad();
+}
+
 </script>
 
 <template>
@@ -83,12 +90,12 @@ onMounted(() => {
       <div>
         <span class="color-#FFF">inETF</span>
       </div>
-      <van-search class="w-330px h-50px" background="#4975ea" :placeholder="t('common.searchNews')"/>
+      <van-search class="h-50px w-330px" v-model="title" @search="onSearch" background="#4975ea"
+                  :placeholder="t('common.searchNews')"/>
       <div @click="showLanguagePicker = true">
         <div style="font-size: 28px; " class="i-carbon:earth-filled"/>
       </div>
     </div>
-
     <div>
       <van-notice-bar
         v-if="roll"
@@ -98,54 +105,53 @@ onMounted(() => {
         :text="roll"
       />
     </div>
-
     <div class="listBox">
-      <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-        <van-list
-          v-model:loading="loading"
-          :finished="finished"
-          :finished-text="t('common.noMore')"
-          @load="onLoad"
-        >
-          <van-cell @click="gotoNewsInfo(item)" class="newsList" v-for="item in list" :key="item">
-            <div class="news">
-              <div class="mr-7px">
-                <img v-if="item.cover" :src="item.cover" class="h-80px w-80px object-cover border-rd-5px" alt=""/>
+      <!--      <van-pull-refresh v-model="refreshing" @refresh="onRefresh">-->
+      <van-list
+        v-model:loading="loading"
+        :finished="finished"
+        :finished-text="t('common.noMore')"
+        @load="onLoad"
+      >
+        <van-cell @click="gotoNewsInfo(item)" class="newsList" v-for="item in list" :key="item">
+          <div class="news">
+            <div class="mr-7px">
+              <img v-if="item.cover" :src="item.cover" class="h-80px w-80px object-cover border-rd-5px" alt=""/>
+            </div>
+            <div class="crBox w-100%">
+              <div>
+                <van-text-ellipsis
+                  rows="2"
+                  class="text-13px color-#000"
+                  :content="item.title"
+                />
               </div>
-              <div class="crBox w-100%">
-                <div>
-                  <van-text-ellipsis
-                    rows="2"
-                    class="text-13px color-#000"
-                    :content="item.title"
-                  />
-                </div>
-                <div>
-                  <van-text-ellipsis rows="1" class="text-12px" :content="item.intro"/>
-                </div>
+              <div>
+                <van-text-ellipsis rows="1" class="text-12px" :content="item.intro"/>
+              </div>
 
-                <div class="flex justify-between">
-                  <div>{{ item.createTime }}</div>
-                  <!--                  <div class="flex">
-                                      <div>
-                                        <van-tag style="font-size: 8px; margin-bottom: 5px" plain color="#999999" type="primary">{{item.tag}}</van-tag>
-                                      </div>
-                                      <div class="flex items-center mr-5px">
-                                        <div class="i-carbon:favorite mr-2px"></div>
-                                        &lt;!&ndash;                      <div class="i-carbon:favorite-filled"></div>&ndash;&gt;
-                                        <div>{{ item.likeNum }}</div>
-                                      </div>
-                                      <div class="flex items-center">
-                                        <div class="i-carbon:view mr-2px"></div>
-                                        <span>{{ item.viewNum }}</span>
-                                      </div>
-                                    </div>-->
-                </div>
+              <div class="flex justify-between">
+                <div>{{ item.createTime }}</div>
+                <!--                  <div class="flex">
+                                    <div>
+                                      <van-tag style="font-size: 8px; margin-bottom: 5px" plain color="#999999" type="primary">{{item.tag}}</van-tag>
+                                    </div>
+                                    <div class="flex items-center mr-5px">
+                                      <div class="i-carbon:favorite mr-2px"></div>
+                                      &lt;!&ndash;                      <div class="i-carbon:favorite-filled"></div>&ndash;&gt;
+                                      <div>{{ item.likeNum }}</div>
+                                    </div>
+                                    <div class="flex items-center">
+                                      <div class="i-carbon:view mr-2px"></div>
+                                      <span>{{ item.viewNum }}</span>
+                                    </div>
+                                  </div>-->
               </div>
             </div>
-          </van-cell>
-        </van-list>
-      </van-pull-refresh>
+          </div>
+        </van-cell>
+      </van-list>
+      <!--      </van-pull-refresh>-->
     </div>
     <!--语言切换-->
     <van-popup v-model:show="showLanguagePicker" position="bottom">
@@ -168,11 +174,10 @@ onMounted(() => {
   height: 92vh;
 }
 
-
 .topBox {
   display: flex;
   font-size: 17px;
-  color: #FFF;
+  color: #FFFFFF;
   height: 50px;
   padding: 0 10px;
   //margin: 0 15px;
@@ -208,10 +213,7 @@ onMounted(() => {
     justify-content: space-between;
     height: 85px;
   }
-
 }
-
-
 </style>
 
 <route lang="json">

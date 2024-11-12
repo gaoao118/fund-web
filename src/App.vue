@@ -5,11 +5,11 @@ import useRouteCache from '@/stores/modules/routeCache'
 import useAutoThemeSwitcher from '@/hooks/useAutoThemeSwitcher'
 
 useHead({
-  title: 'Vue3 Vant Mobile',
+  title: 'inETF',
   meta: [
     {
       name: 'description',
-      content: 'Vue + Vite H5 Starter Template',
+      content: 'Help invest in the future, harvest wealth and happiness',
     },
     {
       name: 'theme-color',
@@ -20,7 +20,7 @@ useHead({
     {
       rel: 'icon',
       type: 'image/svg+xml',
-      href: () => preferredDark.value ? '/favicon-dark.svg' : '/favicon.svg',
+      href: '/favicon.svg',
     },
   ],
 })

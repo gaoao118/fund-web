@@ -20,7 +20,6 @@ declare module 'vue-router/auto-routes' {
   export interface RouteNamedMap {
     'home': RouteRecordInfo<'home', '/', Record<never, never>, Record<never, never>>,
     '404': RouteRecordInfo<'404', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
-    'funds': RouteRecordInfo<'funds', '/funds', Record<never, never>, Record<never, never>>,
     'fundInfo': RouteRecordInfo<'fundInfo', '/funds/fundInfo', Record<never, never>, Record<never, never>>,
     'subscribe': RouteRecordInfo<'subscribe', '/funds/subscribe', Record<never, never>, Record<never, never>>,
     'invest': RouteRecordInfo<'invest', '/invest', Record<never, never>, Record<never, never>>,
@@ -35,6 +34,7 @@ declare module 'vue-router/auto-routes' {
     'payPassword': RouteRecordInfo<'payPassword', '/pay/password', Record<never, never>, Record<never, never>>,
     'recharge': RouteRecordInfo<'recharge', '/recharge', Record<never, never>, Record<never, never>>,
     'setting': RouteRecordInfo<'setting', '/setting', Record<never, never>, Record<never, never>>,
+    'about': RouteRecordInfo<'about', '/setting/about', Record<never, never>, Record<never, never>>,
     'bindingEmail': RouteRecordInfo<'bindingEmail', '/setting/email', Record<never, never>, Record<never, never>>,
     'safety': RouteRecordInfo<'safety', '/setting/safety', Record<never, never>, Record<never, never>>,
     'user': RouteRecordInfo<'user', '/user', Record<never, never>, Record<never, never>>,

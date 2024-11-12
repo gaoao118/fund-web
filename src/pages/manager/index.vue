@@ -43,7 +43,10 @@ function payApply() {
 }
 
 function retreat() {
-  router.back()
+  if (window.history.state.back)
+    history.back()
+  else
+    router.replace('/')
 }
 
 onMounted(() => {

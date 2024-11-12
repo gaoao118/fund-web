@@ -19,7 +19,10 @@ const info = ref({
   nickName: undefined,
 });
 function retreat() {
-  router.back()
+  if (window.history.state.back)
+    history.back()
+  else
+    router.replace('/')
 }
 
 function gotoInviteMember() {

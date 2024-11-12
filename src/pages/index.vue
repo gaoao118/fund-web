@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import chat from '~/svg/chat.svg'
 import {carousel, getFundList} from "@/api";
 import router from "@/router";
 import type {PickerColumn} from 'vant'
@@ -35,8 +34,7 @@ const pageSize = ref(10);
 const cycle = ref(0);
 
 //基金列表数据加载
-const onLoad = () => {
-  console.log(list.value)
+function onLoad() {
   if (refreshing.value) {
     list.value = [];
     refreshing.value = false;
@@ -56,7 +54,7 @@ const onLoad = () => {
       loading.value = false;
     }
   })
-};
+}
 
 //下拉刷新触发
 const onRefresh = () => {
@@ -87,6 +85,15 @@ onMounted(() => {
   getCarousel(2)
 })
 
+function shareCheck() {
+  const share = {
+    title: 'inETF',
+    text: 'Professional ETF',
+    url: '',
+  }
+  navigator.share(share);
+}
+
 </script>
 
 <template>
@@ -97,7 +104,8 @@ onMounted(() => {
       </div>
       <div>{{ t('fund.title') }}</div>
       <div>
-        <van-image :src="chat" class="h-25 w-25"/>
+        <!--        <van-image :src="chat" class="h-25 w-25"/>-->
+        <van-icon @click="shareCheck" style="font-size: 22px" name="share-o"/>
       </div>
     </div>
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -106,60 +114,64 @@ onMounted(() => {
       </van-swipe-item>
     </van-swipe>
 
-    <div>
-      <van-tabs @change="cycleRefresh" v-model:active="cycle">
-        <van-tab :title="t('fund.all')"/>
-        <van-tab :title="t('fund.short')"/>
-        <van-tab :title="t('fund.medium')"/>
-        <van-tab :title="t('fund.longTime')"/>
-      </van-tabs>
+    <div class="mb-6px">
     </div>
+    <!--    <div>
+          <van-tabs @change="cycleRefresh" v-model:active="cycle">
+            <van-tab :title="t('fund.all')"/>
+            <van-tab :title="t('fund.short')"/>
+            <van-tab :title="t('fund.medium')"/>
+            <van-tab :title="t('fund.longTime')"/>
+          </van-tabs>
+        </div>-->
 
     <div class="fundsBox">
-      <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-        <van-list
-          :offset="100"
-          v-model:loading="loading"
-          :finished="finished"
-          :finished-text="t('common.noMore')"
-          @load="onLoad"
-        >
-          <van-cell v-for="item in list" :key="item">
-            <div class="fund">
-              <div class="fundTitle">
-                <div class="flex items-center">
-                  <div style="margin-right: 5px; font-weight: 400">{{ item.name }}</div>
-                  <div v-if="item.hot" class="fundTag">{{ t('fund.hot') }}</div>
-                  <div v-if="item.stable" class="fundTag" style="background-color: #4975ea">{{ t('fund.stable') }}</div>
-                </div>
-                <!--                <div style="color: red; ">
-                                  <van-image :src="fire" class="h-17 w-17"/>
-                                  {{ item.readNum }}人看过
-                                </div>-->
+      <!--      <van-pull-refresh v-model="refreshing" @refresh="onRefresh">-->
+
+      <van-list
+        :offset="100"
+        v-model:loading="loading"
+        :finished="finished"
+        :finished-text="t('common.noMore')"
+        @load="onLoad"
+      >
+        <van-cell v-for="item in list" :key="item">
+          <div class="fund">
+            <div class="fundTitle">
+              <div class="flex items-center">
+                <div style="margin-right: 5px; font-weight: 400">{{ item.name }}</div>
+                <div v-if="item.hot" class="fundTag">{{ t('fund.hot') }}</div>
+                <div v-if="item.stable" class="fundTag" style="background-color: #4975ea">{{ t('fund.stable') }}</div>
               </div>
-              <div class="mid mt-5px">
-                <div class="flex items-center">
-                  <img :src="item.cover" class="h-50 w-50 mr-8px border-rd-4px" alt=""/>
-                  <div style="text-align: center">
-                    <div class="text-#EC4236 text-16px font-600">{{ item.profit }}</div>
-                    <div class="label">{{ t('fund.monthRate') }}</div>
-                  </div>
-                </div>
-                <div>
-                  <div class="text-#4a79e7 ">
-                    <van-icon name="clock"/>
-                    {{ item.cycle + t('common.day') }}
-                  </div>
-                  <div class="label">{{ t('fund.renewal') }}</div>
+              <!--                <div style="color: red; ">
+                                <van-image :src="fire" class="h-17 w-17"/>
+                                {{ item.readNum }}人看过
+                              </div>-->
+            </div>
+            <div class="mid mt-5px">
+              <div class="flex items-center">
+                <img :src="item.cover" class="h-50 w-50 mr-8px border-rd-4px" alt=""/>
+                <div style="text-align: center">
+                  <div class="text-#EC4236 text-16px font-600">{{ item.profit }}</div>
+                  <div class="label">{{ t('fund.monthRate') }}</div>
                 </div>
               </div>
-              <div style="display: flex; justify-content: space-around; text-align: center">
-                <div @click="gotoFundInfo(item)" class="applyBtn">{{ t('fund.invest') }}</div>
+              <div>
+                <div class="text-#4a79e7 ">
+                  <van-icon name="clock"/>
+                  {{ item.cycle + t('common.day') }}
+                </div>
+                <!--                  <div class="label">{{ t('fund.renewal') }}</div>-->
               </div>
             </div>
-          </van-cell>
-        </van-list>
-      </van-pull-refresh>
+            <div style="display: flex; justify-content: space-around; text-align: center">
+              <div @click="gotoFundInfo(item)" class="applyBtn">{{ t('fund.invest') }}</div>
+            </div>
+          </div>
+        </van-cell>
+      </van-list>
+
+      <!--      </van-pull-refresh>-->
     </div>
 
     <!--语言切换-->

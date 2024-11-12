@@ -40,7 +40,10 @@ const onRefresh = () => {
 };
 
 function retreat() {
-  router.back()
+  if (window.history.state.back)
+    history.back()
+  else
+    router.replace('/')
 }
 
 function gotoInfo(item) {
