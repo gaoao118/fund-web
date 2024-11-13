@@ -51,7 +51,18 @@
     "clearSuc": "성공적인 정리",
     "update": "수정",
     "androidDownload": "안드로이드 다운로드",
-    "iosDownload": "IOS 다운로드"
+    "iosDownload": "IOS 다운로드",
+    "hint": "프롬프트",
+    "readingTitle": "투자 계약",
+    "privacyTitle": "개인 정보 보호 계약",
+    "versions": "현재 버전",
+    "newVersions": "이미 최신 버전",
+    "close": "기록",
+    "closeAccountHint": "로그아웃 후 계정을 복원 할 수 없으므로 조심스럽게 작동하십시오!",
+    "balanceNot": "불충분 한 균형",
+    "goRecharge": "재충전하려면",
+    "payPasswordNot": "결제 암호 설정 없음",
+    "goSetting": "설정으로 이동"
   },
   "fund": {
     "title": "펀드",
@@ -182,7 +193,8 @@
     "myAvatar": "내 아바타",
     "myNickName": "내 별명",
     "updateNickName": "닉네임 수정",
-    "nickNameNot": "사용자 닉네임을 입력하십시오."
+    "nickNameNot": "사용자 닉네임을 입력하십시오.",
+    "notLoginHint": "로그인하지 말고 로그인하십시오!"
   },
   "manager": {
     "invitation": "내 초대",
@@ -253,7 +265,8 @@
     "safety": "계정 보안",
     "bindingEmail": "바인드 사서함",
     "payPassword": "결제 비밀번호",
-    "editInfo": "정보 편집"
+    "editInfo": "정보 편집",
+    "about": "우리에 대해서"
   },
   "mock": {
     "fromAsyncData": "비동기 요청의 데이터",

@@ -51,7 +51,18 @@
     "clearSuc": "清理成功",
     "update": "修改",
     "androidDownload": "安卓下載",
-    "iosDownload": "IOS下載"
+    "iosDownload": "IOS下載",
+    "hint": "提示",
+    "readingTitle": "投資協議",
+    "privacyTitle": "隱私協議",
+    "versions": "當前版本",
+    "newVersions": "已經是最新版本",
+    "close": "註銷",
+    "closeAccountHint": "註銷後無法恢復賬號,請謹慎操作!",
+    "balanceNot": "餘額不足",
+    "goRecharge": "去充值",
+    "payPasswordNot": "沒有設置支付密碼",
+    "goSetting": "去設置"
   },
   "fund": {
     "title": "基金",
@@ -182,7 +193,8 @@
     "myAvatar": "我的頭像",
     "myNickName": "我的暱稱",
     "updateNickName": "修改暱稱",
-    "nickNameNot": "請輸入用戶暱稱"
+    "nickNameNot": "請輸入用戶暱稱",
+    "notLoginHint": "未登錄,請登錄!"
   },
   "manager": {
     "invitation": "我的邀請",
@@ -253,7 +265,8 @@
     "safety": "賬戶安全",
     "bindingEmail": "綁定郵箱",
     "payPassword": "支付密碼",
-    "editInfo": "編輯信息"
+    "editInfo": "編輯信息",
+    "about": "關於我們"
   },
   "mock": {
     "fromAsyncData": "來自異步請求的數據",

@@ -51,7 +51,18 @@
     "clearSuc": "クリーンアップに成功しました",
     "update": "修正",
     "androidDownload": "Androidダウンロード",
-    "iosDownload": "IOSダウンロード"
+    "iosDownload": "IOSダウンロード",
+    "hint": "ヒント",
+    "readingTitle": "投資契約",
+    "privacyTitle": "プライバシー契約",
+    "versions": "現在のバージョン",
+    "newVersions": "すでに最新バージョンです",
+    "close": "ログアウト",
+    "closeAccountHint": "ログアウト後はアカウントを復元できません。慎重に操作してください。",
+    "balanceNot": "残高不足",
+    "goRecharge": "チャージに行く",
+    "payPasswordNot": "支払いパスワードが設定されていません",
+    "goSetting": "設定に行く"
   },
   "fund": {
     "title": "ファンド",
@@ -182,7 +193,8 @@
     "myAvatar": "私の顔",
     "myNickName": "私のニックネーム",
     "updateNickName": "ニックネームの修正",
-    "nickNameNot": "ユーザーニックネームを入力してください"
+    "nickNameNot": "ユーザーニックネームを入力してください",
+    "notLoginHint": "ログインしていません。ログインしてください"
   },
   "manager": {
     "invitation": "私の招待",
@@ -253,7 +265,8 @@
     "safety": "アカウントセキュリティ",
     "bindingEmail": "連絡先メールアドレス",
     "payPassword": "支払いパスワード",
-    "editInfo": "情報の編集"
+    "editInfo": "情報の編集",
+    "about": "私たちについて"
   },
   "mock": {
     "fromAsyncData": "非同期リクエストからのデータ",

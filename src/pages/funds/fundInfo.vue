@@ -395,7 +395,7 @@ function shareCheck() {
 
   .bottomBox {
     height: 60px;
-    width: 100vw;
+    width: 100%;
     background-color: #FFFFFF;
     position: fixed;
     bottom: 0;

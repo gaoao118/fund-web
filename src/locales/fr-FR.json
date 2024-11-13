@@ -51,7 +51,18 @@
     "clearSuc": "Nettoyer avec succès",
     "update": "Modifier",
     "androidDownload": "Télécharger Android",
-    "iosDownload": "Téléchargement iOS"
+    "iosDownload": "Téléchargement iOS",
+    "hint": "Astuces",
+    "readingTitle": "Accord d'investissement",
+    "privacyTitle": "Accord de confidentialité",
+    "versions": "Version actuelle",
+    "newVersions": "Est déjà la dernière version",
+    "close": "Annulation",
+    "closeAccountHint": "Le compte ne peut pas être restauré après la déconnexion, veuillez le faire avec prudence!",
+    "balanceNot": "Solde insuffisant",
+    "goRecharge": "Aller à la recharge",
+    "payPasswordNot": "Aucun mot de passe de paiement défini",
+    "goSetting": "Aller aux paramètres"
   },
   "fund": {
     "title": "Fonds",
@@ -182,7 +193,8 @@
     "myAvatar": "Mon avatar",
     "myNickName": "Mon surnom",
     "updateNickName": "Modifier le surnom",
-    "nickNameNot": "Veuillez saisir le surnom de l'utilisateur"
+    "nickNameNot": "Veuillez saisir le surnom de l'utilisateur",
+    "notLoginHint": "Non connecté, veuillez vous connecter!"
   },
   "manager": {
     "invitation": "Mon invitation",
@@ -253,7 +265,8 @@
     "safety": "Sécurité du compte",
     "bindingEmail": "Liaison de boîtes aux lettres",
     "payPassword": "Mot de passe de paiement",
-    "editInfo": "Modifier les informations"
+    "editInfo": "Modifier les informations",
+    "about": "À propos de nous"
   },
   "mock": {
     "fromAsyncData": "Données provenant de demandes asynchrones",

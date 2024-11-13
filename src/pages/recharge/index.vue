@@ -143,8 +143,9 @@ onMounted(() => {
     </div>
 
     <div class="bottomBox">
-      <van-uploader @click-upload="uploadCheck" :readonly="!amount" :after-read="afterRead" :max-count="1">
-        <van-button style="width: 80vw; height: 42px;" round block type="primary" :loading="loading"
+      <van-uploader style="width: 100%; text-align: center" @click-upload="uploadCheck" :readonly="!amount"
+                    :after-read="afterRead" :max-count="1">
+        <van-button style="width: 80%; height: 42px;" round block type="primary" :loading="loading"
                     color="linear-gradient(-61deg, #4C93FF, #2964E6)" native-type="submit">
           {{ t('pay.sucUpload') }}
         </van-button>
@@ -168,7 +169,7 @@ onMounted(() => {
 <style scoped lang="less">
 .main {
   padding: 10px 15px;
-  height: 94.3vh;
+  min-height: 94vh;
   background-color: #f2f2f2;
 }
 
@@ -199,7 +200,7 @@ onMounted(() => {
 }
 
 .bottomBox {
-  width: 100vw;
+  width: 100%;
   padding: 10px;
   background-color: #FFFFFF;
   position: fixed;
@@ -207,6 +208,13 @@ onMounted(() => {
   left: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+:deep(.van-uploader__input-wrapper) {
+  width: 100%;
+  text-align: center;
+  display: flex;
   justify-content: center;
 }
 

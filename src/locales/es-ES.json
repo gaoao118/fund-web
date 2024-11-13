@@ -51,7 +51,18 @@
     "clearSuc": "Limpieza exitosa",
     "update": "Modificación",
     "androidDownload": "Descarga de Android",
-    "iosDownload": "Descarga de iOS"
+    "iosDownload": "Descarga de iOS",
+    "hint": "Consejos",
+    "readingTitle": "Acuerdo de inversión",
+    "privacyTitle": "Acuerdo de privacidad",
+    "versions": "Versión actual",
+    "newVersions": "Ya la última versión",
+    "close": "Cancelación de cuentas",
+    "closeAccountHint": "La cuenta no se puede restaurar después de cerrar la sesión, ¡tenga cuidado!",
+    "balanceNot": "Balance insuficiente",
+    "goRecharge": "Ir a recargar",
+    "payPasswordNot": "No hay contraseña de pago establecida",
+    "goSetting": "Ir a la configuración"
   },
   "fund": {
     "title": "Fondos",
@@ -182,7 +193,8 @@
     "myAvatar": "Mi avatar",
     "myNickName": "Mi apodo",
     "updateNickName": "Modificar el apodo",
-    "nickNameNot": "Ingrese el apodo del usuario"
+    "nickNameNot": "Ingrese el apodo del usuario",
+    "notLoginHint": "No ha iniciado sesión, ¡inicie sesión!"
   },
   "manager": {
     "invitation": "Mi invitación",
@@ -253,7 +265,8 @@
     "safety": "Seguridad de la cuenta",
     "bindingEmail": "Buzón vinculante",
     "payPassword": "Contraseña de pago",
-    "editInfo": "Editar información"
+    "editInfo": "Editar información",
+    "about": "Sobre nosotros"
   },
   "mock": {
     "fromAsyncData": "Datos de una solicitud asincrónica",

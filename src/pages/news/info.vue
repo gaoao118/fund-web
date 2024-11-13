@@ -48,13 +48,11 @@ onMounted(() => {
 
 <style scoped lang="less">
 .main {
-  width: 100vw;
   height: 100vh;
   background: url("/bj-user.png") no-repeat 100%;
   background-size: cover;
   padding: 12px;
 }
-
 </style>
 
 <route lang="json">

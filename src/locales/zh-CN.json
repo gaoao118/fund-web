@@ -1,5 +1,6 @@
 {
   "common": {
+    "hint": "提示",
     "noMore": "没有更多了",
     "searchNews": "搜索更多ETF新闻",
     "day": "天",
@@ -57,7 +58,11 @@
     "clearSuc": "清理成功",
     "update": "修改",
     "androidDownload": "安卓下载",
-    "iosDownload": "iOS下载"
+    "iosDownload": "iOS下载",
+    "balanceNot": "余额不足",
+    "goRecharge": "去充值",
+    "payPasswordNot": "没有设置支付密码",
+    "goSetting": "去设置"
   },
   "fund": {
     "title": "基金",
@@ -142,6 +147,7 @@
   },
   "user": {
     "notLogin": "未登录",
+    "notLoginHint": "未登录，请登录！",
     "affirmLogOut": "是否退出登录?",
     "login": "登录",
     "emailLogin": "邮箱登录",

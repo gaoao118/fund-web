@@ -51,7 +51,18 @@
     "clearSuc": "Cleanup successful",
     "update": "Modification",
     "androidDownload": "Android Download",
-    "iosDownload": "Download iOS"
+    "iosDownload": "Download iOS",
+    "hint": "Prompt",
+    "readingTitle": "INVESTMENT AGREEMENT",
+    "privacyTitle": "Privacy Agreement",
+    "versions": "Current Version",
+    "newVersions": "Already the latest version",
+    "close": "Write-off",
+    "closeAccountHint": "Account cannot be restored after logout, please operate with caution!",
+    "balanceNot": "Insufficient balance",
+    "goRecharge": "To recharge",
+    "payPasswordNot": "No payment password set",
+    "goSetting": "Go to Settings"
   },
   "fund": {
     "title": "Fund",
@@ -182,7 +193,8 @@
     "myAvatar": "My Avatar",
     "myNickName": "My nickname",
     "updateNickName": "Modify Nickname",
-    "nickNameNot": "Please enter user nickname"
+    "nickNameNot": "Please enter user nickname",
+    "notLoginHint": "Not logged in, please log in!"
   },
   "manager": {
     "invitation": "My invitation",
@@ -253,7 +265,8 @@
     "safety": "Account security",
     "bindingEmail": "Bind Mailbox",
     "payPassword": "Payment password",
-    "editInfo": "Edit Information"
+    "editInfo": "Edit Information",
+    "about": "About Us"
   },
   "mock": {
     "fromAsyncData": "Data from an asynchronous request",

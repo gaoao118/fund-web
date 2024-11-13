@@ -73,7 +73,7 @@ watch(value, (newVal) => {
           setWalletPwd(encrypt).then(res => {
             if (res.code === 200) {
               showSuccessToast(t('common.setSuc'));
-              router.push({name: 'user'})
+              retreat();
             } else {
               info.value = t('common.setPayPwd')
               password.value = ''
@@ -84,7 +84,7 @@ watch(value, (newVal) => {
           updateWalletPwd(code.value, encrypt).then(res => {
             if (res.code === 200) {
               showSuccessToast(t('common.updateSuc'));
-              router.push({name: 'user'})
+              retreat();
             } else {
               type.value = 2
               code.value = ''
@@ -101,6 +101,13 @@ watch(value, (newVal) => {
     }
   }
 });
+
+function retreat() {
+  if (window.history.state.back)
+    history.back()
+  else
+    router.replace('/')
+}
 
 function verifyEmail() {
   if (!code.value) {

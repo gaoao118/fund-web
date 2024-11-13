@@ -90,7 +90,7 @@ function gotoEditInfo() {
 }
 
 function downloadApp(type) {
-  window.location.href = import.meta.env.VITE_APP_API_BASE_URL + "/common/download?type=" + type
+  window.open(import.meta.env.VITE_APP_API_BASE_URL + "/common/download?type=" + type)
 }
 
 function gotoManager() {
@@ -99,6 +99,10 @@ function gotoManager() {
   } else {
     router.push({name: 'manager'})
   }
+}
+
+function gotoInvite() {
+  router.push({name: 'invite'})
 }
 
 onMounted(() => {
@@ -131,7 +135,7 @@ onMounted(() => {
         <span>{{ t('user.login') }}</span>
         <van-icon name="arrow"/>
       </div>
-      <div v-else @click="gotoManager">
+      <div v-else @click="gotoInvite">
         <img height="30px" :src="qrCode" alt="">
       </div>
     </div>
@@ -145,18 +149,17 @@ onMounted(() => {
           <span style="font-size: 18px; font-weight: 600; line-height: 35px">{{ userInfo.total }}</span>
         </div>
       </div>
-
       <div class="infoBox">
         <div style="">
           <div><span>{{ userInfo.today }}</span></div>
           <div style="font-size: 14px"><span>{{ t('user.todayEarnings') }}</span></div>
         </div>
-        <van-divider vertical :style="{ borderColor: '#FFFFFF', height: '100%', borderWidth: '1px' }"/>
+        <van-divider vertical :style="{ borderColor: '#FFFFFF', height: '33px', borderWidth: '1px' }"/>
         <div>
           <div><span>{{ userInfo.await }}</span></div>
           <div style="font-size: 14px"><span>{{ t('user.proceeds') }}</span></div>
         </div>
-        <van-divider vertical :style="{ borderColor: '#FFFFFF', height: '100%', borderWidth: '1px' }"/>
+        <van-divider vertical :style="{ borderColor: '#FFFFFF', height: '33px', borderWidth: '1px' }"/>
         <div>
           <div><span>{{ userInfo.profit }}</span></div>
           <div style="font-size: 14px"><span>{{ t('user.earned') }}</span></div>
@@ -252,7 +255,7 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .main {
-  width: 100vw;
+  min-height: calc(100vh - 50px);
   background: url("/bj-user.png") no-repeat 100%;
   background-size: cover;
   padding: 12px;
@@ -267,7 +270,7 @@ onMounted(() => {
     color: #FFFFFF;
     margin-top: 15px;
     background-color: #3A76F2;
-    height: 127px;
+    //height: 127px;
     border-radius: 11px;
     position: relative;
     padding: 16px;
@@ -287,8 +290,8 @@ onMounted(() => {
       display: flex;
       justify-content: space-evenly;
       margin-top: 10px;
+      align-items: center;
     }
-
   }
 
   .cardBox {

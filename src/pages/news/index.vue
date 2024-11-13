@@ -167,9 +167,7 @@ function onSearch() {
 
 <style lang="less" scoped>
 .main {
-  width: 100vw;
   background: url("/bj.png") no-repeat;
-  //background: none;
   background-size: cover;
   height: 92vh;
 }

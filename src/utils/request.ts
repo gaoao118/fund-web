@@ -77,12 +77,34 @@ function responseHandler(res: any) {
     return res.data
   }
   if (code === 401) {
-    let val = whiteList.includes(res.config.url);
+    const val = whiteList.includes(res.config.url);
     if (val) {
       return res.data;
     }
     router.push({name: 'login'})
-    showFailToast('未登录，请登录！');
+    showFailToast(i18n.global.t('user.notLoginHint'));
+  } else if (code === 803) {
+    showConfirmDialog({
+      title: i18n.global.t('common.hint'),
+      message: i18n.global.t('common.balanceNot'),
+      confirmButtonText: i18n.global.t('common.goRecharge'),
+    }).then(() => {
+      // on confirm
+      router.push({name: 'recharge'});
+    }).catch(() => {
+      return res.data;
+    })
+  } else if (code === 804) {
+    showConfirmDialog({
+      title: i18n.global.t('common.hint'),
+      message: i18n.global.t('common.payPasswordNot'),
+      confirmButtonText: i18n.global.t('common.goSetting'),
+    }).then(() => {
+      // on confirm
+      router.push({name: 'payPassword'});
+    }).catch(() => {
+      return res.data;
+    })
   } else if (code === 500) {
     showFailToast(msg);
     return res.data;

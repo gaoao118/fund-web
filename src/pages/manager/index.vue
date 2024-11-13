@@ -181,8 +181,6 @@ onMounted(() => {
 
 <style scoped lang="less">
 .main {
-  //width: 100vw;
-  //height: 100vh;
   background: url("/bj-manager.png") no-repeat;
   background-size: cover;
   padding: 12px;

@@ -51,7 +51,18 @@
     "clearSuc": "نجاح التنظيف",
     "update": "تعديل",
     "androidDownload": "الروبوت تحميل",
-    "iosDownload": "تنزيل iOS"
+    "iosDownload": "تنزيل iOS",
+    "hint": "نصائح",
+    "readingTitle": "اتفاقات الاستثمار",
+    "privacyTitle": "بروتوكول الخصوصية",
+    "versions": "الإصدار الحالي",
+    "newVersions": "بالفعل أحدث إصدار",
+    "close": "شطب",
+    "closeAccountHint": "لا يمكن استعادة الحساب بعد تسجيل الخروج ، يرجى توخي الحذر!",
+    "balanceNot": "الرصيد غير الكافي",
+    "goRecharge": "اذهب لإعادة الشحن",
+    "payPasswordNot": "لم يتم تعيين كلمة مرور الدفع",
+    "goSetting": "اذهب إلى الإعدادات"
   },
   "fund": {
     "title": "الصناديق",
@@ -182,7 +193,8 @@
     "myAvatar": "الصورة الرمزية الخاصة بي",
     "myNickName": "لقبي",
     "updateNickName": "تعديل اللقب",
-    "nickNameNot": "الرجاء إدخال لقب المستخدم"
+    "nickNameNot": "الرجاء إدخال لقب المستخدم",
+    "notLoginHint": "لم تقم بتسجيل الدخول ، يرجى تسجيل الدخول!"
   },
   "manager": {
     "invitation": "دعوتي",
@@ -253,7 +265,8 @@
     "safety": "أمن الحساب",
     "bindingEmail": "ربط صندوق البريد",
     "payPassword": "دفع كلمة المرور",
-    "editInfo": "تحرير المعلومات"
+    "editInfo": "تحرير المعلومات",
+    "about": "عن نحن"
   },
   "mock": {
     "fromAsyncData": "البيانات من الطلبات غير المتزامنة",

@@ -162,7 +162,7 @@ function gotoPrivacy() {
     </van-dialog>
 
     <div class="deal">
-      <div style="width: 100vw; display: flex; justify-content: center;">
+      <div style="display: flex; justify-content: center;">
         <van-checkbox icon-size="16px" shape="square" v-model="checked">
           <span class="text-#FFFFFF text-14px">{{ t('common.readAgree') }}</span>
         </van-checkbox>
@@ -175,7 +175,6 @@ function gotoPrivacy() {
 
 <style scoped lang="less">
 .main {
-  width: 100vw;
   height: 100vh;
   background: url("/bj-login.png") no-repeat 100%;
   background-size: cover;
@@ -186,7 +185,6 @@ function gotoPrivacy() {
     background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 0 1px 32px 0 rgba(29, 52, 155, 0.4);
-
   }
 
   //样式穿透
@@ -204,7 +202,8 @@ function gotoPrivacy() {
   .deal {
     position: absolute;
     bottom: 13px;
-    left: 0
+    left: 0;
+    width: 100%;
   }
 
   .verifyBox {
