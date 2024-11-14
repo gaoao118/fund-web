@@ -1,4 +1,4 @@
-import {STORAGE_TOKEN_KEY, STORAGE_USER_ID} from '@/stores/mutation-type'
+import {STORAGE_TOKEN_KEY, STORAGE_USER_ID, USER_INVITE_CODE} from '@/stores/mutation-type'
 
 function isLogin() {
   return !!localStorage.getItem(STORAGE_TOKEN_KEY)
@@ -12,6 +12,10 @@ function getUserId() {
   return localStorage.getItem(STORAGE_USER_ID)
 }
 
+function getInviteCode() {
+  return localStorage.getItem(USER_INVITE_CODE)
+}
+
 function setToken(token: string, userId: string) {
   localStorage.setItem(STORAGE_TOKEN_KEY, token)
   localStorage.setItem(STORAGE_USER_ID, userId)
@@ -22,4 +26,8 @@ function clearToken() {
   localStorage.removeItem(STORAGE_USER_ID)
 }
 
-export {isLogin, getToken, getUserId, setToken, clearToken}
+function setInviteCode(code: string) {
+  localStorage.setItem(USER_INVITE_CODE, code)
+}
+
+export {isLogin, getToken, getUserId, setToken, clearToken, getInviteCode, setInviteCode}

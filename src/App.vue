@@ -11,10 +11,6 @@ useHead({
       name: 'description',
       content: 'Help invest in the future, harvest wealth and happiness',
     },
-    {
-      name: 'theme-color',
-      content: () => isDark.value ? '#00aba9' : '#ffffff',
-    },
   ],
   link: [
     {

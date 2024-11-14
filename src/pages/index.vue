@@ -3,6 +3,8 @@ import {carousel, getFundList} from "@/api";
 import router from "@/router";
 import type {PickerColumn} from 'vant'
 import {languageColumns} from "@/utils/i18n";
+import {useRoute} from "vue-router";
+import {setInviteCode} from "@/utils/auth";
 
 const {t} = useI18n()
 
@@ -57,17 +59,17 @@ function onLoad() {
 }
 
 //下拉刷新触发
-const onRefresh = () => {
+/*const onRefresh = () => {
   finished.value = false;
   loading.value = true;
   onLoad();
-};
+};*/
 
 //点击标签触发
-const cycleRefresh = () => {
+/*const cycleRefresh = () => {
   refreshing.value = true;
   onRefresh();
-};
+};*/
 
 function getCarousel(type: number) {
   carousel(type).then(res => {
@@ -82,6 +84,11 @@ function gotoFundInfo(item) {
 }
 
 onMounted(() => {
+  const route = useRoute();
+  const code = route.query.code;
+  if (code) {
+    setInviteCode(String(code))
+  }
   getCarousel(2)
 })
 
@@ -102,7 +109,7 @@ function shareCheck() {
       <div>
         <div @click="showLanguagePicker = true" style="font-size: 25px; " class="i-carbon:earth-filled"/>
       </div>
-      <div>{{ t('fund.title') }}</div>
+      <div> {{ t('fund.title') }}</div>
       <div>
         <!--        <van-image :src="chat" class="h-25 w-25"/>-->
         <van-icon @click="shareCheck" style="font-size: 22px" name="share-o"/>
@@ -139,7 +146,9 @@ function shareCheck() {
           <div class="fund">
             <div class="fundTitle">
               <div class="flex items-center">
-                <div style="margin-right: 5px; font-weight: 400">{{ item.name }}</div>
+                <div style="margin-right: 5px; font-weight: 400;">
+                  <van-text-ellipsis :content="item.name"/>
+                </div>
                 <div v-if="item.hot" class="fundTag">{{ t('fund.hot') }}</div>
                 <div v-if="item.stable" class="fundTag" style="background-color: #4975ea">{{ t('fund.stable') }}</div>
               </div>

@@ -222,12 +222,13 @@ function shareCheck() {
       </div>
       <div class="flex justify-between mt-10px items-center ">
         <div>
-          <div style="font-size: 18px; color: #EC4236; font-weight: 600">+{{ info.profit }}</div>
+          <div style="font-size: 18px; color: #EC4236; font-weight: 600">{{ info.profit }}</div>
           <div class="text-13px text-#999999">{{ t('fund.monthRate') }}</div>
         </div>
         <div class="flex items-center">
           <div class="mr-25px">
-            <div class="text-#EC4236">+{{ info.dayRate }}%</div>
+            <div v-if="info.dayRate >= 0" class="text-#39A51C">+{{ info.dayRate }}%</div>
+            <div v-else class="text-#EC4236">{{ info.dayRate }}%</div>
             <div class="text-13px text-#999999">{{ t('fund.dailyRate') }}</div>
           </div>
           <div>
@@ -243,11 +244,19 @@ function shareCheck() {
           <div class="flex mt-13px mb-13px text-14px">
             <div class="flex items-center ml-12px">
               <div class="parent-node"></div>
-              <span class="">{{ t('fund.theFund') }}: <span class="text-#EC4236">+{{ trendData.rate }}%</span></span>
+              <span class="">
+                {{ t('fund.theFund') }}:
+                <span v-if="trendData.rate >= 0" class="text-#39A51C">+{{ trendData.rate }}%</span>
+                <span v-else class="text-#EC4236">{{ trendData.rate }}%</span>
+              </span>
             </div>
             <div class="flex items-center ml-20px">
               <div class="parent-node parent-red" style="color: red; "></div>
-              <span>{{ t('fund.meanValue') }}: <span class="text-#EC4236">+{{ trendData.average }}%</span></span>
+              <span>
+                {{ t('fund.meanValue') }}:
+                <span v-if="trendData.average >= 0" class="text-#39A51C">+{{ trendData.average }}%</span>
+                <span v-else class="text-#EC4236">{{ trendData.average }}%</span>
+              </span>
             </div>
           </div>
           <div style="height: 200px">
@@ -266,7 +275,10 @@ function shareCheck() {
             </div>
             <div class="ml-12px">
               <div class="mb-3px"><span>{{ t('fund.dailyIncrease') }}</span></div>
-              <div class="text-#EC4236"><span>{{ worthData.fundRatio }}%</span></div>
+              <div>
+                <span v-if="worthData.fundRatio >= 0" class="text-#39A51C">+{{ worthData.fundRatio }}%</span>
+                <span v-else class="text-#EC4236">{{ worthData.fundRatio }}%</span>
+              </div>
             </div>
           </div>
           <div style="height: 200px">

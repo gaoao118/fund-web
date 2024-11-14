@@ -62,7 +62,8 @@
     "balanceNot": "Insufficient balance",
     "goRecharge": "To recharge",
     "payPasswordNot": "No payment password set",
-    "goSetting": "Go to Settings"
+    "goSetting": "Go to Settings",
+    "inviteCode": "Invitation code"
   },
   "fund": {
     "title": "Fund",
@@ -103,7 +104,9 @@
     "yield": "Earnings due",
     "getInfo": "View fund details",
     "applyRansom": "Apply for Redemption",
-    "applyRenewal": "Apply for renewal"
+    "applyRenewal": "Apply for renewal",
+    "redemption": "Redeeming",
+    "redeemed": "Redeemed"
   },
   "pay": {
     "paySuccess": "Payment success",
@@ -213,7 +216,7 @@
     "wealth": "Help you achieve the freedom of wealth",
     "just": "Only need",
     "canApplyAs": "You can apply",
-    "managerL": "Fund manager]",
+    "managerL": "Fund manager",
     "investL": "Investing more worry.",
     "easy": "Enjoy the benefits easily and start the journey of wealth appreciation together.",
     "nowApply": "Apply immediately",

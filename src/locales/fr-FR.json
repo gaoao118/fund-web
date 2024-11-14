@@ -62,7 +62,8 @@
     "balanceNot": "Solde insuffisant",
     "goRecharge": "Aller à la recharge",
     "payPasswordNot": "Aucun mot de passe de paiement défini",
-    "goSetting": "Aller aux paramètres"
+    "goSetting": "Aller aux paramètres",
+    "inviteCode": "Code d'invitation"
   },
   "fund": {
     "title": "Fonds",
@@ -103,7 +104,9 @@
     "yield": "Revenu à l'échéance",
     "getInfo": "Voir les détails du fonds",
     "applyRansom": "Demande de rachat",
-    "applyRenewal": "Demande de renouvellement"
+    "applyRenewal": "Demande de renouvellement",
+    "redemption": "Rachat",
+    "redeemed": "Racheté"
   },
   "pay": {
     "paySuccess": "Payer avec succès",

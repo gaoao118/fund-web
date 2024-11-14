@@ -130,7 +130,7 @@ onMounted(() => {
 
 <style scoped lang="less">
 .main {
-  height: 100vh;
+  min-height: 100vh;
   background: url("/bj-manager.png") no-repeat;
   background-size: cover;
   padding: 12px;

@@ -37,6 +37,7 @@
     "setPayPwd": "设置支付密码",
     "updatePayPwd": "修改支付密码",
     "boundInviteCode": "绑定邀请码",
+    "inviteCode": "邀请码",
     "bound": "绑定",
     "boundEnd": "已绑定",
     "closeAccount": "注销账号",
@@ -103,7 +104,9 @@
     "yield": "到期收益",
     "getInfo": "查看基金详情",
     "applyRansom": "申请赎回",
-    "applyRenewal": "申请续期"
+    "applyRenewal": "申请续期",
+    "redemption": "赎回中",
+    "redeemed": "已赎回"
   },
   "pay": {
     "paySuccess": "支付成功",

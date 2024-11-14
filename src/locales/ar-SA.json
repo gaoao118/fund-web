@@ -62,7 +62,8 @@
     "balanceNot": "الرصيد غير الكافي",
     "goRecharge": "اذهب لإعادة الشحن",
     "payPasswordNot": "لم يتم تعيين كلمة مرور الدفع",
-    "goSetting": "اذهب إلى الإعدادات"
+    "goSetting": "اذهب إلى الإعدادات",
+    "inviteCode": "رمز الدعوة"
   },
   "fund": {
     "title": "الصناديق",
@@ -103,7 +104,9 @@
     "yield": "أرباح الاستحقاق",
     "getInfo": "عرض تفاصيل الصندوق",
     "applyRansom": "طلب الاسترداد",
-    "applyRenewal": "طلب التجديد"
+    "applyRenewal": "طلب التجديد",
+    "redemption": "استرداد",
+    "redeemed": "مستردة"
   },
   "pay": {
     "paySuccess": "نجاح الدفع",

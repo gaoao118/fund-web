@@ -62,7 +62,8 @@
     "balanceNot": "餘額不足",
     "goRecharge": "去充值",
     "payPasswordNot": "沒有設置支付密碼",
-    "goSetting": "去設置"
+    "goSetting": "去設置",
+    "inviteCode": "邀請碼"
   },
   "fund": {
     "title": "基金",
@@ -103,7 +104,9 @@
     "yield": "到期收益",
     "getInfo": "查看基金詳情",
     "applyRansom": "申請贖回",
-    "applyRenewal": "申請續期"
+    "applyRenewal": "申請續期",
+    "redemption": "贖回中",
+    "redeemed": "已贖回"
   },
   "pay": {
     "paySuccess": "支付成功",

@@ -2,7 +2,7 @@
 import router from "@/router";
 import {Encrypt} from "@/utils/secret";
 import {register} from "@/api/csAuth";
-import {setToken} from '@/utils/auth'
+import {getInviteCode, setToken} from '@/utils/auth'
 import {langFormat, OFFICIAL_WEBSITE} from "@/stores/mutation-type";
 import {locale} from "@/utils/i18n";
 
@@ -46,6 +46,13 @@ function gotoPrivacy() {
   window.location.href = OFFICIAL_WEBSITE + "/privacy/" + langFormat(locale.value) + ".html"
 }
 
+onMounted(() => {
+  const code = getInviteCode();
+  if (code) {
+    inviterCode.value = code;
+  }
+})
+
 </script>
 
 <template>
@@ -65,7 +72,7 @@ function gotoPrivacy() {
       <div class="titleBox">
         <span>{{ t('user.regis') }}</span>
       </div>
-      <van-form label-align="top">
+      <van-form>
         <van-cell-group inset>
           <van-field
             v-model="account"
@@ -77,10 +84,12 @@ function gotoPrivacy() {
             :placeholder="t('user.passwordNot')"
           />
           <van-field
+            style="display: flex; align-items: center;"
+            :label="t('common.inviteCode')"
             v-model="inviterCode"
-            type="password"
             :placeholder="t('user.inviteCodeNot')"
-          />
+          >
+          </van-field>
         </van-cell-group>
         <div style="margin: 16px;">
           <van-button @click="userRegister" color="linear-gradient(-61deg, #4C93FF, #2964E6)" round block type="primary"
@@ -159,6 +168,10 @@ function gotoPrivacy() {
     line-height: 50px;
     border-radius: 10px 10px 0 0;
     background-color: #2A73ED;
+  }
+
+  :deep(.van-field__label) {
+    width: auto;
   }
 
 }

@@ -62,7 +62,8 @@
     "balanceNot": "残高不足",
     "goRecharge": "チャージに行く",
     "payPasswordNot": "支払いパスワードが設定されていません",
-    "goSetting": "設定に行く"
+    "goSetting": "設定に行く",
+    "inviteCode": "招待コード"
   },
   "fund": {
     "title": "ファンド",
@@ -103,7 +104,9 @@
     "yield": "満期収益",
     "getInfo": "ファンドの詳細を見る",
     "applyRansom": "買い戻しを申し込む",
-    "applyRenewal": "継続期間を申請する"
+    "applyRenewal": "継続期間を申請する",
+    "redemption": "償還中",
+    "redeemed": "償還されました"
   },
   "pay": {
     "paySuccess": "支払い成功",

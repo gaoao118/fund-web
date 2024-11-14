@@ -39,11 +39,11 @@ function onLoad() {
   })
 }
 
-function onRefresh() {
+/*function onRefresh() {
   finished.value = false;
   loading.value = true;
   onLoad();
-}
+}*/
 
 function updateRenew(item) {
   fundRedeem(item.orderId).then((res) => {
@@ -87,7 +87,6 @@ onMounted(() => {
       </div>
       <div/>
     </div>
-
     <div class="cardBox balanceBox">
       <div class="mt-10px text-center text-13px text-#787878">
         <span>{{ t('user.totalAmount') }}(USD)</span>
@@ -141,11 +140,19 @@ onMounted(() => {
         <div class="cardBox text-14px" style="color: #1E1E1E !important;">
           <div class="flex justify-between">
             <div><span>{{ item.name }}</span></div>
-            <div v-if="item.renew" class="text-12px text-#EC4236">
-              <span>{{ t('common.dayRenewal', {a: item.days}) }}</span>
+            <div v-if="item.status === 1">
+              <div v-if="item.renew" class="text-12px text-#EC4236">
+                <span>{{ t('common.dayRenewal', {a: item.days}) }}</span>
+              </div>
+              <div v-else class="text-12px text-#EC4236">
+                <span>{{ t('common.dayRansom', {a: item.days}) }}</span>
+              </div>
             </div>
-            <div v-else class="text-12px text-#EC4236">
-              <span>{{ t('common.dayRansom', {a: item.days}) }}</span>
+            <div v-else-if="item.status === 2" class="text-#EC4236">
+              <span>{{ t('fund.redemption') }}</span>
+            </div>
+            <div v-else-if="item.status === 3" class="text-#999999">
+              <span>{{ t('fund.redeemed') }}</span>
             </div>
           </div>
           <div class="mt-7px flex items-center text-12px text-#666666">
@@ -177,13 +184,13 @@ onMounted(() => {
               </div>
             </div>
           </div>
-          <van-divider :style="{ borderColor: '#DCDCDC', margin: '10px 5px' }" />
+          <van-divider :style="{ borderColor: '#DCDCDC', margin: '10px 5px' }"/>
           <div class="flex justify-between text-12px text-#3A76F2">
             <div @click="gotoFundInfo(item)">
               <span>{{ t('fund.getInfo') }}</span>
               <van-icon name="arrow"/>
             </div>
-            <div @click="updateRenew(item)">
+            <div v-if="item.status === 1" @click="updateRenew(item)">
               <span v-if="item.renew">{{ t('fund.applyRansom') }}</span>
               <span v-else>{{ t('fund.applyRenewal') }}</span>
             </div>

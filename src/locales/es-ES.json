@@ -62,7 +62,8 @@
     "balanceNot": "Balance insuficiente",
     "goRecharge": "Ir a recargar",
     "payPasswordNot": "No hay contraseña de pago establecida",
-    "goSetting": "Ir a la configuración"
+    "goSetting": "Ir a la configuración",
+    "inviteCode": "Código de invitación"
   },
   "fund": {
     "title": "Fondos",
@@ -103,7 +104,9 @@
     "yield": "Ganancias de vencimiento",
     "getInfo": "Ver detalles del fondo",
     "applyRansom": "Solicitar la redención",
-    "applyRenewal": "Solicitud de renovación"
+    "applyRenewal": "Solicitud de renovación",
+    "redemption": "Redentor",
+    "redeemed": "Redimido"
   },
   "pay": {
     "paySuccess": "Pago exitoso",

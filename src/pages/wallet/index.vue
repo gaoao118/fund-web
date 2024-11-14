@@ -52,11 +52,11 @@ const onLoad = () => {
   })
 };
 
-const onRefresh = () => {
+/*const onRefresh = () => {
   finished.value = false;
   loading.value = true;
   onLoad();
-};
+};*/
 
 function retreat() {
   if (window.history.state.back)
@@ -140,28 +140,28 @@ onMounted(() => {
         </div>
       </div>
       <div>
-<!--        <van-pull-refresh v-model="refreshing" @refresh="onRefresh">-->
-          <van-list
-            v-model:loading="loading"
-            :finished="finished"
-            :finished-text="t('common.noMore')"
-            @load="onLoad"
-          >
-            <van-cell style="padding: 5px 0" v-for="item in list">
-              <div class="flex justify-between text-left">
-                <div>
-                  <div class="text-#1E1E1E"><span>{{ item.billName }}</span></div>
-                  <div class="text-12px"><span>{{ item.createTime }}</span></div>
-                </div>
-                <div class="text-right">
-                  <div v-if="item.amount>=0" class="text-#4f84eb text-15px"><span>+{{ item.amount }}</span></div>
-                  <div v-else class="text-#EC4236 text-15px"><span>{{ item.amount }}</span></div>
-                  <div class="text-12px"><span>{{ t('common.balance') }}: {{ item.afterAmount }}</span></div>
-                </div>
+        <!--        <van-pull-refresh v-model="refreshing" @refresh="onRefresh">-->
+        <van-list
+          v-model:loading="loading"
+          :finished="finished"
+          :finished-text="t('common.noMore')"
+          @load="onLoad"
+        >
+          <van-cell style="padding: 5px 0" v-for="item in list">
+            <div class="flex justify-between text-left">
+              <div>
+                <div class="text-#1E1E1E"><span>{{ item.billName }}</span></div>
+                <div class="text-12px"><span>{{ item.createTime }}</span></div>
               </div>
-            </van-cell>
-          </van-list>
-<!--        </van-pull-refresh>-->
+              <div class="text-right">
+                <div v-if="item.amount >= 0" class="text-#39A51C text-15px"><span>+{{ item.amount }}</span></div>
+                <div v-else class="text-#EC4236 text-15px"><span>{{ item.amount }}</span></div>
+                <div class="text-12px"><span>{{ t('common.balance') }}: {{ item.afterAmount }}</span></div>
+              </div>
+            </div>
+          </van-cell>
+        </van-list>
+        <!--        </van-pull-refresh>-->
       </div>
     </div>
 

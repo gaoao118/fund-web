@@ -62,7 +62,8 @@
     "balanceNot": "불충분 한 균형",
     "goRecharge": "재충전하려면",
     "payPasswordNot": "결제 암호 설정 없음",
-    "goSetting": "설정으로 이동"
+    "goSetting": "설정으로 이동",
+    "inviteCode": "초대코드"
   },
   "fund": {
     "title": "펀드",
@@ -103,7 +104,9 @@
     "yield": "수입 마감",
     "getInfo": "펀드 세부 정보 보기",
     "applyRansom": "구속 신청",
-    "applyRenewal": "갱신 신청"
+    "applyRenewal": "갱신 신청",
+    "redemption": "상환 중",
+    "redeemed": "상환됨"
   },
   "pay": {
     "paySuccess": "지불 성공",

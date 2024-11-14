@@ -2,8 +2,7 @@ import type { AppStore } from '@/stores/modules/app'
 
 export default function useAutoThemeSwitcher(appStore: AppStore) {
   const handleAttributeChange = () => {
-    const rootElement = document.documentElement
-    const mode = rootElement.classList.contains('dark') ? 'dark' : 'light'
+    const mode = 'light'
     appStore.switchMode(mode)
   }
 

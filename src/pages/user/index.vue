@@ -12,13 +12,16 @@ import qrCode from '~/svg/qrCode.svg'
 
 import {getUserInfo} from "@/api/csUser";
 import router from "@/router";
-import {clearToken} from '@/utils/auth'
+import {clearToken, setInviteCode} from '@/utils/auth'
 import {showConfirmDialog} from "vant";
-import {OFFICIAL_WEBSITE} from "@/stores/mutation-type";
+import {BACK_URL, OFFICIAL_WEBSITE} from "@/stores/mutation-type";
+import {useRoute} from "vue-router";
 
 const {t} = useI18n()
 
 const userLogin = ref(false);
+
+const isRealDark = ref(isDark.value)
 
 const userInfo = ref({
   nickName: t('user.notLogin'),
@@ -89,8 +92,8 @@ function gotoEditInfo() {
   }
 }
 
-function downloadApp(type) {
-  window.open(import.meta.env.VITE_APP_API_BASE_URL + "/common/download?type=" + type)
+function download(type) {
+  window.open(BACK_URL + "/api/common/download?type=" + type)
 }
 
 function gotoManager() {
@@ -218,7 +221,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div @click="downloadApp(1)" class="cardBox listBox">
+    <div @click="download(1)" class="cardBox listBox">
       <div class="flex items-center">
         <img style="height: 33px; margin-right: 5px" :src="android" alt="">
         <span>{{ t('common.androidDownload') }}</span>
@@ -228,7 +231,7 @@ onMounted(() => {
       </div>
     </div>
 
-    <div @click="downloadApp(0)" class="cardBox listBox">
+    <div @click="download(0)" class="cardBox listBox">
       <div class="flex items-center">
         <img style="height: 33px; margin-right: 5px" :src="ios" alt="">
         <span>{{ t('common.iosDownload') }}</span>
@@ -329,9 +332,7 @@ onMounted(() => {
     color: #FFFFFF;
     justify-content: space-evenly;
   }
-
 }
-
 </style>
 
 <route lang="json">

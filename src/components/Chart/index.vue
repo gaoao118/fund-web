@@ -13,7 +13,7 @@ echarts.registerTheme('dark-chart', dark)
 
 const chartDom = ref<HTMLDivElement>()
 let chart: ECharts | null = null
-const isRealDark = ref(isDark.value)
+
 function resizeChart() {
   chart?.resize()
 }
@@ -32,17 +32,11 @@ function initChart() {
   disposeChart()
   if (chartDom.value) {
     // init echarts
-    chart = echarts.init(chartDom.value, isRealDark.value ? 'dark-chart' : undefined)
+    chart = echarts.init(chartDom.value)
     chart.setOption(props.option)
     addListener(chartDom.value, resize)
   }
 }
-
-watch(isRealDark, () => {
-  initChart()
-}, {
-  flush: 'post',
-})
 
 onMounted(() => {
   watch(() => props.option, () => {

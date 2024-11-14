@@ -12,6 +12,7 @@ const info = ref({
   email: undefined,
   accId: undefined,
   password: undefined,
+  nickName: undefined,
 });
 const showPwd = ref(false);
 const showInvite = ref(false);
@@ -130,7 +131,7 @@ onMounted(() => {
     <van-cell v-else @click="gotoPayPassword(2)" :title="t('common.updatePayPwd')" class="mt-8px" is-link/>
     <van-cell v-if="!info.accId" @click="showInvite = true" class="mt-8px" :title="t('common.boundInviteCode')"
               :value="t('common.notBound')" is-link/>
-    <van-cell v-else class="mt-8px" :title="t('common.boundInviteCode')" :value="t('common.boundEnd')" is-link/>
+    <van-cell v-else class="mt-8px" :title="t('common.boundInviteCode')" :value="info.nickName" is-link/>
 
     <div style="text-align: center" @click="closeAccount" class="mt-50px">
       <van-button style="width: 85%; height: 45px" round type="danger">{{ t('common.closeAccount') }}</van-button>

@@ -53,11 +53,11 @@ const onLoad = () => {
   })
 };
 
-const onRefresh = () => {
+/*const onRefresh = () => {
   finished.value = false;
   loading.value = true;
   onLoad();
-};
+};*/
 
 //获取滚动消息
 const rollNotice = () => {
