@@ -29,7 +29,7 @@ function getInfo(id) {
   getBuyInfo(id).then(res => {
     if (res.code === 200) {
       buyInfo.value = res.data;
-      updateAmount(1000)
+      updateAmount(5000)
     }
   })
 }
@@ -41,7 +41,7 @@ function addAmount(add) {
 function updateAmount(num) {
   let val = num ? num : amount.value;
   if (val <= 0) {
-    val = 1000
+    val = 5000
   }
   getFundPredict(fundId.value, val).then(res => {
     if (res.code === 200) {
@@ -57,7 +57,7 @@ function payFundOrder() {
     return;
   }
   payLoading.value = false
-  let num = amount.value ? amount.value : 1000;
+  let num = amount.value ? amount.value : 5000;
   fundBuy(fundId.value, num).then(res => {
     if (res.code === 200) {
       payToken.value = res.data
@@ -93,16 +93,16 @@ onMounted(() => {
     <div class="cardBox buyBox">
       <div class="text-14px">
         <span class="ml-8px">{{ t('fund.buyAmount') }}</span>
-        <van-field class="inputBox" placeholder="1000" v-model="amount" @update:model-value="updateAmount" type="digit">
+        <van-field class="inputBox" placeholder="5000" v-model="amount" @update:model-value="updateAmount" type="digit">
           <template #button>
             <span style="font-size: 18px; color: #000000">USD</span>
           </template>
         </van-field>
         <div class="addAmount">
-          <van-button @click="addAmount(4000)" round size="normal">4000</van-button>
-          <van-button @click="addAmount(8000)" round size="normal">8000</van-button>
+          <van-button @click="addAmount(5000)" round size="normal">5000</van-button>
           <van-button @click="addAmount(10000)" round size="normal">10000</van-button>
-          <van-button @click="addAmount(15000)" round size="normal">15000</van-button>
+          <van-button @click="addAmount(20000)" round size="normal">20000</van-button>
+          <van-button @click="addAmount(50000)" round size="normal">50000</van-button>
         </div>
       </div>
     </div>
@@ -172,13 +172,13 @@ onMounted(() => {
             <span>{{ t('fund.amountDue') }}</span>
           </div>
           <div>
-            <span>{{ amount ? amount : 1000 }}+{{ profit }}</span>
+            <span>{{ amount ? amount : 5000 }}+{{ profit }}</span>
           </div>
         </div>
       </div>
     </div>
 
-    <Pay :type="1" :pay-show="payShow" :payToken="payToken" :amount="amount ? amount : '1000'"
+    <Pay :type="1" :pay-show="payShow" :payToken="payToken" :amount="amount ? amount : '5000'"
          @payClose="payClose"/>
 
     <div class="bottomBox">
@@ -203,7 +203,7 @@ onMounted(() => {
 .main {
   padding: 15px;
   background-color: #f5f5f5;
-  min-height: 30vh;
+  min-height: calc(100vh - 60px);
 
   .fundTag {
     color: #FFFFFF;

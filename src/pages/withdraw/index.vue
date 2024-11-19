@@ -17,6 +17,7 @@ const showPicker = ref(false);
 const configList = ref([]);
 const payId = ref('');
 const address = ref('');
+const witMinLimit = ref(0);
 
 const payShow = ref(false)
 const payToken = ref('')
@@ -34,11 +35,12 @@ function getConfig() {
       let arr = []
       for (let i = 0; i < res.data.length; i++) {
         let datum = res.data[i];
-        arr.push({text: datum.network, value: datum.id});
+        arr.push({text: datum.network, value: datum.id, witMinLimit: datum.witMinLimit});
       }
       columns.value = arr;
       fieldValue.value = res.data[0].network
       payId.value = res.data[0].id
+      witMinLimit.value = res.data[0].witMinLimit
     }
   })
 }
@@ -52,6 +54,7 @@ function addressCopy() {
 function onConfirm(options) {
   fieldValue.value = options.selectedOptions[0].text
   payId.value = options.selectedOptions[0].value
+  witMinLimit.value = options.selectedOptions[0].witMinLimit
   showPicker.value = false
 }
 
@@ -62,6 +65,10 @@ function apply() {
   }
   if (!address.value) {
     showToast(t('pay.wtAddressNot'));
+    return;
+  }
+  if (amount.value < witMinLimit.value) {
+    showToast(t('pay.witMinLimit', {a: witMinLimit.value}));
     return;
   }
   payLoading.value = true

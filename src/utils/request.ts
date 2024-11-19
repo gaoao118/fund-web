@@ -11,6 +11,9 @@ import {locale} from "@/utils/i18n";
 // 避免被 nginx 等负载均衡器丢弃了自定义的请求头
 export const REQUEST_TOKEN_KEY = 'token'
 export const REQUEST_LANGUAGE_KEY = 'Accept-Language'
+export const REQUEST_TIME_ZONE = 'time-zone'
+
+const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
 // 创建 axios 实例
 const request = axios.create({
@@ -56,8 +59,13 @@ function requestHandler(config: InternalAxiosRequestConfig): InternalAxiosReques
   const savedToken = localStorage.getItem(STORAGE_TOKEN_KEY)
   // 如果 token 存在
   // 让每个请求携带自定义 token, 请根据实际情况修改
-  if (savedToken)
+  if (savedToken) {
     config.headers[REQUEST_TOKEN_KEY] = savedToken
+  }
+  //设置时区
+  if (timeZone) {
+    config.headers[REQUEST_TIME_ZONE] = timeZone
+  }
   return config
 }
 

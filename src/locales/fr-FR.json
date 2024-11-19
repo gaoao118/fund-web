@@ -63,7 +63,12 @@
     "goRecharge": "Aller à la recharge",
     "payPasswordNot": "Aucun mot de passe de paiement défini",
     "goSetting": "Aller aux paramètres",
-    "inviteCode": "Code d'invitation"
+    "inviteCode": "Code d'invitation",
+    "language": "Langue",
+    "ransomHint": "Le principal sera automatiquement remboursé à la fin du cycle d'investissement du fonds après la demande de remboursement",
+    "rolloverHint": "Après la demande de renouvellement, la fin du cycle d'investissement du fonds entrera automatiquement dans le prochain cycle d'investissement",
+    "contactServiceHint": "Si vous avez des questions, veuillez contacter le service client.",
+    "contactService": "Contacter le service client"
   },
   "fund": {
     "title": "Fonds",
@@ -146,7 +151,9 @@
     "wtNetworkNot": "Choisir un réseau de retrait",
     "intoAddress": "Adresse d'arrivée",
     "intoAddressNot": "Veuillez saisir l'adresse d'arrivée",
-    "openManager": "Gestionnaire d'ouverture"
+    "openManager": "Gestionnaire d'ouverture",
+    "amountLimit": "Montant minimum de recharge {a}",
+    "witMinLimit": "Montant minimum de retrait en espèces {a}"
   },
   "user": {
     "notLogin": "Non connecté",

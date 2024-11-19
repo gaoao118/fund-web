@@ -13,6 +13,7 @@ const columns = ref([]);
 const amount = ref(undefined);
 const fieldValue = ref('');
 const payId = ref('');
+const minAmount = ref(0);
 const showPicker = ref(false);
 const configList = ref([]);
 const address = ref('');
@@ -28,6 +29,9 @@ function addressCopy() {
 function onConfirm(options) {
   fieldValue.value = options.selectedOptions[0].text
   payId.value = options.selectedOptions[0].value
+  const data = options.selectedOptions[0].data;
+  address.value = data.address
+  minAmount.value = data.minAmount
   showPicker.value = false
 }
 
@@ -38,12 +42,13 @@ function getConfig() {
       let arr = []
       for (let i = 0; i < res.data.length; i++) {
         let datum = res.data[i];
-        arr.push({text: datum.network, value: datum.id});
+        arr.push({text: datum.network, value: datum.id, data: datum});
       }
       columns.value = arr;
       fieldValue.value = res.data[0].network
       address.value = res.data[0].address
       payId.value = res.data[0].id
+      minAmount.value = res.data[0].minAmount
     }
   })
 }
@@ -53,10 +58,14 @@ function uploadCheck() {
     showFailToast(t('pay.amountNot'))
     return false;
   }
+  if (amount.value < minAmount.value) {
+    showFailToast(t('pay.amountLimit', {a: minAmount.value}))
+    return false;
+  }
   return true;
 }
 
-const afterRead = (file) => {
+function afterRead(file) {
   loading.value = true
   uploadFile(file.file).then(res => {
     if (res.code === 200) {
@@ -64,12 +73,13 @@ const afterRead = (file) => {
       recharge(payId.value, amount.value, url).then(res => {
         if (res.code === 200) {
           showSuccessToast(t('common.applySuc'));
+          router.push({name: 'userRecordInfo', query: {id: res.data}})
         }
       })
     }
     loading.value = false
   })
-};
+}
 
 function gotoRecord() {
   router.push({name: 'userRecord', query: {type: 1}})
@@ -143,7 +153,8 @@ onMounted(() => {
     </div>
 
     <div class="bottomBox">
-      <van-uploader style="width: 100%; text-align: center" @click-upload="uploadCheck" :readonly="!amount"
+      <van-uploader style="width: 100%; text-align: center" @click-upload="uploadCheck"
+                    :readonly="!amount || amount < minAmount"
                     :after-read="afterRead" :max-count="1">
         <van-button style="width: 80%; height: 42px;" round block type="primary" :loading="loading"
                     color="linear-gradient(-61deg, #4C93FF, #2964E6)" native-type="submit">

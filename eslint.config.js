@@ -30,6 +30,8 @@ export default antfu(
       'style/arrow-parens': 'off',
       'style/eol-last': 'off',
       'vue/first-attribute-linebreak': 'off',
+      'prefer-const': 'off',
+      'style/padded-blocks': 'off',
     },
   },
   {

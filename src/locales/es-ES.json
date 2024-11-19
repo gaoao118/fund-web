@@ -63,7 +63,12 @@
     "goRecharge": "Ir a recargar",
     "payPasswordNot": "No hay contraseña de pago establecida",
     "goSetting": "Ir a la configuración",
-    "inviteCode": "Código de invitación"
+    "inviteCode": "Código de invitación",
+    "language": "Idioma",
+    "ransomHint": "Después de solicitar el reembolso, el principal se reembolsará automáticamente al final del ciclo de inversión del fondo.",
+    "rolloverHint": "Después de solicitar la renovación, el final del ciclo de inversión del fondo ingresará automáticamente a la siguiente ronda de ciclo de inversión.",
+    "contactServiceHint": "Si tiene alguna pregunta, comuníquese con el servicio al cliente.",
+    "contactService": "servicio al cliente"
   },
   "fund": {
     "title": "Fondos",
@@ -146,7 +151,9 @@
     "wtNetworkNot": "Seleccione la red de retiro",
     "intoAddress": "Dirección de llegada",
     "intoAddressNot": "Ingrese la dirección de la cuenta",
-    "openManager": "Gerente de apertura"
+    "openManager": "Gerente de apertura",
+    "amountLimit": "Cantidad mínima de recarga {a}",
+    "witMinLimit": "Cantidad mínima de retiro {a}"
   },
   "user": {
     "notLogin": "Sin iniciar sesión",

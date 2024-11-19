@@ -13,7 +13,7 @@ const userInfo = ref({
   profit: undefined,
   await: undefined,
   today: undefined,
-  total: undefined,
+  invest: undefined,
 });
 //页码
 const pageNum = ref(1);
@@ -93,7 +93,7 @@ onMounted(() => {
       </div>
       <div class="mb-20px text-center">
         <div class="mt-5px text-28px font-600">
-          <span>{{ userInfo.total }}</span>
+          <span>{{ userInfo.invest }}</span>
         </div>
       </div>
       <div class="infoBox">

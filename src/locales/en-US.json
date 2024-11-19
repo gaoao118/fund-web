@@ -63,7 +63,12 @@
     "goRecharge": "To recharge",
     "payPasswordNot": "No payment password set",
     "goSetting": "Go to Settings",
-    "inviteCode": "Invitation code"
+    "inviteCode": "Invitation code",
+    "language": "Language",
+    "ransomHint": "The principal will be automatically redeemed at the end of the fund's investment cycle after the application for redemption.",
+    "rolloverHint": "After applying for renewal, the end of the fund's investment cycle will automatically enter the next investment cycle.",
+    "contactServiceHint": "If you have any questions, please contact customer service.",
+    "contactService": "Contact customer service"
   },
   "fund": {
     "title": "Fund",
@@ -146,7 +151,9 @@
     "wtNetworkNot": "Select Withdrawal Network",
     "intoAddress": "Address to account",
     "intoAddressNot": "Please enter the account address",
-    "openManager": "Opening Manager"
+    "openManager": "Opening Manager",
+    "amountLimit": "Minimum top-up amount {a}",
+    "witMinLimit": "Minimum withdrawal amount {a}"
   },
   "user": {
     "notLogin": "Not logged in",

@@ -12,16 +12,13 @@ import qrCode from '~/svg/qrCode.svg'
 
 import {getUserInfo} from "@/api/csUser";
 import router from "@/router";
-import {clearToken, setInviteCode} from '@/utils/auth'
+import {clearToken, setUserInfo} from '@/utils/auth'
 import {showConfirmDialog} from "vant";
 import {BACK_URL, OFFICIAL_WEBSITE} from "@/stores/mutation-type";
-import {useRoute} from "vue-router";
 
 const {t} = useI18n()
 
 const userLogin = ref(false);
-
-const isRealDark = ref(isDark.value)
 
 const userInfo = ref({
   nickName: t('user.notLogin'),
@@ -39,6 +36,7 @@ function findUserInfo() {
     if (res.code === 200) {
       userInfo.value = res.data
       userLogin.value = true
+      setUserInfo(res.data)
     }
   })
 }

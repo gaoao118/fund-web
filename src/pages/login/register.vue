@@ -36,7 +36,7 @@ function userRegister() {
   let encrypt = Encrypt(password.value, '');
   register(account.value, encrypt, inviterCode.value).then(res => {
     if (res.code === 200) {
-      setToken(res.data.token, res.data.userId);
+      setToken(res.data.token, res.data.userId, res.data);
       router.push({name: 'user'})
     }
   })

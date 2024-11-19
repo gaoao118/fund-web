@@ -4,10 +4,11 @@ import router from "@/router";
 import type {PickerColumn} from 'vant'
 import {languageColumns} from "@/utils/i18n";
 import {useRoute} from "vue-router";
-import {setInviteCode} from "@/utils/auth";
+import {getUserInfo, setInviteCode} from "@/utils/auth";
 
 const {t} = useI18n()
 
+const languages = ref([])
 const showLanguagePicker = ref(false)
 const languageValues = ref<Array<string>>([locale.value])
 
@@ -35,7 +36,6 @@ const pageSize = ref(10);
 //基金周期(0全部，1短期，2中长期，3长期)
 const cycle = ref(0);
 
-//基金列表数据加载
 function onLoad() {
   if (refreshing.value) {
     list.value = [];
@@ -89,7 +89,14 @@ onMounted(() => {
   if (code) {
     setInviteCode(String(code))
   }
-  getCarousel(2)
+  getCarousel(2);
+  //加载语言类型
+  let userInfo = getUserInfo();
+  if (userInfo && userInfo.auth) {
+    languages.value = languageColumns
+  } else {
+    languages.value = languageColumns.slice(0, 4)
+  }
 })
 
 function shareCheck() {
@@ -187,7 +194,7 @@ function shareCheck() {
     <van-popup v-model:show="showLanguagePicker" position="bottom">
       <van-picker
         v-model="languageValues"
-        :columns="languageColumns"
+        :columns="languages"
         @confirm="onLanguageConfirm"
         @cancel="showLanguagePicker = false"
       />

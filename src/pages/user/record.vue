@@ -89,10 +89,10 @@ onMounted(() => {
               </div>
             </div>
             <div class="flex items-center">
-              <div class="mr-10px">
+              <div class="mr-10px" style="text-align: right">
                 <div class="text-15px" v-if="item.amount >= 0"><span>+{{ item.amount }}</span></div>
                 <div class="text-15px" v-else><span>-{{ item.amount }}</span></div>
-                <div v-if="item.audit === 1" class="text-13px text-#666666"><span>{{ t('pay.audit') }}</span></div>
+                <div v-if="item.audit === 1" class="text-13px text-#666666 "><span>{{ t('pay.audit') }}</span></div>
                 <div v-else-if="item.audit === 2" class="text-13px text-#666666"><span>{{ t('pay.passed') }}</span>
                 </div>
                 <div v-else-if="item.audit === 3" class="text-13px text-#666666"><span>{{ t('pay.declined') }}</span>

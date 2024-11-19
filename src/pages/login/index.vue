@@ -82,7 +82,7 @@ function login() {
   let encrypt = Encrypt(password.value, '');
   userLogin(account.value, encrypt).then(res => {
     if (res.code === 200) {
-      setToken(res.data.token, res.data.userId);
+      setToken(res.data.token, res.data.userId, res.data);
       router.push({name: 'user'})
     }
   })
@@ -99,7 +99,7 @@ function userSmsLogin() {
   }
   smsLogin(account.value, code.value).then(res => {
     if (res.code === 200) {
-      setToken(res.data.token, res.data.userId);
+      setToken(res.data.token, res.data.userId, res.data);
       router.push({name: 'user'})
     }
   })

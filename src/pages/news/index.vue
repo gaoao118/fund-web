@@ -3,9 +3,11 @@ import {getNewsList, getRollNotice} from '@/api'
 import router from '@/router'
 import {languageColumns, locale} from '@/utils/i18n'
 import type {PickerColumn} from 'vant'
+import {getUserInfo} from "@/utils/auth";
 
 const {t} = useI18n()
 
+const languages = ref([])
 const showLanguagePicker = ref(false)
 const languageValues = ref<Array<string>>([locale.value])
 
@@ -33,9 +35,7 @@ const pageSize = ref(10);
 const title = ref("");
 
 const onLoad = () => {
-  console.log(refreshing.value)
   if (refreshing.value) {
-    console.log('???????????????')
     list.value = [];
     refreshing.value = false;
     pageNum.value = 1;
@@ -74,7 +74,14 @@ function gotoNewsInfo(item) {
 
 //初始化加载
 onMounted(() => {
-  rollNotice()
+  rollNotice();
+  //加载语言类型
+  let userInfo = getUserInfo();
+  if (userInfo && userInfo.auth) {
+    languages.value = languageColumns
+  } else {
+    languages.value = languageColumns.slice(0, 4)
+  }
 })
 
 function onSearch() {
@@ -157,7 +164,7 @@ function onSearch() {
     <van-popup v-model:show="showLanguagePicker" position="bottom">
       <van-picker
         v-model="languageValues"
-        :columns="languageColumns"
+        :columns="languages"
         @confirm="onLanguageConfirm"
         @cancel="showLanguagePicker = false"
       />
