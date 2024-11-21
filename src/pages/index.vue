@@ -101,7 +101,7 @@ onMounted(() => {
 
 function shareCheck() {
   const share = {
-    title: 'inETF',
+    title: 'withETF',
     text: 'Professional ETF',
     url: '',
   }

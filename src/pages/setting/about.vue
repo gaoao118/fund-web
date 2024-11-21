@@ -20,7 +20,7 @@ function gotoPrivacy() {
       <img class="logoImg"
            :src="logo" alt="">
       <div class="text-#1E1E1E text-17px font-600 mt-3px">
-        <span>inETF</span>
+        <span>withETF</span>
       </div>
     </div>
     <van-cell @click="checkVer" :title="t('common.versions')" is-link>

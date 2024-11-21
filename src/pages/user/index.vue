@@ -14,7 +14,7 @@ import {getUserInfo} from "@/api/csUser";
 import router from "@/router";
 import {clearToken, setUserInfo} from '@/utils/auth'
 import {showConfirmDialog} from "vant";
-import {BACK_URL, OFFICIAL_WEBSITE} from "@/stores/mutation-type";
+import {OFFICIAL_WEBSITE} from "@/stores/mutation-type";
 
 const {t} = useI18n()
 
@@ -91,7 +91,7 @@ function gotoEditInfo() {
 }
 
 function download(type) {
-  window.open(BACK_URL + "/api/common/download?type=" + type)
+  window.open(OFFICIAL_WEBSITE + "/api/common/download?type=" + type)
 }
 
 function gotoManager() {

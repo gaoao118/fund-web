@@ -98,8 +98,8 @@ export function createVitePlugins(mode: string) {
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'safari-pinned-tab.svg'],
       manifest: {
-        name: 'inETF',
-        short_name: 'inETF',
+        name: 'withETF',
+        short_name: 'withETF',
         theme_color: '#ffffff',
         icons: [
           {

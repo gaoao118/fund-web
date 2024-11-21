@@ -5,7 +5,7 @@ import useRouteCache from '@/stores/modules/routeCache'
 import useAutoThemeSwitcher from '@/hooks/useAutoThemeSwitcher'
 
 useHead({
-  title: 'inETF',
+  title: 'withETF',
   meta: [
     {
       name: 'description',

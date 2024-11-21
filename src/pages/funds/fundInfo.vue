@@ -194,7 +194,7 @@ const refBarOptionTwo = ref(barOptionTwo)
 
 function shareCheck() {
   let share = {
-    title: 'inETF',
+    title: 'withETF',
     text: 'Professional ETF',
     url: '',
   }

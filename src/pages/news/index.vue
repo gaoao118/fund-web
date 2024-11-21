@@ -95,7 +95,7 @@ function onSearch() {
   <div class="main">
     <div class="topBox">
       <div>
-        <span class="color-#FFF">inETF</span>
+        <span class="color-#FFF">withETF</span>
       </div>
       <van-search class="h-50px w-330px" v-model="title" @search="onSearch" background="#4975ea"
                   :placeholder="t('common.searchNews')"/>
@@ -181,7 +181,7 @@ function onSearch() {
 
 .topBox {
   display: flex;
-  font-size: 17px;
+  font-size: 15px;
   color: #FFFFFF;
   height: 50px;
   padding: 0 10px;
