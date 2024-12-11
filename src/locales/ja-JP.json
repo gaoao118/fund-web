@@ -63,7 +63,12 @@
     "goRecharge": "チャージに行く",
     "payPasswordNot": "支払いパスワードが設定されていません",
     "goSetting": "設定に行く",
-    "inviteCode": "招待コード"
+    "inviteCode": "招待コード",
+    "language": "言語",
+    "ransomHint": "買い戻しを申請した後、基金の投資サイクルが終わると、自動的に元本を買い戻します",
+    "rolloverHint": "継続期間を申請した後、ファンドの投資サイクルが終了すると、自動的に次の投資サイクルに入ります",
+    "contactServiceHint": "ご質問がございましたら、お客様にお問い合わせください。",
+    "contactService": "カスタマーサービスに連絡する"
   },
   "fund": {
     "title": "ファンド",
@@ -146,7 +151,9 @@
     "wtNetworkNot": "現在のネットワークを選択します",
     "intoAddress": "入金先住所",
     "intoAddressNot": "入金先住所を入力してください",
-    "openManager": "マネージャーの開設"
+    "openManager": "マネージャーの開設",
+    "amountLimit": "最低チャージ金額 {a}",
+    "witMinLimit": "最低引き上げ金額 {a}"
   },
   "user": {
     "notLogin": "未ログイン",
@@ -242,7 +249,26 @@
     "subsidy": "オフィス補助として。",
     "everyCom": "マネージャーが完成するたびに",
     "sale": "の売上高は、会社が奨励します。",
-    "subsidyL": "給与補助として。"
+    "subsidyL": "給与補助として。",
+    "validUser": "有効ユーザー",
+    "totalInvestment": "投資総額",
+    "notOpen": "ファンドマネージャーを開設していません",
+    "nowOpen": "今すぐ開通する",
+    "getInvitation": "招待収益を取得!",
+    "incomeRules": "収益ルールの招待",
+    "fastRate": "友人は初めて30日以上の基金を購入し、購入金額を奨励する",
+    "commission": "手数料",
+    "friendIncome": "友達の総収益を奨励する",
+    "openRate": "友達がマネージャーを開通して、奨励します。",
+    "managerLevel": "マネージャーレベル",
+    "upgradeCond": "アップグレード条件",
+    "extraBonus": "追加ボーナス",
+    "levelManger": "クラスマネージャー",
+    "applyManger": "マネージャーになることを申し込む",
+    "validUserOne": "件の有効ユーザー",
+    "performance": "業績",
+    "friendIncomeTotal": "友達の総収益",
+    "explain": "アップグレードの説明: アップグレード条件は2つあり、任意の条件を達成すればアップグレードできます。"
   },
   "menus": {
     "home": "ホームページ",

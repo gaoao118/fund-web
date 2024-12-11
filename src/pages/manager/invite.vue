@@ -18,6 +18,7 @@ const info = ref({
   number: undefined,
   nickName: undefined,
 });
+
 function retreat() {
   if (window.history.state.back)
     history.back()
@@ -67,37 +68,59 @@ onMounted(() => {
       <van-icon @click="gotoManager" style="font-size: 20px; color: #3A76F2; " name="question"/>
     </div>
     <div class="countBox">
-      <div style="position: relative; display: flex; justify-content: space-evenly;">
-        <div style="position: absolute; top: -35px; font-size: 15px">
-          <van-image
-            style="height: 50px; width: 50px;"
-            round
-            fit="cover"
-            width="10rem"
-            height="10rem"
-            :src="info.avatar ? info.avatar : logo"
-          />
+      <div style="padding: 10px">
+        <div style="position: relative; display: flex; justify-content: space-evenly;">
+          <div style="position: absolute; top: -35px; font-size: 15px">
+            <van-image
+              style="height: 50px; width: 50px;"
+              round
+              fit="cover"
+              width="10rem"
+              height="10rem"
+              :src="info.avatar ? info.avatar : logo"
+            />
+            <div class="flex items-center">
+              <span>{{ info.nickName }}</span>
+              <van-tag v-if="info.level > 0" plain type="primary">Lv.{{ info.level }}</van-tag>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-55px">
+          <div class="flex justify-between text-13px mb-5px text-#1E1E1E">
+            <div>{{ t('manager.validUser') }}</div>
+            <div v-if="info.nextLevel">Lv.{{ info.nextLevel }}</div>
+            <div v-else>MAX</div>
+          </div>
+          <van-progress :percentage="50" :show-pivot="false"/>
+          <div class="flex justify-between text-13px mb-5px mt-10px text-#1E1E1E">
+            <div>{{ t('manager.totalInvestment') }}</div>
+            <div v-if="info.nextLevel">Lv.{{ info.nextLevel }}</div>
+            <div v-else>MAX</div>
+          </div>
+          <van-progress :percentage="30" :show-pivot="false"/>
+        </div>
+        <div class="mt-20px flex justify-around">
           <div>
-            <span>{{ info.nickName }}</span>
+            <div @click="gotoInviteMember">
+              <span>{{ info.number }}</span>
+              <van-icon color="#787878" name="question-o"/>
+            </div>
+            <div class="text-#787878 text-12px"><span>{{ t('manager.invitation') }}</span></div>
+          </div>
+          <div>
+            <div><span>{{ info.teamAmount }}</span></div>
+            <div class="text-#787878 text-12px"><span>{{ t('manager.teamRevenue') }}</span></div>
+          </div>
+          <div>
+            <div><span>{{ info.teamAwait }}</span></div>
+            <div class="text-#787878 text-12px"><span>{{ t('manager.teamYield') }}</span></div>
           </div>
         </div>
       </div>
-      <div class="mt-55px flex justify-around">
-        <div>
-          <div @click="gotoInviteMember">
-            <span>{{ info.number }}</span>
-            <van-icon color="#787878" name="question-o"/>
-          </div>
-          <div class="text-#787878 text-12px"><span>{{ t('manager.invitation') }}</span></div>
-        </div>
-        <div>
-          <div><span>{{ info.teamAmount }}</span></div>
-          <div class="text-#787878 text-12px"><span>{{ t('manager.teamRevenue') }}</span></div>
-        </div>
-        <div>
-          <div><span>{{ info.teamAwait }}</span></div>
-          <div class="text-#787878 text-12px"><span>{{ t('manager.teamYield') }}</span></div>
-        </div>
+
+      <div v-if="info.level <= 0" class="openMt">
+        <span>{{ t('manager.notOpen') }}<span class="text-#007AFF" @click="gotoManager">{{ t('manager.nowOpen') }}</span> {{ t('manager.getInvitation') }} </span>
       </div>
     </div>
 
@@ -125,6 +148,33 @@ onMounted(() => {
         <div style="display: inline-block; color: #3A76F2; font-size: 18px" class="i-carbon:copy"/>
       </div>
     </div>
+
+    <div class="ruleBox">
+      <div style="font-size: 16px;  font-weight: 600; display: flex; justify-content: center; padding: 10px 0 0 0">
+        <div>
+          <span>{{ t('manager.incomeRules') }}</span>
+        </div>
+      </div>
+
+      <div class="infoBox">
+        <span>
+          1. {{ t('manager.fastRate') }}{{ info.firstRate }}%{{ t('manager.commission') }}。
+        </span>
+      </div>
+
+      <div class="infoBox">
+        <span>
+          2. {{ t('manager.friendIncome') }}{{ info.totalRate }}%
+        </span>
+      </div>
+
+      <div class="infoBox">
+        <span>
+          3. {{ t('manager.openRate') }}{{ info.openProfit }}USD
+        </span>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -148,7 +198,6 @@ onMounted(() => {
     box-shadow: 0px 9px 35px 0px rgba(15, 114, 235, 0.27);
     border-radius: 10px;
     text-align: center;
-    padding: 10px;
   }
 
   .codeBox {
@@ -195,6 +244,32 @@ onMounted(() => {
       margin-bottom: 10px;
     }
   }
+
+  .openMt {
+    font-size: 13px;
+    background-color: #d0e3fc;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+  }
+
+  .ruleBox {
+    margin-top: 15px;
+    height: 200px;
+    background: #CBE3FF;
+    box-shadow: 0px 9px 35px 0px rgba(15, 114, 235, 0.27);
+    border-radius: 10px;
+  }
+
+  .infoBox {
+    margin: 10px;
+    padding: 10px;
+    font-size: 13px;
+    color: #007AFF;
+    background: #FFFFFF;
+    border-radius: 10px;
+
+  }
+
 }
 </style>
 

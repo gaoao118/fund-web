@@ -77,10 +77,11 @@ onMounted(() => {
         <span>{{ t('manager.apply') }}</span>
       </div>
       <div class="text-left">
-        <span>{{ t('manager.just') }} <span class="text-#F65236"><span class="text-23px">{{ info.openAmount }}</span>USD</span> {{
-            t('manager.canApplyAs')
-          }} <span
-            class="text-#F65236">{{ t('manager.managerL') }}</span> {{ t('manager.investL') }}</span>
+        <span>{{ t('manager.just') }} <span class="text-#F65236"><span class="text-23px">
+          {{ info.openAmount }}</span>USD</span>
+          {{ t('manager.canApplyAs') }} <span class="text-#F65236">{{ t('manager.managerL') }}</span>
+          {{ t('manager.investL') }}
+        </span>
       </div>
       <div class="mt-5px mb-5px text-left">
         <span class="text-#F65236">{{ t('common.inviteFriends') }}</span> <span>{{ t('manager.easy') }}</span>
@@ -100,80 +101,29 @@ onMounted(() => {
         <span>
           {{ t('manager.sucInviteFr') }} <span class="text-#F65236">{{
             t('manager.investSuc')
-          }}</span> {{ t('manager.or') }} <span
-          class="text-#F65236">{{ t('manager.frManger') }}</span> {{ t('manager.getHint') }}
+          }}</span> {{ t('manager.or') }}
+          <span class="text-#F65236">{{ t('manager.frManger') }}</span> {{ t('manager.getHint') }}
         </span>
       </div>
 
-      <div class="titleTwo">
-        <div class="titleTwoBox">
-          <span>{{ t('manager.recommend') }}</span>
+      <div class="levelBox mt-10px">
+        <div class="leTBox">
+          <div>{{ t('manager.managerLevel') }}</div>
+          <div>{{ t('manager.upgradeCond') }}</div>
+          <div>{{ t('manager.extraBonus') }}</div>
         </div>
-        <div class="text-left text-13px">
-          <span>
-            1.{{ t('manager.directRec') }}
-            <span class="text-#F65236 text-16px">
-            {{ info.openOne }}USD
-          </span>
-          </span>
-          <div class="mt-5px"></div>
-          <span>
-            2.{{ t('manager.indirectRec') }}
-            <span class="text-#F65236  text-16px">
-              {{ info.openTwo }}USD
-            </span>
-          </span>
+        <div :class="{leConBox: true, leDarkBox: (index % 2 === 1), leLastBox: index === 5}" v-for="(item, index) in info.levels">
+          <div>{{ item.level }}{{ t('manager.levelManger') }}</div>
+          <div v-if="item.level <= 1">{{ t('manager.applyManger') }}</div>
+          <div v-else>{{ item.validNum }}{{ t('manager.validUserOne') }}/{{ item.investAmount }}{{ t('manager.performance') }}</div>
+          <div>{{ t('manager.friendIncomeTotal') }}{{ item.profitRate }}%</div>
         </div>
       </div>
 
-      <div class="titleTwo">
-        <div class="titleTwoBox">
-          <span>{{ t('manager.usersPur') }}</span>
-        </div>
-        <div class="text-left text-13px">
-          <span>
-            1.{{ t('manager.comMonthly') }}
-            <span class="text-#F65236">{{ t('manager.grossRevenue') }}
-              <span class="text-16px">
-                {{ info.fundOne }}%
-              </span>
-            </span>
-            {{ t('manager.toRelevant') }}
-          </span>
-          <div class="mt-5px"></div>
-          <span>
-            2.{{ t('manager.newUser') }} <span class="text-#F65236">
-            {{ info.firstNum }}{{ t('common.day') }}
-          </span> {{ t('manager.andAbove') }} <span
-            class="text-#F65236  text-16px">{{ info.firstRate }}%</span> {{ t('manager.toManager') }}
-          </span>
-        </div>
+      <div class="mt-10px text-#787878 text-12px">
+        <div>{{ t('manager.explain') }}</div>
       </div>
 
-      <div class="titleTwo">
-        <div class="titleTwoBox">
-          <span>{{ t('manager.teamReward') }}</span>
-        </div>
-        <div class="text-left text-13px">
-          <span>
-            1.{{ t('manager.whenScu') }} <span class="text-#F65236">{{ info.teamNum }}</span> {{
-              t('manager.managers')
-            }} <span
-            class="text-#F65236"><span class="text-16px">{{ info.teamAmount }}</span>USD</span> {{
-              t('manager.subsidy')
-            }}
-          </span>
-          <div class="mt-5px"></div>
-          <span>
-            2.{{ t('manager.everyCom') }} <span class="text-#F65236"><span class="text-16px">{{
-              info.teamTarget
-            }}</span>USD</span> {{ t('manager.sale') }}<span
-            class="text-#F65236"><span class="text-16px">{{ info.teamMonth }}</span>USD</span> {{
-              t('manager.subsidyL')
-            }}
-          </span>
-        </div>
-      </div>
     </div>
     <Pay :type="3" :pay-show="payShow" :payToken="payToken" :amount="info.openAmount" @payClose="payClose"/>
   </div>
@@ -184,6 +134,7 @@ onMounted(() => {
   background: url("/bj-manager.png") no-repeat;
   background-size: cover;
   padding: 12px;
+  min-height: 99.9vh;
 
   .topBox {
     height: 20px;
@@ -240,6 +191,37 @@ onMounted(() => {
       border-radius: 20px;
     }
   }
+
+  .levelBox {
+    font-size: 12px;
+    border-radius: 10px;
+    background: #E3F0FF;
+
+    .leTBox {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px 0;
+      color: #FFFFFF;
+      background: linear-gradient(180deg, #D38FFF 0%, #D38FFF 0%, #3E87F8 100%);
+      border-radius: 10px 10px 0 0;
+    }
+
+    .leConBox {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px 0;
+      color: #3A76F2;
+    }
+
+    .leDarkBox {
+      background-color: #C1D6FD;
+    }
+
+    .leLastBox {
+      border-radius: 0 0 10px 10px;
+    }
+  }
+
 }
 </style>
 

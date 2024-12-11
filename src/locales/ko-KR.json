@@ -63,7 +63,12 @@
     "goRecharge": "재충전하려면",
     "payPasswordNot": "결제 암호 설정 없음",
     "goSetting": "설정으로 이동",
-    "inviteCode": "초대코드"
+    "inviteCode": "초대코드",
+    "language": "언어",
+    "ransomHint": "원금은 상환 신청 후 펀드 투자주기가 끝날 때 자동으로 상환됩니다.",
+    "rolloverHint": "갱신 신청 후 펀드의 투자주기가 끝나면 자동으로 다음 투자주기에 들어갑니다.",
+    "contactServiceHint": "질문이 있으시면 고객 서비스에 문의하십시오.",
+    "contactService": "고객 서비스 연락"
   },
   "fund": {
     "title": "펀드",
@@ -146,7 +151,9 @@
     "wtNetworkNot": "철수 네트워크 선택",
     "intoAddress": "계정에 주소",
     "intoAddressNot": "계정 주소를 입력하십시오.",
-    "openManager": "오프닝 매니저"
+    "openManager": "오프닝 매니저",
+    "amountLimit": "최소 충전 금액 {a}",
+    "witMinLimit": "최소 인출 금액 {a}"
   },
   "user": {
     "notLogin": "로그인하지 않음",
@@ -242,7 +249,26 @@
     "subsidy": "사무실 보조금으로.",
     "everyCom": "각 관리자 완료",
     "sale": "판매, 회사는 보상",
-    "subsidyL": "급여 보충제로."
+    "subsidyL": "급여 보충제로.",
+    "validUser": "효과적인 사용자",
+    "totalInvestment": "총 투자",
+    "notOpen": "당신은 아직 펀드 매니저를 열지 않았습니다.",
+    "nowOpen": "즉시 열기",
+    "getInvitation": "초대 진행!",
+    "incomeRules": "초청 수입 규칙",
+    "fastRate": "친구는 처음으로 30 일 이상 (포함) 자금을 신청하고 구매 금액을 보상합니다.",
+    "commission": "위원회",
+    "friendIncome": "총 수익의 친구 보상",
+    "openRate": "친구 오픈 관리자, 보상",
+    "managerLevel": "관리자 수준",
+    "upgradeCond": "업그레이드 조건",
+    "extraBonus": "추가 보상",
+    "levelManger": "레벨 관리자",
+    "applyManger": "관리자가되기 위해 신청",
+    "validUserOne": "효과적인 사용자",
+    "performance": "성능",
+    "friendIncomeTotal": "버디 총 수익",
+    "explain": "업그레이드 설명: 두 가지 업그레이드 조건이 있습니다. 어떤 조건에 도달하면 업그레이드 할 수 있습니다."
   },
   "menus": {
     "home": "홈 페이지",

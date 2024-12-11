@@ -4,7 +4,7 @@ import router from "@/router";
 import type {PickerColumn} from 'vant'
 import {languageColumns} from "@/utils/i18n";
 import {useRoute} from "vue-router";
-import {getUserInfo, setInviteCode} from "@/utils/auth";
+import {getToken, getUserInfo, setInviteCode} from "@/utils/auth";
 
 const {t} = useI18n()
 
@@ -108,6 +108,15 @@ function shareCheck() {
   navigator.share(share);
 }
 
+function gotoChat() {
+  let token = getToken();
+  if (token) {
+    window.location.href = 'http://localhost:5177#/pages/Conversation/index?token=' + token
+  } else {
+    router.push({name: 'login'})
+  }
+}
+
 </script>
 
 <template>
@@ -118,7 +127,7 @@ function shareCheck() {
       </div>
       <div> {{ t('fund.title') }}</div>
       <div>
-        <!--        <van-image :src="chat" class="h-25 w-25"/>-->
+        <!--        <van-image :src="chat" @click="gotoChat" class="h-25 w-25"/>-->
         <van-icon @click="shareCheck" style="font-size: 22px" name="share-o"/>
       </div>
     </div>

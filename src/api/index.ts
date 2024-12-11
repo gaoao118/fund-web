@@ -1,9 +1,5 @@
 import request from '@/utils/request'
 
-export async function queryProse(): Promise<any> {
-  return request('/prose')
-}
-
 /**
  * 首页轮播图
  * @param type 类型(1新闻，2基金)

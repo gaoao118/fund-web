@@ -32,6 +32,8 @@ export default antfu(
       'vue/first-attribute-linebreak': 'off',
       'prefer-const': 'off',
       'style/padded-blocks': 'off',
+      'prefer-template': 'off',
+      'format/prettier': 'off',
     },
   },
   {

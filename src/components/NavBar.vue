@@ -20,7 +20,7 @@ const title = computed(() => {
 
 const routeWhiteList = ['profile']
 const routeCloseList = ['home', 'funds', 'news', 'user', 'login', 'register', 'forget', 'fundInfo', 'wallet',
-  'invest', 'newsInfo', 'userRecord', 'userRecordInfo', 'manager', 'invite', 'inviteMember']
+  'invest', 'newsInfo', 'userRecord', 'userRecordInfo', 'manager', 'invite', 'inviteMember', 'download']
 
 const showLeftArrow = computed(() => routeWhiteList.includes(route.name))
 const closeArrow = computed(() => routeCloseList.includes(route.name))

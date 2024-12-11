@@ -63,7 +63,12 @@
     "goRecharge": "去充值",
     "payPasswordNot": "沒有設置支付密碼",
     "goSetting": "去設置",
-    "inviteCode": "邀請碼"
+    "inviteCode": "邀請碼",
+    "language": "語言",
+    "ransomHint": "申請贖回後基金投資周期結束將自動贖回本金",
+    "rolloverHint": "申請續期後基金投資周期結束將自動進入下一輪投資周期",
+    "contactServiceHint": "如有任何疑問,請聯繫客服。",
+    "contactService": "聯繫客服"
   },
   "fund": {
     "title": "基金",
@@ -146,7 +151,9 @@
     "wtNetworkNot": "選擇提現網絡",
     "intoAddress": "到賬地址",
     "intoAddressNot": "請輸入到賬地址",
-    "openManager": "開通經理人"
+    "openManager": "開通經理人",
+    "amountLimit": "最低充值金額{a}",
+    "witMinLimit": "最低提現金額{a}"
   },
   "user": {
     "notLogin": "未登錄",
@@ -242,7 +249,26 @@
     "subsidy": "作為辦公室補助。",
     "everyCom": "經理人每完成",
     "sale": "的銷售額,公司將獎勵",
-    "subsidyL": "作為薪資補助。"
+    "subsidyL": "作為薪資補助。",
+    "validUser": "有效用戶",
+    "totalInvestment": "投資總額",
+    "notOpen": "您暫未開通基金經理人,",
+    "nowOpen": "立即開通",
+    "getInvitation": "獲取邀請收益!",
+    "incomeRules": "邀請收益規則",
+    "fastRate": "好友首次申購30天(含)以上基金,獎勵申購金額",
+    "commission": "佣金",
+    "friendIncome": "獎勵好友總收益的",
+    "openRate": "好友開通經理人,獎勵",
+    "managerLevel": "經理人等級",
+    "upgradeCond": "升級條件",
+    "extraBonus": "額外獎勵",
+    "levelManger": "級經理人",
+    "applyManger": "申請成為經理人",
+    "validUserOne": "個有效用戶",
+    "performance": "業績",
+    "friendIncomeTotal": "好友總收益",
+    "explain": "升級說明:升級條件有二個,達成任意條件後即可升級。"
   },
   "menus": {
     "home": "主頁",

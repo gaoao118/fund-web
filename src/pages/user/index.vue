@@ -14,7 +14,7 @@ import {getUserInfo} from "@/api/csUser";
 import router from "@/router";
 import {clearToken, setUserInfo} from '@/utils/auth'
 import {showConfirmDialog} from "vant";
-import {OFFICIAL_WEBSITE} from "@/stores/mutation-type";
+import {OFFICIAL_WEBSITE, USER_INFO} from "@/stores/mutation-type";
 
 const {t} = useI18n()
 
