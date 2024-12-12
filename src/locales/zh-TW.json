@@ -208,8 +208,7 @@
   },
   "manager": {
     "invitation": "我的邀請",
-    "teamRevenue": "團隊總收益",
-    "teamYield": "團隊待收益",
+    "teamYield": "待收益",
     "myCode": "我的邀請碼",
     "pressSave": "長按圖片保存",
     "totalRevenue": "總收益",
@@ -217,7 +216,7 @@
     "teamDetail": "團隊明細",
     "invited": "已邀請",
     "person": "人",
-    "contribution": "總貢獻",
+    "contribution": "總收益",
     "todayInvitation": "今日邀請",
     "apply": "申請成為基金經理人",
     "wealth": "助您實現財富自由",

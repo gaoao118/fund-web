@@ -4,14 +4,14 @@ const { t } = useI18n()
 const active = ref(0)
 const route = useRoute()
 
-const routeWhiteList = ['home', 'profile', 'funds', 'news', 'user', 'download']
+const routeWhiteList = ['home', 'profile', 'funds', 'news', 'user', 'do']
 
 const show = computed(() => routeWhiteList.includes(route.name))
 </script>
 
 <template>
   <van-tabbar v-if="show" v-model="active" placeholder route>
-    <van-tabbar-item replace to="/download">
+    <van-tabbar-item replace to="/do">
       {{ t('layouts.home') }}
       <template #icon>
         <div class="i-carbon:home" />

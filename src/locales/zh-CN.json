@@ -208,8 +208,8 @@
   },
   "manager": {
     "invitation": "我的邀请",
-    "teamRevenue": "团队总收益",
-    "teamYield": "团队待收益",
+    "contribution": "总收益",
+    "teamYield": "待收益",
     "myCode": "我的邀请码",
     "pressSave": "长按图片保存",
     "totalRevenue": "总收益",
@@ -217,7 +217,6 @@
     "teamDetail": "团队明细",
     "invited": "已邀请",
     "person": "人",
-    "contribution": "总贡献",
     "todayInvitation": "今日邀请",
     "apply": "申请成为基金经理人",
     "wealth": "助您实现财富自由",

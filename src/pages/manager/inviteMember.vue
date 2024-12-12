@@ -98,9 +98,6 @@ onMounted(() => {
     </div>
 
     <div class="memberBox">
-      <div>
-        <span>{{ t('manager.teamDetail') }}</span>
-      </div>
       <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
         <van-list
           v-model:loading="loading"

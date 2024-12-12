@@ -208,8 +208,7 @@
   },
   "manager": {
     "invitation": "My invitation",
-    "teamRevenue": "Total team revenue",
-    "teamYield": "Team to be profitable",
+    "teamYield": "Proceeds",
     "myCode": "My Invitation Code",
     "pressSave": "Long press the picture to save",
     "totalRevenue": "Total Revenue",
@@ -217,7 +216,7 @@
     "teamDetail": "Team Details",
     "invited": "Invited",
     "person": "People",
-    "contribution": "Total contribution",
+    "contribution": "Total Revenue",
     "todayInvitation": "Invitation Today",
     "apply": "Apply to become a fund manager",
     "wealth": "Help you achieve the freedom of wealth",
@@ -271,7 +270,7 @@
     "explain": "Upgrade Description: There are two upgrade conditions. You can upgrade after reaching any condition."
   },
   "menus": {
-    "home": "Home Page",
+    "home": "Home",
     "funds": "Fund",
     "profile": "Personal Center",
     "darkMode": "🌗Dark Mode",
@@ -312,7 +311,7 @@
     "June": "June"
   },
   "layouts": {
-    "home": "Home Page",
+    "home": "Home",
     "profile": "My",
     "funds": "Fund",
     "news": "News"

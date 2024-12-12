@@ -208,8 +208,7 @@
   },
   "manager": {
     "invitation": "내 초대",
-    "teamRevenue": "총 팀 수익",
-    "teamYield": "수익성있는 팀",
+    "teamYield": "수익금",
     "myCode": "내 초대 코드",
     "pressSave": "사진을 길게 눌러 저장",
     "totalRevenue": "총 수익",
@@ -217,7 +216,7 @@
     "teamDetail": "팀 세부 사항",
     "invited": "초대",
     "person": "사람들",
-    "contribution": "총 기여",
+    "contribution": "총 수익",
     "todayInvitation": "오늘 초대장",
     "apply": "펀드 매니저가되기 위해 신청",
     "wealth": "부의 자유를 얻도록 도와주세요.",

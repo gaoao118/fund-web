@@ -10,9 +10,9 @@ const loading = ref(false);
 const finished = ref(false);
 const refreshing = ref(false);
 const userInfo = ref({
-  profit: undefined,
-  await: undefined,
-  today: undefined,
+  profitFund: undefined,
+  awaitFund: undefined,
+  todayFund: undefined,
   invest: undefined,
 });
 //页码
@@ -99,7 +99,7 @@ onMounted(() => {
       <div class="infoBox">
         <div>
           <div class="font-600">
-            <span>{{ userInfo.today }}</span>
+            <span>{{ userInfo.todayFund }}</span>
           </div>
           <div style="font-size: 13px; color: #787878; margin-top: 2px">
             <span>{{ t('user.todayEarnings') }}</span>
@@ -108,7 +108,7 @@ onMounted(() => {
         <van-divider vertical :style="{ borderColor: '#DCDCDC', height: '35px', borderWidth: '1px' }"/>
         <div>
           <div class="font-600">
-            <span>{{ userInfo.await }}</span>
+            <span>{{ userInfo.awaitFund }}</span>
           </div>
           <div style="font-size: 13px; color: #787878; margin-top: 2px">
             <span>{{ t('user.proceeds') }}</span>
@@ -117,7 +117,7 @@ onMounted(() => {
         <van-divider vertical :style="{ borderColor: '#DCDCDC', height: '35px', borderWidth: '1px' }"/>
         <div>
           <div class="font-600">
-            <span>{{ userInfo.profit }}</span>
+            <span>{{ userInfo.profitFund }}</span>
           </div>
           <div style="font-size: 13px; color: #787878; margin-top: 2px">
             <span>{{ t('user.addUp') }}</span>

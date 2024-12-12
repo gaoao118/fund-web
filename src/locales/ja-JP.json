@@ -208,8 +208,7 @@
   },
   "manager": {
     "invitation": "私の招待",
-    "teamRevenue": "チーム総収益",
-    "teamYield": "チームの収益待ち",
+    "teamYield": "収益待ち",
     "myCode": "私の招待状",
     "pressSave": "画像を長押しして保存する",
     "totalRevenue": "総収益",
@@ -217,7 +216,7 @@
     "teamDetail": "チーム明細",
     "invited": "招待済み",
     "person": "人",
-    "contribution": "総貢献",
+    "contribution": "総収益",
     "todayInvitation": "今日の招待",
     "apply": "ファンドマネージャーになることを申請します",
     "wealth": "富の自由を実現します",

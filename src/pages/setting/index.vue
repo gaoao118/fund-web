@@ -37,12 +37,14 @@ function gotoAbout() {
 }
 
 onMounted(() => {
-  let userInfo = getUserInfo();
+  //加载语言类型
+  languages.value = languageColumns
+/*  let userInfo = getUserInfo();
   if (userInfo && userInfo.auth) {
     languages.value = languageColumns
   } else {
     languages.value = languageColumns.slice(0, 4)
-  }
+  }*/
 })
 
 </script>

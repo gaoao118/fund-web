@@ -208,8 +208,7 @@
   },
   "manager": {
     "invitation": "Meine Einladung",
-    "teamRevenue": "Gesamter gebnis des Teams",
-    "teamYield": "Das Team wartet auf den Erlös",
+    "teamYield": "Ausstehende Erträge",
     "myCode": "Mein Einladung scode",
     "pressSave": "Drücken Sie lange auf das Bild, um es zu speichern",
     "totalRevenue": "Gesamter gebnis",
@@ -217,7 +216,7 @@
     "teamDetail": "Team details",
     "invited": "Eingeladen",
     "person": "Menschen",
-    "contribution": "Gesamt beitrag",
+    "contribution": "Gesamter gebnis",
     "todayInvitation": "Heute einladen",
     "apply": "Bewerben Sie sich, um Fonds manager zu werden",
     "wealth": "Helfen Sie dabei, die Freiheit des Reichtums zu verwirklichen",

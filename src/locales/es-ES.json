@@ -208,8 +208,7 @@
   },
   "manager": {
     "invitation": "Mi invitación",
-    "teamRevenue": "Ganancias totales del equipo",
-    "teamYield": "El equipo espera ganancias",
+    "teamYield": "Ingresos pendientes",
     "myCode": "Mi código de invitación",
     "pressSave": "Mantenga presionada la imagen para guardar",
     "totalRevenue": "Ingresos totales",
@@ -217,7 +216,7 @@
     "teamDetail": "Detalles del equipo",
     "invited": "Invitado",
     "person": "Hombre",
-    "contribution": "Contribución total",
+    "contribution": "Ingresos totales",
     "todayInvitation": "Invitación de hoy",
     "apply": "Solicite convertirse en administrador de fondos",
     "wealth": "Ayudarle a lograr la libertad de riqueza",

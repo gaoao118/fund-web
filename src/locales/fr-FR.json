@@ -208,8 +208,7 @@
   },
   "manager": {
     "invitation": "Mon invitation",
-    "teamRevenue": "Gains totaux de l'équipe",
-    "teamYield": "Équipe à gagner",
+    "teamYield": "En attente de revenu",
     "myCode": "Mon code d'invitation",
     "pressSave": "Appuyez longuement sur l'image pour enregistrer",
     "totalRevenue": "Gains totaux",
@@ -217,7 +216,7 @@
     "teamDetail": "Détails de l'équipe",
     "invited": "Invitation",
     "person": "Les gens",
-    "contribution": "Contribution totale",
+    "contribution": "Gains totaux",
     "todayInvitation": "Invitation aujourd'hui",
     "apply": "Demander à devenir gestionnaire de fonds",
     "wealth": "Vous aider à atteindre la liberté de richesse",

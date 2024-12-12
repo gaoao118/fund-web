@@ -92,13 +92,13 @@ onMounted(() => {
             <div v-if="info.nextLevel">Lv.{{ info.nextLevel }}</div>
             <div v-else>MAX</div>
           </div>
-          <van-progress :percentage="50" :show-pivot="false"/>
+          <van-progress :percentage="info.validRate" :show-pivot="false"/>
           <div class="flex justify-between text-13px mb-5px mt-10px text-#1E1E1E">
             <div>{{ t('manager.totalInvestment') }}</div>
             <div v-if="info.nextLevel">Lv.{{ info.nextLevel }}</div>
             <div v-else>MAX</div>
           </div>
-          <van-progress :percentage="30" :show-pivot="false"/>
+          <van-progress :percentage="info.investRate" :show-pivot="false"/>
         </div>
         <div class="mt-20px flex justify-around">
           <div>
@@ -110,7 +110,7 @@ onMounted(() => {
           </div>
           <div>
             <div><span>{{ info.teamAmount }}</span></div>
-            <div class="text-#787878 text-12px"><span>{{ t('manager.teamRevenue') }}</span></div>
+            <div class="text-#787878 text-12px"><span>{{ t('manager.contribution') }}</span></div>
           </div>
           <div>
             <div><span>{{ info.teamAwait }}</span></div>

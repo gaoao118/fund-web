@@ -76,12 +76,7 @@ function gotoNewsInfo(item) {
 onMounted(() => {
   rollNotice();
   //加载语言类型
-  let userInfo = getUserInfo();
-  if (userInfo && userInfo.auth) {
-    languages.value = languageColumns
-  } else {
-    languages.value = languageColumns.slice(0, 4)
-  }
+  languages.value = languageColumns
 })
 
 function onSearch() {
